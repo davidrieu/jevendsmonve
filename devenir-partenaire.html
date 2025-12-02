@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Partenaire - Je Vends mon VE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #44ad76;
+            --secondary-color: #338cd7;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-partner {
+            position: relative;
+            height: 90vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            opacity: 0.15;
+        }
+
+        .hero-bg-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomPulse 20s ease-in-out infinite;
+        }
+
+        .hero-bg-images img:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .hero-bg-images img:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        @keyframes zoomPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--light);
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary-color);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark);
+            color: var(--light);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(68, 173, 118, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Avantages Section */
+        .avantages-section {
+            padding: 100px 20px;
+            background: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avantages-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, -50px) rotate(120deg); }
+            66% { transform: translate(-50px, 50px) rotate(240deg); }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .avantages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .avantage-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .avantage-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .avantage-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(68, 173, 118, 0.3);
+        }
+
+        .avantage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .avantage-card:hover .avantage-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .avantage-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .avantage-card p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Image Gallery Section */
+        .gallery-section {
+            padding: 100px 20px;
+            background: var(--dark);
+            position: relative;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: var(--light);
+        }
+
+        .image-gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 0.85;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(68, 173, 118, 0.3);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(68, 173, 118, 0.4);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 100px 20px;
+            background: var(--light);
+            position: relative;
+        }
+
+        .testimonial-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 60px;
+            border-radius: 30px;
+            color: var(--light);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 15rem;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-color) 0%, transparent 50%);
+            opacity: 0.05;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 3.5rem;
+            color: var(--light);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(68, 173, 118, 0.4);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(68, 173, 118, 0.6);
+        }
+
+        .btn-secondary {
+            padding: 18px 50px;
+            background: transparent;
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 2px solid var(--light);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title, .gallery-title, .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .hero-bg-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .avantages-grid, .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-card {
+                padding: 40px 30px;
+            }
+
+            .testimonial-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-partner">
+        <div class="hero-bg-images">
+            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="VE Professional">
+            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="VE Technology">
+            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="VE Innovation">
+        </div>
+        <div class="hero-content">
+            <h1>Devenez Partenaire Pro</h1>
+            <p>Rejoignez la première plateforme française dédiée à la vente de véhicules électriques entre particuliers et professionnels</p>
+            <a href="#contact" class="cta-button"><span>Rejoindre l'aventure →</span></a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">15K+</span>
+                <span class="stat-label">Utilisateurs actifs</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2.5M€</span>
+                <span class="stat-label">Transactions mensuelles</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Véhicules vendus/mois</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Satisfaction client</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages Section -->
+    <section class="avantages-section">
+        <h2 class="section-title">Pourquoi devenir partenaire ?</h2>
+        <p class="section-subtitle">Découvrez les avantages exclusifs réservés à nos partenaires professionnels</p>
+
+        <div class="avantages-grid">
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">🚀</div>
+                <h3>Visibilité maximale</h3>
+                <p>Profitez d'une audience qualifiée de passionnés de véhicules électriques. Vos annonces sont mises en avant auprès de milliers d'acheteurs potentiels chaque jour.</p>
+            </div>
+
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">💼</div>
+                <h3>Outils professionnels</h3>
+                <p>Accédez à un tableau de bord complet pour gérer vos annonces, suivre vos statistiques et optimiser vos ventes en temps réel.</p>
+            </div>
+
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">🎯</div>
+                <h3>Commission attractive</h3>
+                <p>Bénéficiez de tarifs préférentiels adaptés à votre volume d'activité. Plus vous vendez, plus vous économisez.</p>
+            </div>
+
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">🔒</div>
+                <h3>Transactions sécurisées</h3>
+                <p>Système de paiement sécurisé et vérification des acheteurs pour des transactions en toute confiance.</p>
+            </div>
+
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">📊</div>
+                <h3>Analytics avancées</h3>
+                <p>Analysez les performances de vos annonces avec des statistiques détaillées et des insights précieux pour optimiser vos ventes.</p>
+            </div>
+
+            <div class="avantage-card scroll-reveal">
+                <div class="avantage-icon">🤝</div>
+                <h3>Support dédié</h3>
+                <p>Une équipe dédiée à votre service pour vous accompagner dans votre développement et répondre à toutes vos questions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">L'excellence électrique en images</h2>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="VE Premium">
+                <div class="gallery-overlay">Design Premium</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="VE Tech">
+                <div class="gallery-overlay">Technologie Avancée</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="VE Performance">
+                <div class="gallery-overlay">Performance</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg" alt="VE Innovation">
+                <div class="gallery-overlay">Innovation</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-i-slam-abruev-2157269750-34941542-scaled.jpg" alt="VE Future">
+                <div class="gallery-overlay">Futur Électrique</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2 class="section-title">Comment devenir partenaire ?</h2>
+            <p class="section-subtitle">Un processus simple et rapide en 4 étapes</p>
+
+            <div class="process-steps">
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">1</div>
+                    <h3>Inscription</h3>
+                    <p>Remplissez le formulaire en ligne avec vos informations professionnelles</p>
+                </div>
+
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">2</div>
+                    <h3>Validation</h3>
+                    <p>Notre équipe vérifie votre dossier sous 24-48h</p>
+                </div>
+
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">3</div>
+                    <h3>Activation</h3>
+                    <p>Accédez à votre espace pro et découvrez tous les outils</p>
+                </div>
+
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">4</div>
+                    <h3>Vendez !</h3>
+                    <p>Publiez vos annonces et commencez à vendre immédiatement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="testimonial-container scroll-reveal">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Depuis que nous sommes partenaires de Je Vends mon VE, notre chiffre d'affaires a augmenté de 45%. La plateforme est intuitive, l'équipe est réactive et la qualité des acheteurs est exceptionnelle. C'est clairement le meilleur investissement que nous ayons fait cette année !"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JM</div>
+                    <div class="author-info">
+                        <h4>Jean-Marc Dupont</h4>
+                        <p>Directeur - Auto Élec Pro Paris</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Prêt à accélérer votre business ?</h2>
+            <p>Rejoignez dès aujourd'hui les centaines de professionnels qui nous font confiance</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Devenir partenaire maintenant</a>
+                <a href="#" class="btn-secondary">Demander une démo</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
