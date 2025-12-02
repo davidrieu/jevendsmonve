@@ -75,7 +75,7 @@ h1 { font-size: 3.5rem; margin-bottom: var(--jvme-spacing-5); }
 h2 { font-size: 2.5rem; margin-bottom: var(--jvme-spacing-4); }
 h3 { font-size: 1.75rem; margin-bottom: var(--jvme-spacing-3); }
 
-p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
+p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
 
 .btn {
     display: inline-flex;
@@ -223,7 +223,7 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .stat-mini-label {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--jvme-gray-600);
 }
 
@@ -283,7 +283,7 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .stat-label {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--jvme-gray-600);
 }
 
@@ -300,8 +300,8 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--jvme-spacing-6);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--jvme-spacing-5);
 }
 
 .benefit-card {
@@ -355,8 +355,8 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .benefit-card p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.7;
 }
 
 /* Process Section */
@@ -442,67 +442,59 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .step-content p {
-    font-size: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
 }
 
-/* Gallery Section */
-.gallery-section {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--jvme-spacing-5);
-}
-
-.gallery-item {
+/* Stats with Background */
+.stats-section {
     position: relative;
-    border-radius: var(--jvme-radius-2xl);
     overflow: hidden;
-    height: 350px;
-    border: 2px solid var(--jvme-gray-200);
-    transition: var(--jvme-transition);
 }
 
-.gallery-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--jvme-shadow-xl);
-    border-color: var(--jvme-primary);
+.stats-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.08;
+    z-index: 0;
 }
 
-.gallery-item img {
+.stats-bg-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.stats-section .container {
+    position: relative;
+    z-index: 1;
 }
 
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
-    padding: var(--jvme-spacing-5);
-    color: white;
-    transform: translateY(0);
-    transition: var(--jvme-transition);
+/* Benefits with Image */
+.benefits-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--jvme-spacing-8);
+    align-items: center;
+    margin-top: var(--jvme-spacing-8);
 }
 
-.gallery-overlay h4 {
-    font-size: 1.25rem;
-    margin-bottom: var(--jvme-spacing-2);
-    color: white;
+.benefits-image {
+    border-radius: var(--jvme-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--jvme-shadow-xl);
+    border: 2px solid var(--jvme-gray-200);
+    height: 600px;
 }
 
-.gallery-overlay i {
-    color: var(--jvme-primary);
-    margin-right: var(--jvme-spacing-2);
+.benefits-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Testimonial Section */
@@ -533,7 +525,7 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .testimonial-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.8;
     color: var(--jvme-gray-700);
     margin-bottom: var(--jvme-spacing-5);
@@ -566,12 +558,12 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 }
 
 .author-info h4 {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     margin-bottom: 0.25rem;
 }
 
 .author-info p {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 /* CTA Section */
@@ -643,7 +635,8 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
     .hero-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .benefits-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr; }
+    .benefits-showcase { grid-template-columns: 1fr; }
+    .stats-bg-image { display: none; }
 
     .process-step { flex-direction: column; align-items: center; }
     .process-step::after { display: none; }
@@ -708,6 +701,9 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
 
 <!-- Stats Section -->
 <section class="stats-section">
+    <div class="stats-bg-image">
+        <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="VE Background">
+    </div>
     <div class="container">
         <div class="section-header">
             <h2>Des Chiffres Qui Parlent</h2>
@@ -758,7 +754,8 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
             <p>Des avantages exclusifs pour développer votre activité dans le secteur électrique</p>
         </div>
 
-        <div class="benefits-grid">
+        <div class="benefits-showcase">
+            <div class="benefits-grid">
             <div class="benefit-card">
                 <div class="benefit-icon">
                     <i class="fas fa-rocket"></i>
@@ -807,6 +804,11 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
                 <p>Une équipe d'experts dédiée à votre réussite, disponible 7j/7 pour répondre à toutes vos questions.</p>
             </div>
         </div>
+
+        <div class="benefits-image">
+            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="Véhicule Électrique Premium">
+        </div>
+    </div>
     </div>
 </section>
 
@@ -866,52 +868,6 @@ p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
     </div>
 </section>
 
-<!-- Gallery Section -->
-<section class="gallery-section">
-    <div class="container">
-        <div class="section-header">
-            <h2>L'Excellence Électrique</h2>
-            <p>Découvrez la qualité des véhicules électriques sur notre plateforme</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="VE Premium">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-gem"></i> Design Premium</h4>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Technologie">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-microchip"></i> Technologie Avancée</h4>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="Performance">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg" alt="Innovation">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-lightbulb"></i> Innovation</h4>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-i-slam-abruev-2157269750-34941542-scaled.jpg" alt="Futur">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-bolt"></i> Futur Électrique</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Testimonial Section -->
 <section class="testimonial-section">
