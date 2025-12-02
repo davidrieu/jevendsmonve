@@ -55,27 +55,38 @@ body {
     line-height: 1.6;
 }
 
-.container {
+/* Wrapper pour forcer les styles */
+.jvme-partner-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.jvme-partner-page .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--jvme-spacing-6);
 }
 
-section {
+.jvme-partner-page section {
     padding: var(--jvme-spacing-8) 0;
 }
 
-h1, h2, h3 {
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--jvme-gray-900);
+.jvme-partner-page h1,
+.jvme-partner-page h2,
+.jvme-partner-page h3 {
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--jvme-gray-900) !important;
 }
 
-h1 { font-size: 3.5rem; margin-bottom: var(--jvme-spacing-5); }
-h2 { font-size: 2.5rem; margin-bottom: var(--jvme-spacing-4); }
-h3 { font-size: 1.75rem; margin-bottom: var(--jvme-spacing-3); }
+.jvme-partner-page h1 { font-size: 3.5rem !important; margin-bottom: var(--jvme-spacing-5) !important; }
+.jvme-partner-page h2 { font-size: 2.5rem !important; margin-bottom: var(--jvme-spacing-4) !important; }
+.jvme-partner-page h3 { font-size: 1.75rem !important; margin-bottom: var(--jvme-spacing-3) !important; }
 
-p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
+.jvme-partner-page p {
+    font-size: 1.3rem !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-600) !important;
+}
 
 .btn {
     display: inline-flex;
@@ -222,9 +233,9 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     -webkit-text-fill-color: transparent;
 }
 
-.stat-mini-label {
-    font-size: 1rem;
-    color: var(--jvme-gray-600);
+.jvme-partner-page .stat-mini-label {
+    font-size: 1rem !important;
+    color: var(--jvme-gray-600) !important;
 }
 
 /* Stats Section */
@@ -282,9 +293,9 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     margin-bottom: var(--jvme-spacing-2);
 }
 
-.stat-label {
-    font-size: 1.1rem;
-    color: var(--jvme-gray-600);
+.jvme-partner-page .stat-label {
+    font-size: 1.1rem !important;
+    color: var(--jvme-gray-600) !important;
 }
 
 /* Benefits Section */
@@ -292,10 +303,15 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
 }
 
-.section-header {
+.jvme-partner-page .section-header {
     text-align: center;
     max-width: 800px;
     margin: 0 auto var(--jvme-spacing-8);
+}
+
+.jvme-partner-page .section-header p {
+    font-size: 1.3rem !important;
+    line-height: 1.8 !important;
 }
 
 .benefits-grid {
@@ -354,9 +370,9 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     margin-bottom: var(--jvme-spacing-3);
 }
 
-.benefit-card p {
-    font-size: 1.15rem;
-    line-height: 1.7;
+.jvme-partner-page .benefit-card p {
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
 }
 
 /* Process Section */
@@ -441,9 +457,9 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     margin-bottom: var(--jvme-spacing-3);
 }
 
-.step-content p {
-    font-size: 1.15rem;
-    line-height: 1.7;
+.jvme-partner-page .step-content p {
+    font-size: 1.15rem !important;
+    line-height: 1.7 !important;
 }
 
 /* Stats with Background */
@@ -524,10 +540,10 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     left: 30px;
 }
 
-.testimonial-text {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    color: var(--jvme-gray-700);
+.jvme-partner-page .testimonial-text {
+    font-size: 1.4rem !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-700) !important;
     margin-bottom: var(--jvme-spacing-5);
     font-style: italic;
     position: relative;
@@ -557,13 +573,13 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     text-align: left;
 }
 
-.author-info h4 {
-    font-size: 1.25rem;
+.jvme-partner-page .author-info h4 {
+    font-size: 1.25rem !important;
     margin-bottom: 0.25rem;
 }
 
-.author-info p {
-    font-size: 1.1rem;
+.jvme-partner-page .author-info p {
+    font-size: 1.1rem !important;
 }
 
 /* CTA Section */
@@ -649,6 +665,8 @@ p { font-size: 1.3rem; line-height: 1.8; color: var(--jvme-gray-600); }
     </style>
 </head>
 <body>
+
+<div class="jvme-partner-page">
 
 <!-- Hero Section -->
 <section class="partner-hero">
@@ -988,6 +1006,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+</div>
+<!-- Fin .jvme-partner-page -->
 
 </body>
 </html>
