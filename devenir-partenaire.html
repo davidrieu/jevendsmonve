@@ -1,0 +1,1184 @@
+<!-- Page Devenir Partenaire - Je Vends mon VE -->
+<!-- À intégrer dans WordPress sans header/footer -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    .partner-page * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .partner-page {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #1a1a1a;
+        overflow-x: hidden;
+        background: #fff;
+        line-height: 1.6;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero-partner {
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #44ad76 0%, #338cd7 100%);
+        padding: 80px 20px;
+    }
+
+    .hero-bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg') center/cover no-repeat;
+        opacity: 0.25;
+        animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.15); }
+    }
+
+    .hero-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: white;
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        padding: 12px 28px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-title {
+        font-size: clamp(40px, 8vw, 78px);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 28px;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(18px, 3vw, 26px);
+        font-weight: 400;
+        margin-bottom: 45px;
+        opacity: 0.95;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        line-height: 1.5;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 38px;
+        border-radius: 100px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+        width: 400px;
+        height: 400px;
+    }
+
+    .btn-primary {
+        background: white;
+        color: #44ad76;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+        background: white;
+        color: #44ad76;
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-icon {
+        transition: transform 0.4s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn:hover .btn-icon {
+        transform: translateX(5px);
+    }
+
+    /* ========== STATS SECTION ========== */
+    .stats-section {
+        background: #f8fafb;
+        padding: 100px 20px;
+        position: relative;
+    }
+
+    .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 50px 30px;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #44ad76, #338cd7);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stat-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(68, 173, 118, 0.15);
+    }
+
+    .stat-number {
+        font-size: 64px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 18px;
+        color: #666;
+        font-weight: 600;
+    }
+
+    /* ========== SECTION HEADER ========== */
+    .section-header {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 80px;
+        padding: 0 20px;
+    }
+
+    .section-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        color: white;
+        padding: 10px 24px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .section-title {
+        font-size: clamp(36px, 6vw, 56px);
+        font-weight: 900;
+        margin-bottom: 24px;
+        color: #1a1a1a;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    .section-description {
+        font-size: clamp(18px, 2.5vw, 22px);
+        color: #666;
+        line-height: 1.7;
+    }
+
+    /* ========== ADVANTAGES SECTION ========== */
+    .advantages-section {
+        padding: 120px 20px;
+        background: white;
+    }
+
+    .advantages-grid {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 40px;
+    }
+
+    .advantage-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafb 100%);
+        border-radius: 28px;
+        padding: 50px 40px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(68, 173, 118, 0.1);
+    }
+
+    .advantage-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(68, 173, 118, 0.05) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .advantage-card:hover::after {
+        opacity: 1;
+    }
+
+    .advantage-card:hover {
+        transform: translateY(-20px) scale(1.03);
+        box-shadow: 0 30px 80px rgba(68, 173, 118, 0.2);
+        border-color: #44ad76;
+    }
+
+    .advantage-icon {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        font-size: 42px;
+        position: relative;
+        z-index: 1;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: 0 10px 30px rgba(68, 173, 118, 0.3);
+    }
+
+    .advantage-card:hover .advantage-icon {
+        transform: rotate(360deg) scale(1.15);
+        box-shadow: 0 15px 40px rgba(68, 173, 118, 0.5);
+    }
+
+    .advantage-title {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        color: #1a1a1a;
+        position: relative;
+        z-index: 1;
+        line-height: 1.3;
+    }
+
+    .advantage-description {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #666;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ========== PROCESS SECTION ========== */
+    .process-section {
+        padding: 120px 20px;
+        background: linear-gradient(135deg, #f8fafb 0%, #e8f5f0 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .process-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: url('https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg') center/cover no-repeat;
+        opacity: 0.03;
+    }
+
+    .process-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .timeline {
+        position: relative;
+        padding: 60px 0;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #44ad76, #338cd7);
+        transform: translateX(-50%);
+        border-radius: 10px;
+    }
+
+    .timeline-item {
+        display: flex;
+        margin-bottom: 100px;
+        position: relative;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+        flex-direction: row;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-content {
+        width: 45%;
+        background: white;
+        padding: 45px;
+        border-radius: 24px;
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-content:hover {
+        transform: scale(1.08);
+        box-shadow: 0 25px 80px rgba(68, 173, 118, 0.2);
+    }
+
+    .timeline-number {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 32px;
+        font-weight: 900;
+        box-shadow: 0 10px 40px rgba(68, 173, 118, 0.4);
+        z-index: 10;
+        border: 6px solid white;
+    }
+
+    .timeline-title {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        color: #1a1a1a;
+    }
+
+    .timeline-description {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #666;
+    }
+
+    /* ========== TESTIMONIALS SECTION ========== */
+    .testimonials-section {
+        padding: 120px 20px;
+        background: white;
+    }
+
+    .testimonials-grid {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+    }
+
+    .testimonial-card {
+        background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);
+        padding: 45px;
+        border-radius: 28px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.06);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        border: 2px solid transparent;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        border-color: #44ad76;
+    }
+
+    .quote-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 80px;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0.15;
+        line-height: 1;
+    }
+
+    .testimonial-quote {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 35px;
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .author-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #44ad76, #338cd7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 26px;
+        font-weight: 800;
+        flex-shrink: 0;
+        box-shadow: 0 5px 20px rgba(68, 173, 118, 0.3);
+    }
+
+    .author-info h4 {
+        font-size: 19px;
+        font-weight: 800;
+        margin-bottom: 6px;
+        color: #1a1a1a;
+    }
+
+    .author-info p {
+        font-size: 15px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    /* ========== GALLERY SECTION ========== */
+    .gallery-section {
+        padding: 120px 20px;
+        background: #1a1a1a;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-grid {
+        max-width: 1400px;
+        margin: 80px auto 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+    }
+
+    .gallery-item {
+        position: relative;
+        height: 450px;
+        border-radius: 24px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05) translateY(-10px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+        transform: scale(1.25);
+        filter: brightness(0.8);
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(68, 173, 118, 0.9), rgba(51, 140, 215, 0.9));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-text {
+        font-size: 28px;
+        font-weight: 800;
+        text-align: center;
+        padding: 30px;
+        transform: translateY(30px);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-text {
+        transform: translateY(0);
+    }
+
+    /* ========== FINAL CTA SECTION ========== */
+    .final-cta-section {
+        padding: 140px 20px;
+        background: linear-gradient(135deg, #44ad76 0%, #338cd7 100%);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .final-cta-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background:
+            radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        animation: rotateGradient 20s linear infinite;
+    }
+
+    @keyframes rotateGradient {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .final-cta-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg') center/cover no-repeat;
+        opacity: 0.08;
+    }
+
+    .final-cta-content {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .final-cta-title {
+        font-size: clamp(40px, 7vw, 68px);
+        font-weight: 900;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    .final-cta-description {
+        font-size: clamp(18px, 3vw, 24px);
+        margin-bottom: 50px;
+        opacity: 0.95;
+        line-height: 1.7;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .final-cta-buttons {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-large {
+        padding: 22px 50px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+    .btn-white {
+        background: white;
+        color: #44ad76;
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-white:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-outline-white {
+        background: transparent;
+        color: white;
+        border: 3px solid white;
+    }
+
+    .btn-outline-white:hover {
+        background: white;
+        color: #44ad76;
+        transform: translateY(-6px);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (max-width: 1024px) {
+        .timeline::before {
+            left: 30px;
+        }
+
+        .timeline-item {
+            flex-direction: row !important;
+            padding-left: 100px;
+        }
+
+        .timeline-content {
+            width: 100%;
+        }
+
+        .timeline-number {
+            left: 30px;
+            transform: translateY(-50%);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-partner {
+            min-height: 70vh;
+            padding: 60px 20px;
+        }
+
+        .advantages-grid,
+        .testimonials-grid,
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-item {
+            height: 350px;
+        }
+
+        .stats-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .final-cta-buttons {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-large {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .stats-container {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-cta {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* ========== ANIMATIONS ON SCROLL ========== */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+</style>
+
+<div class="partner-page">
+    <!-- Hero Section -->
+    <section class="hero-partner">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <span class="hero-badge">
+                <span>⚡</span>
+                <span>Rejoignez l'excellence électrique</span>
+            </span>
+            <h1 class="hero-title">Devenez Partenaire Professionnel</h1>
+            <p class="hero-subtitle">Propulsez vos ventes de véhicules électriques avec la plateforme n°1 de mise en relation entre particuliers et professionnels</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <span>Commencer maintenant</span>
+                    <span class="btn-icon">→</span>
+                </a>
+                <a href="#avantages" class="btn btn-secondary">
+                    <span>Découvrir les avantages</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card scale-in">
+                <div class="stat-number" data-target="50000">0</div>
+                <div class="stat-label">Acheteurs actifs</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number" data-target="95">0</div>
+                <div class="stat-label">Taux de satisfaction</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number" data-target="2500000">0</div>
+                <div class="stat-label">Transactions mensuelles</div>
+            </div>
+            <div class="stat-card scale-in">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Délai moyen de vente</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section" id="avantages">
+        <div class="section-header">
+            <span class="section-badge">Pourquoi nous choisir</span>
+            <h2 class="section-title">Des avantages incomparables pour les professionnels</h2>
+            <p class="section-description">Boostez votre activité avec notre écosystème complet dédié aux professionnels de l'électrique</p>
+        </div>
+        <div class="advantages-grid">
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">🚀</div>
+                <h3 class="advantage-title">Visibilité maximale</h3>
+                <p class="advantage-description">Bénéficiez d'une audience qualifiée de plus de 50 000 acheteurs potentiels activement à la recherche de véhicules électriques.</p>
+            </div>
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">💰</div>
+                <h3 class="advantage-title">Commission attractive</h3>
+                <p class="advantage-description">Tarifs dégressifs et transparents. Plus vous vendez, moins vous payez. Sans frais cachés ni surprise.</p>
+            </div>
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">⚡</div>
+                <h3 class="advantage-title">Gestion simplifiée</h3>
+                <p class="advantage-description">Dashboard pro intuitif pour gérer vos annonces, suivre vos performances et analyser vos ventes en temps réel.</p>
+            </div>
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">🛡️</div>
+                <h3 class="advantage-title">Paiement sécurisé</h3>
+                <p class="advantage-description">Transactions 100% sécurisées avec séquestre bancaire et vérification d'identité des acheteurs.</p>
+            </div>
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">📊</div>
+                <h3 class="advantage-title">Analytics avancés</h3>
+                <p class="advantage-description">Accédez à des statistiques détaillées sur vos performances, vos visiteurs et optimisez vos annonces.</p>
+            </div>
+            <div class="advantage-card fade-in-up">
+                <div class="advantage-icon">🤝</div>
+                <h3 class="advantage-title">Support dédié</h3>
+                <p class="advantage-description">Une équipe à votre écoute 7j/7 pour vous accompagner et répondre à toutes vos questions rapidement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="section-header">
+            <span class="section-badge">Simple et rapide</span>
+            <h2 class="section-title">Comment devenir partenaire ?</h2>
+            <p class="section-description">Rejoignez notre réseau en 4 étapes simples et commencez à vendre dès aujourd'hui</p>
+        </div>
+        <div class="process-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Inscription gratuite</h3>
+                        <p class="timeline-description">Créez votre compte professionnel en moins de 5 minutes. Renseignez vos informations d'entreprise et obtenez votre validation immédiate.</p>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Configuration du profil</h3>
+                        <p class="timeline-description">Personnalisez votre espace pro, ajoutez votre logo, vos coordonnées et présentez votre activité pour inspirer confiance aux acheteurs.</p>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Publiez vos annonces</h3>
+                        <p class="timeline-description">Ajoutez vos véhicules électriques en quelques clics avec notre système de publication optimisé et notre reconnaissance automatique des specs.</p>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Vendez et encaissez</h3>
+                        <p class="timeline-description">Recevez des demandes qualifiées, gérez vos ventes et recevez vos paiements sécurisés directement sur votre compte bancaire.</p>
+                    </div>
+                    <div class="timeline-number">4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <span class="section-badge">Témoignages</span>
+            <h2 class="section-title">Ils ont boosté leurs ventes avec nous</h2>
+            <p class="section-description">Découvrez les retours d'expérience de nos partenaires professionnels</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in-up">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-quote">Depuis que nous utilisons Je Vends mon VE, nos ventes ont augmenté de 300%. La plateforme est intuitive et les acheteurs sont vraiment qualifiés. Un vrai game changer pour notre activité !</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PD</div>
+                    <div class="author-info">
+                        <h4>Pierre Durand</h4>
+                        <p>Directeur - Elec Auto Paris</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in-up">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-quote">Le support est exceptionnel et les outils d'analyse nous permettent d'optimiser nos annonces en continu. Nos véhicules se vendent 60% plus vite qu'avant. Excellent investissement.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sophie Martin</h4>
+                        <p>CEO - Green Motors Lyon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in-up">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-quote">Une plateforme professionnelle qui tient ses promesses. Les transactions sont sécurisées et le processus est fluide du début à la fin. Je recommande à 100% à tous les professionnels.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JB</div>
+                    <div class="author-info">
+                        <h4>Jean Bernard</h4>
+                        <p>Gérant - EV Solutions Bordeaux</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="section-header" style="color: white;">
+            <span class="section-badge">Notre réseau</span>
+            <h2 class="section-title" style="color: white;">Des professionnels, des véhicules d'exception</h2>
+            <p class="section-description" style="color: rgba(255,255,255,0.85);">Découvrez l'écosystème premium de Je Vends mon VE</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item scale-in">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg" alt="Véhicule électrique premium" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-text">Véhicules Premium</div>
+                </div>
+            </div>
+            <div class="gallery-item scale-in">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="Technologie de pointe" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-text">Technologie Avancée</div>
+                </div>
+            </div>
+            <div class="gallery-item scale-in">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-i-slam-abruev-2157269750-34941542-scaled.jpg" alt="Performance électrique" class="gallery-img">
+                <div class="gallery-overlay">
+                    <div class="gallery-text">Performance Électrique</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section" id="contact">
+        <div class="final-cta-content">
+            <h2 class="final-cta-title">Prêt à propulser vos ventes ?</h2>
+            <p class="final-cta-description">Rejoignez les centaines de professionnels qui ont déjà fait le choix de l'excellence. Inscription gratuite et sans engagement.</p>
+            <div class="final-cta-buttons">
+                <a href="#" class="btn btn-large btn-white">
+                    <span>Devenir partenaire maintenant</span>
+                    <span class="btn-icon">→</span>
+                </a>
+                <a href="#" class="btn btn-large btn-outline-white">
+                    <span>Planifier une démo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// ========== ANIMATIONS AU SCROLL ==========
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observer tous les éléments animés
+document.querySelectorAll('.fade-in-up, .scale-in, .timeline-item').forEach(el => {
+    observer.observe(el);
+});
+
+// ========== ANIMATION DES COMPTEURS ==========
+const animateCounter = (element) => {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const updateCounter = () => {
+        current += step;
+        if (current < target) {
+            if (target >= 1000000) {
+                element.textContent = (current / 1000000).toFixed(1) + 'M€';
+            } else if (target >= 1000) {
+                element.textContent = Math.floor(current / 1000) + 'K+';
+            } else {
+                element.textContent = Math.floor(current) + (target === 95 ? '%' : 'h');
+            }
+            requestAnimationFrame(updateCounter);
+        } else {
+            if (target >= 1000000) {
+                element.textContent = (target / 1000000).toFixed(1) + 'M€';
+            } else if (target >= 1000) {
+                element.textContent = Math.floor(target / 1000) + 'K+';
+            } else {
+                element.textContent = target + (target === 95 ? '%' : 'h');
+            }
+        }
+    };
+
+    updateCounter();
+};
+
+// Observer pour les stats
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const number = entry.target.querySelector('.stat-number');
+            if (number && !number.classList.contains('animated')) {
+                number.classList.add('animated');
+                setTimeout(() => animateCounter(number), 300);
+            }
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-card').forEach(card => {
+    statsObserver.observe(card);
+});
+
+// ========== SMOOTH SCROLL POUR LES ANCRES ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ========== PARALLAX EFFECT ON HERO ==========
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroBg = document.querySelector('.hero-bg-overlay');
+    if (heroBg) {
+        heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
+
+// ========== ANIMATION D'ENTRÉE ==========
+window.addEventListener('load', () => {
+    document.querySelectorAll('.stat-card, .advantage-card, .testimonial-card').forEach((el, index) => {
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+</script>
