@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Ça Marche - Je Vends mon VE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+/* CSS Variables */
+:root {
+    --jvme-primary: #44ad76;
+    --jvme-primary-dark: #3a9463;
+    --jvme-primary-light: #5bc088;
+    --jvme-secondary: #338cd7;
+    --jvme-secondary-dark: #2b75b8;
+    --jvme-white: #ffffff;
+    --jvme-gray-50: #f9fafb;
+    --jvme-gray-100: #f3f4f6;
+    --jvme-gray-200: #e5e7eb;
+    --jvme-gray-300: #d1d5db;
+    --jvme-gray-600: #4b5563;
+    --jvme-gray-700: #374151;
+    --jvme-gray-900: #111827;
+
+    --jvme-spacing-2: 0.5rem;
+    --jvme-spacing-3: 0.75rem;
+    --jvme-spacing-4: 1rem;
+    --jvme-spacing-5: 1.5rem;
+    --jvme-spacing-6: 2rem;
+    --jvme-spacing-8: 3rem;
+
+    --jvme-radius-lg: 0.75rem;
+    --jvme-radius-xl: 1rem;
+    --jvme-radius-2xl: 1.5rem;
+    --jvme-radius-full: 9999px;
+
+    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--jvme-gray-900);
+    background: var(--jvme-white);
+    line-height: 1.6;
+}
+
+/* Wrapper pour forcer les styles */
+.jvme-partner-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.jvme-partner-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--jvme-spacing-6);
+}
+
+.jvme-partner-page section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.jvme-partner-page h1,
+.jvme-partner-page h2,
+.jvme-partner-page h3 {
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--jvme-gray-900) !important;
+}
+
+.jvme-partner-page h1 { font-size: 42px !important; margin-bottom: var(--jvme-spacing-5) !important; }
+.jvme-partner-page h2 { font-size: 32px !important; margin-bottom: var(--jvme-spacing-4) !important; }
+.jvme-partner-page h3 { font-size: 22px !important; margin-bottom: var(--jvme-spacing-3) !important; }
+
+.jvme-partner-page p {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-600) !important;
+}
+
+.jvme-partner-page .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+    padding: 0.75rem 1.75rem;
+    font-size: 16px !important;
+    font-weight: 600;
+    border-radius: var(--jvme-radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-xl);
+}
+
+/* Hero Section */
+.hero-how {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    padding: var(--jvme-spacing-8) 0;
+    border-radius: 24px;
+    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
+    text-align: center;
+}
+
+.hero-how h1 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Tabs Section */
+.tabs-section {
+    background: var(--jvme-white);
+    padding: 40px 0 0 0;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--jvme-spacing-4);
+    margin-bottom: var(--jvme-spacing-8);
+}
+
+.tab-btn {
+    padding: 15px 40px;
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    font-size: 16px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    display: flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    border-color: transparent;
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Section Header */
+.jvme-partner-page .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--jvme-spacing-8);
+}
+
+.jvme-partner-page .section-header p {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+}
+
+/* Steps Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--jvme-spacing-6);
+}
+
+.step-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    transition: var(--jvme-transition);
+    position: relative;
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: var(--jvme-radius-2xl) var(--jvme-radius-2xl) 0 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover::before {
+    transform: scaleX(1);
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+.step-card h3 {
+    font-size: 20px !important;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.jvme-partner-page .step-card p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+}
+
+/* Timeline Vertical */
+.timeline-vertical {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--jvme-primary), var(--jvme-secondary));
+}
+
+.timeline-item {
+    display: flex;
+    gap: var(--jvme-spacing-5);
+    margin-bottom: var(--jvme-spacing-6);
+    position: relative;
+}
+
+.timeline-icon-circle {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    z-index: 2;
+}
+
+.timeline-content {
+    flex: 1;
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    padding: var(--jvme-spacing-5);
+    transition: var(--jvme-transition);
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    box-shadow: var(--jvme-shadow-lg);
+    border-color: var(--jvme-primary);
+}
+
+.timeline-content h3 {
+    font-size: 20px !important;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.jvme-partner-page .timeline-content p {
+    font-size: 15px !important;
+}
+
+/* Grid 2 Columns avec Image */
+.split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--jvme-spacing-8);
+    align-items: center;
+}
+
+.split-image {
+    border-radius: var(--jvme-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--jvme-shadow-xl);
+    border: 2px solid var(--jvme-gray-200);
+    height: 500px;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FAQ Section */
+.faq-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+}
+
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    margin-bottom: var(--jvme-spacing-4);
+    overflow: hidden;
+    transition: var(--jvme-transition);
+}
+
+.faq-item:hover {
+    border-color: var(--jvme-primary);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.faq-question {
+    padding: var(--jvme-spacing-5);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--jvme-spacing-3);
+}
+
+.faq-question h3 {
+    font-size: 18px !important;
+    margin: 0;
+}
+
+.faq-icon {
+    font-size: 20px;
+    color: var(--jvme-primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-content {
+    padding: 0 var(--jvme-spacing-5) var(--jvme-spacing-5);
+}
+
+.jvme-partner-page .faq-answer-content p {
+    font-size: 15px !important;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--jvme-spacing-5);
+}
+
+.feature-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    text-align: center;
+    transition: var(--jvme-transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
+    border-radius: var(--jvme-radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--jvme-spacing-4);
+}
+
+.feature-icon i {
+    font-size: 32px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-card h3 {
+    font-size: 20px !important;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.jvme-partner-page .feature-card p {
+    font-size: 15px !important;
+}
+
+/* CTA Section */
+.cta-final {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(68, 173, 118, 0.15) 0%, transparent 70%);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-final h2 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--jvme-spacing-4);
+    justify-content: center;
+    margin-top: var(--jvme-spacing-6);
+}
+
+.btn-secondary {
+    background: var(--jvme-white);
+    color: var(--jvme-primary);
+    border: 2px solid var(--jvme-primary);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jvme-partner-page h1 { font-size: 28px !important; }
+    .jvme-partner-page h2 { font-size: 24px !important; }
+    .jvme-partner-page h3 { font-size: 18px !important; }
+    .jvme-partner-page p { font-size: 14px !important; }
+
+    .jvme-partner-page section {
+        padding: 50px 0;
+        margin-bottom: 20px;
+    }
+
+    .tabs-container {
+        flex-direction: column;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .split-section {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-vertical::before {
+        display: none;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.text-center { text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="jvme-partner-page">
+
+<!-- Hero Section -->
+<section class="hero-how">
+    <div class="container">
+        <h1>Comment Ça Marche <span>Je Vends mon VE</span> ?</h1>
+        <p style="font-size: 15px !important; max-width: 700px; margin: 0 auto;">
+            Découvrez comment acheter, vendre ou louer un véhicule électrique en toute simplicité sur la plateforme n°1 en France
+        </p>
+    </div>
+</section>
+
+<!-- Tabs Section -->
+<section class="tabs-section">
+    <div class="container">
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="particuliers">
+                <i class="fas fa-user"></i>
+                <span>Je suis Particulier</span>
+            </button>
+            <button class="tab-btn" data-tab="professionnels">
+                <i class="fas fa-building"></i>
+                <span>Je suis Professionnel</span>
+            </button>
+        </div>
+
+        <!-- Contenu Particuliers -->
+        <div id="particuliers" class="tab-content active">
+
+            <!-- Vendre mon VE -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Vendre mon Véhicule Électrique</h2>
+                    <p>Vendez votre VE rapidement et en toute sécurité en 4 étapes simples</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Créez votre annonce</h3>
+                        <p>Inscrivez-vous gratuitement et créez votre annonce en quelques minutes. Ajoutez des photos, une description détaillée et le prix de votre véhicule électrique.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Recevez des offres</h3>
+                        <p>Les acheteurs intéressés vous contactent directement via la messagerie sécurisée. Discutez, négociez et organisez les visites en toute confiance.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Finalisez la vente</h3>
+                        <p>Rencontrez l'acheteur, effectuez l'essai et finalisez la transaction en toute sécurité avec nos outils de paiement sécurisé et nos conseils.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acheter un VE -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Acheter un Véhicule Électrique</h2>
+                    <p>Trouvez le VE de vos rêves parmi des milliers d'annonces vérifiées</p>
+                </div>
+
+                <div class="split-section">
+                    <div>
+                        <div class="timeline-vertical">
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3>Recherchez votre VE</h3>
+                                    <p>Utilisez nos filtres avancés pour trouver le véhicule électrique qui correspond à vos besoins : marque, modèle, autonomie, budget...</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3>Sélectionnez vos favoris</h3>
+                                    <p>Ajoutez les annonces qui vous intéressent à vos favoris, comparez les prix et les caractéristiques des différents véhicules.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3>Contactez le vendeur</h3>
+                                    <p>Échangez avec le vendeur via notre messagerie sécurisée, posez vos questions et organisez une visite pour essayer le véhicule.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h3>Achetez en toute sécurité</h3>
+                                    <p>Profitez de notre système de paiement sécurisé et de nos garanties pour finaliser votre achat en toute confiance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-image">
+                        <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Acheter VE">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sécurité & Garanties -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Sécurité & Garanties</h2>
+                    <p>Votre tranquillité d'esprit est notre priorité</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Paiement Sécurisé</h3>
+                        <p>Transactions protégées avec vérification bancaire et système anti-fraude pour votre sécurité.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>Profils Vérifiés</h3>
+                        <p>Tous les vendeurs et acheteurs sont vérifiés avec pièce d'identité et coordonnées validées.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Support 7j/7</h3>
+                        <p>Notre équipe est disponible pour vous accompagner à chaque étape de votre transaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu Professionnels -->
+        <div id="professionnels" class="tab-content">
+
+            <!-- Devenir Partenaire -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Devenir Partenaire Professionnel</h2>
+                    <p>Rejoignez notre réseau et développez votre activité VE</p>
+                </div>
+
+                <div class="split-section">
+                    <div class="split-image">
+                        <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg" alt="Professionnel VE">
+                    </div>
+
+                    <div>
+                        <div class="timeline-vertical">
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">1</div>
+                                <div class="timeline-content">
+                                    <h3>Inscription Rapide</h3>
+                                    <p>Créez votre compte professionnel en 3 minutes. Renseignez vos informations et téléchargez vos documents (Kbis, etc.).</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">2</div>
+                                <div class="timeline-content">
+                                    <h3>Validation sous 24-48h</h3>
+                                    <p>Notre équipe vérifie votre dossier et valide votre compte professionnel. Vous recevez une notification par email.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">3</div>
+                                <div class="timeline-content">
+                                    <h3>Configurez votre espace</h3>
+                                    <p>Accédez à votre tableau de bord professionnel et configurez vos préférences, tarifs et options d'affichage.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon-circle">4</div>
+                                <div class="timeline-content">
+                                    <h3>Publiez vos annonces</h3>
+                                    <p>Commencez à publier vos annonces VE avec visibilité premium et outils professionnels inclus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outils Professionnels -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Outils Professionnels</h2>
+                    <p>Tout ce dont vous avez besoin pour gérer votre activité</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Tableau de Bord</h3>
+                        <p>Suivez vos performances en temps réel : vues, contacts, conversions et chiffre d'affaires.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Gestion Multi-Annonces</h3>
+                        <p>Gérez toutes vos annonces depuis une seule interface. Import en masse, modification groupée.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Visibilité Premium</h3>
+                        <p>Vos annonces sont mises en avant dans les résultats de recherche et recommandations.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>CRM Intégré</h3>
+                        <p>Gérez vos contacts, suivez les conversations et automatisez vos réponses.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <h3>Facturation Automatique</h3>
+                        <p>Générez vos factures automatiquement avec export comptable compatible.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-phone-volume"></i>
+                        </div>
+                        <h3>Support Prioritaire</h3>
+                        <p>Ligne directe avec notre équipe et gestionnaire de compte dédié.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarifs Pros -->
+            <div style="margin-bottom: 80px;">
+                <div class="section-header">
+                    <h2>Tarification Transparente</h2>
+                    <p>Des tarifs adaptés à votre volume d'activité, sans frais cachés</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number"><i class="fas fa-percentage"></i></div>
+                        <h3>Commission Variable</h3>
+                        <p>Payez uniquement à la vente avec une commission dégressive selon votre volume. Plus vous vendez, moins vous payez.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number"><i class="fas fa-ban"></i></div>
+                        <h3>0€ Frais Cachés</h3>
+                        <p>Aucun frais d'inscription, d'abonnement ou de mise en avant obligatoire. Transparence totale sur les coûts.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number"><i class="fas fa-rocket"></i></div>
+                        <h3>Options Premium</h3>
+                        <p>Boostez vos annonces avec nos options premium : mise en avant, badges, priorité dans les résultats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Questions Fréquentes</h2>
+            <p>Retrouvez les réponses aux questions les plus posées</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Comment créer une annonce sur Je Vends mon VE ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pour créer une annonce, inscrivez-vous gratuitement, cliquez sur "Vendre mon VE", remplissez les informations de votre véhicule (marque, modèle, autonomie, kilométrage), ajoutez des photos de qualité et publiez. Votre annonce est visible immédiatement après modération (sous 24h).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>La publication d'annonces est-elle gratuite ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Oui, la publication d'annonces est 100% gratuite pour les particuliers. Vous ne payez aucun frais d'inscription, d'abonnement ou de publication. Pour les professionnels, nous appliquons une commission uniquement à la vente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Comment sont vérifiés les vendeurs ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Tous les vendeurs doivent vérifier leur identité via une pièce d'identité et un justificatif de domicile. Les professionnels fournissent également leur Kbis. Notre système détecte les comportements suspects et notre équipe modère toutes les annonces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Puis-je essayer le véhicule avant d'acheter ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Absolument ! Nous recommandons toujours d'essayer le véhicule avant l'achat. Contactez le vendeur via notre messagerie pour organiser un rendez-vous. Vérifiez l'autonomie réelle, l'état de la batterie et tous les équipements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Quels sont les moyens de paiement acceptés ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nous recommandons le virement bancaire pour les transactions importantes. Notre système de paiement sécurisé permet également les paiements par carte bancaire avec séquestre jusqu'à la livraison. Évitez les paiements en espèces pour les montants élevés.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Que faire en cas de litige avec un vendeur/acheteur ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Notre équipe support est disponible 7j/7 pour vous aider à résoudre tout litige. Contactez-nous immédiatement via la messagerie ou par téléphone. Nous intervenons comme médiateur et pouvons bloquer les paiements si nécessaire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-final">
+    <div class="cta-glow"></div>
+    <div class="container">
+        <div class="cta-content">
+            <h2>Prêt à <span>Commencer</span> ?</h2>
+            <p style="font-size: 15px !important;">
+                Rejoignez des milliers d'utilisateurs qui font confiance à Je Vends mon VE
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Publier une Annonce</span>
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                    <span>Rechercher un VE</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+<!-- Fin .jvme-partner-page -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestion des onglets
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Retirer active de tous
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Ajouter active au cliqué
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // Gestion FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            // Toggle current item
+            item.classList.toggle('active');
+
+            // Optional: Close other items (accordion behavior)
+            // faqItems.forEach(otherItem => {
+            //     if (otherItem !== item) {
+            //         otherItem.classList.remove('active');
+            //     }
+            // });
+        });
+    });
+});
+</script>
+
+</body>
+</html>
