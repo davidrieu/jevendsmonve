@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Je Vends mon VE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+/* CSS Variables */
+:root {
+    --jvme-primary: #44ad76;
+    --jvme-primary-dark: #3a9463;
+    --jvme-primary-light: #5bc088;
+    --jvme-secondary: #338cd7;
+    --jvme-secondary-dark: #2b75b8;
+    --jvme-white: #ffffff;
+    --jvme-gray-50: #f9fafb;
+    --jvme-gray-100: #f3f4f6;
+    --jvme-gray-200: #e5e7eb;
+    --jvme-gray-300: #d1d5db;
+    --jvme-gray-600: #4b5563;
+    --jvme-gray-700: #374151;
+    --jvme-gray-900: #111827;
+
+    --jvme-spacing-2: 0.5rem;
+    --jvme-spacing-3: 0.75rem;
+    --jvme-spacing-4: 1rem;
+    --jvme-spacing-5: 1.5rem;
+    --jvme-spacing-6: 2rem;
+    --jvme-spacing-8: 3rem;
+
+    --jvme-radius-lg: 0.75rem;
+    --jvme-radius-xl: 1rem;
+    --jvme-radius-2xl: 1.5rem;
+    --jvme-radius-full: 9999px;
+
+    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--jvme-gray-900);
+    background: var(--jvme-white);
+    line-height: 1.6;
+}
+
+/* Wrapper pour forcer les styles */
+.jvme-partner-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.jvme-partner-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--jvme-spacing-6);
+}
+
+.jvme-partner-page section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.jvme-partner-page h1,
+.jvme-partner-page h2,
+.jvme-partner-page h3 {
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--jvme-gray-900) !important;
+}
+
+.jvme-partner-page h1 { font-size: 42px !important; margin-bottom: var(--jvme-spacing-5) !important; }
+.jvme-partner-page h2 { font-size: 32px !important; margin-bottom: var(--jvme-spacing-4) !important; }
+.jvme-partner-page h3 { font-size: 22px !important; margin-bottom: var(--jvme-spacing-3) !important; }
+
+.jvme-partner-page p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-600) !important;
+}
+
+.jvme-partner-page .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+    padding: 0.75rem 1.75rem;
+    font-size: 16px !important;
+    font-weight: 600;
+    border-radius: var(--jvme-radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-xl);
+}
+
+/* Hero Section */
+.hero-faq {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    padding: var(--jvme-spacing-8) 0;
+    border-radius: 24px;
+    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
+    text-align: center;
+}
+
+.hero-faq h1 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-faq p {
+    font-size: 17px !important;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Search Bar */
+.faq-search {
+    max-width: 600px;
+    margin: var(--jvme-spacing-6) auto 0;
+    position: relative;
+}
+
+.faq-search input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    font-size: 16px !important;
+    transition: var(--jvme-transition);
+}
+
+.faq-search input:focus {
+    outline: none;
+    border-color: var(--jvme-primary);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.faq-search i {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--jvme-gray-600);
+    font-size: 18px;
+}
+
+/* Category Navigation */
+.category-nav {
+    background: var(--jvme-white);
+    padding: var(--jvme-spacing-6) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.category-nav .container {
+    display: flex;
+    gap: var(--jvme-spacing-3);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    font-size: 15px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    color: var(--jvme-gray-700);
+    display: flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    border-color: transparent;
+}
+
+.category-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-md);
+}
+
+/* FAQ Category */
+.faq-category {
+    margin-bottom: var(--jvme-spacing-8);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--jvme-spacing-4);
+    margin-bottom: var(--jvme-spacing-6);
+}
+
+.category-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
+    border-radius: var(--jvme-radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.category-icon i {
+    font-size: 32px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.category-header h2 {
+    margin: 0 !important;
+}
+
+/* FAQ List */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jvme-spacing-4);
+}
+
+.faq-item {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    overflow: hidden;
+    transition: var(--jvme-transition);
+}
+
+.faq-item:hover {
+    border-color: var(--jvme-primary);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.faq-question {
+    padding: var(--jvme-spacing-5);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--jvme-spacing-3);
+}
+
+.faq-question h3 {
+    font-size: 18px !important;
+    margin: 0 !important;
+    flex: 1;
+}
+
+.faq-icon {
+    font-size: 20px;
+    color: var(--jvme-primary);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 800px;
+}
+
+.faq-answer-content {
+    padding: 0 var(--jvme-spacing-5) var(--jvme-spacing-5);
+    border-top: 1px solid var(--jvme-gray-200);
+    padding-top: var(--jvme-spacing-4);
+}
+
+.jvme-partner-page .faq-answer-content p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+}
+
+.faq-answer-content ul {
+    margin-top: var(--jvme-spacing-3);
+    padding-left: var(--jvme-spacing-5);
+}
+
+.faq-answer-content li {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-600) !important;
+    margin-bottom: var(--jvme-spacing-2);
+}
+
+/* Stats Section */
+.faq-stats {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    padding: var(--jvme-spacing-8) 0;
+    color: white;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--jvme-spacing-6);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    padding: var(--jvme-spacing-4);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: var(--jvme-spacing-2);
+    color: white;
+}
+
+.stat-label {
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    text-align: center;
+}
+
+.cta-section h2 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-section p {
+    font-size: 17px !important;
+    margin-bottom: var(--jvme-spacing-6);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jvme-partner-page h1 { font-size: 28px !important; }
+    .jvme-partner-page h2 { font-size: 24px !important; }
+    .jvme-partner-page h3 { font-size: 18px !important; }
+    .jvme-partner-page p { font-size: 16px !important; }
+
+    .jvme-partner-page section {
+        padding: 50px 0;
+        margin-bottom: 20px;
+    }
+
+    .category-nav .container {
+        flex-direction: column;
+    }
+
+    .category-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--jvme-spacing-4);
+    }
+
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.text-center { text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="jvme-partner-page">
+
+<!-- Hero Section -->
+<section class="hero-faq">
+    <div class="container">
+        <h1>Foire Aux <span>Questions</span></h1>
+        <p>
+            Trouvez rapidement les réponses à toutes vos questions sur Je Vends mon VE
+        </p>
+
+        <div class="faq-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Rechercher une question...">
+        </div>
+    </div>
+</section>
+
+<!-- Category Navigation -->
+<div class="category-nav">
+    <div class="container">
+        <button class="category-btn active" onclick="scrollToCategory('general')">
+            <i class="fas fa-info-circle"></i>
+            <span>Général</span>
+        </button>
+        <button class="category-btn" onclick="scrollToCategory('vendeurs')">
+            <i class="fas fa-tag"></i>
+            <span>Vendeurs</span>
+        </button>
+        <button class="category-btn" onclick="scrollToCategory('acheteurs')">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Acheteurs</span>
+        </button>
+        <button class="category-btn" onclick="scrollToCategory('professionnels')">
+            <i class="fas fa-briefcase"></i>
+            <span>Professionnels</span>
+        </button>
+        <button class="category-btn" onclick="scrollToCategory('securite')">
+            <i class="fas fa-shield-alt"></i>
+            <span>Sécurité</span>
+        </button>
+        <button class="category-btn" onclick="scrollToCategory('compte')">
+            <i class="fas fa-user-circle"></i>
+            <span>Compte</span>
+        </button>
+    </div>
+</div>
+
+<!-- FAQ Content -->
+<section>
+    <div class="container">
+
+        <!-- Général -->
+        <div class="faq-category" id="general">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h2>Questions Générales</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qu'est-ce que Je Vends mon VE ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Je Vends mon VE est la première plateforme française spécialisée dans la mise en relation
+                                pour l'achat et la vente de véhicules électriques. Nous connectons directement particuliers
+                                et professionnels souhaitant vendre ou acheter des véhicules électriques. Notre plateforme
+                                offre des outils spécifiques à l'électrique comme l'historique de batterie, l'autonomie réelle,
+                                et la compatibilité des bornes de recharge.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Est-ce que l'inscription est gratuite ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Oui, l'inscription sur Je Vends mon VE est 100% gratuite pour les particuliers.
+                                Vous pouvez créer votre compte, publier des annonces et contacter des vendeurs sans aucun frais.
+                                Pour les professionnels, nous proposons des forfaits adaptés avec des fonctionnalités avancées.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment fonctionne la plateforme ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Je Vends mon VE est une plateforme de mise en relation. Nous permettons aux vendeurs de publier
+                                leurs annonces et aux acheteurs de les consulter. Une fois qu'un acheteur trouve un véhicule qui
+                                l'intéresse, il contacte directement le vendeur via notre messagerie sécurisée. Les deux parties
+                                organisent ensuite la visite, l'essai et la transaction de manière autonome. Nous ne gérons pas
+                                les paiements - les transactions se font directement entre particuliers ou avec les professionnels.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quels types de véhicules électriques puis-je trouver ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Sur notre plateforme, vous trouverez tous types de véhicules 100% électriques :
+                            </p>
+                            <ul>
+                                <li>Voitures citadines électriques (Renault Zoe, Peugeot e-208, etc.)</li>
+                                <li>Berlines et SUV électriques (Tesla Model 3, Hyundai Kona Electric, etc.)</li>
+                                <li>Véhicules haut de gamme (Tesla Model S, Porsche Taycan, etc.)</li>
+                                <li>Utilitaires électriques pour professionnels</li>
+                                <li>Véhicules d'occasion et neufs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Est-ce que vous proposez aussi des véhicules hybrides ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Non, Je Vends mon VE est exclusivement dédié aux véhicules 100% électriques.
+                                Nous ne proposons pas de véhicules hybrides ou hybrides rechargeables afin de
+                                rester spécialisés et d'offrir la meilleure expertise sur la mobilité électrique pure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vendeurs -->
+        <div class="faq-category" id="vendeurs">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-tag"></i>
+                </div>
+                <h2>Questions pour les Vendeurs</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment créer une annonce ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Créer une annonce est simple et rapide :
+                            </p>
+                            <ul>
+                                <li>Connectez-vous à votre compte (ou créez-en un gratuitement)</li>
+                                <li>Cliquez sur "Vendre mon VE"</li>
+                                <li>Remplissez les informations du véhicule (marque, modèle, année, kilométrage, autonomie)</li>
+                                <li>Ajoutez des photos de qualité (minimum 5 recommandées)</li>
+                                <li>Indiquez votre prix et rédigez une description détaillée</li>
+                                <li>Publiez ! Votre annonce est visible sous 24h après modération</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Combien coûte la publication d'une annonce ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Pour les particuliers, la publication d'annonces est totalement gratuite.
+                                Vous ne payez aucun frais d'inscription, d'abonnement ou de commission sur la vente.
+                                Pour les professionnels, des forfaits avec fonctionnalités avancées sont disponibles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quelles informations dois-je fournir sur mon véhicule ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Pour rassurer les acheteurs potentiels, nous recommandons de fournir :
+                            </p>
+                            <ul>
+                                <li>Marque, modèle et version exacte du véhicule</li>
+                                <li>Année de mise en circulation et kilométrage</li>
+                                <li>État de santé de la batterie (SOH en %)</li>
+                                <li>Autonomie réelle constatée</li>
+                                <li>Historique d'entretien et de recharge</li>
+                                <li>Équipements et options (câble de recharge, toit ouvrant, etc.)</li>
+                                <li>Photos claires de l'extérieur, intérieur, tableau de bord et état batterie</li>
+                                <li>Nombre de propriétaires précédents</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Combien de temps mon annonce reste-t-elle en ligne ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Votre annonce reste en ligne pendant 90 jours. Vous recevez une notification
+                                7 jours avant l'expiration pour la renouveler gratuitement si votre véhicule
+                                n'est pas encore vendu. Vous pouvez aussi supprimer votre annonce à tout moment
+                                une fois la vente réalisée.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment fixer le bon prix pour mon véhicule ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Notre plateforme propose un outil d'estimation gratuit qui analyse :
+                            </p>
+                            <ul>
+                                <li>Le modèle et l'année du véhicule</li>
+                                <li>L'état de santé de la batterie (facteur crucial pour un VE)</li>
+                                <li>Le kilométrage</li>
+                                <li>Les prix du marché pour des véhicules similaires</li>
+                                <li>Les équipements et options</li>
+                            </ul>
+                            <p>
+                                Cet outil vous donne une fourchette de prix recommandée pour vendre rapidement
+                                tout en obtenant la juste valeur de votre véhicule.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acheteurs -->
+        <div class="faq-category" id="acheteurs">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Questions pour les Acheteurs</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment rechercher un véhicule ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Notre moteur de recherche avancé vous permet de filtrer par :
+                            </p>
+                            <ul>
+                                <li>Marque et modèle</li>
+                                <li>Prix minimum et maximum</li>
+                                <li>Autonomie souhaitée (en km)</li>
+                                <li>Année de mise en circulation</li>
+                                <li>Kilométrage maximum</li>
+                                <li>Localisation géographique</li>
+                                <li>État de la batterie (SOH minimum)</li>
+                                <li>Type de charge (AC, DC, puissance)</li>
+                            </ul>
+                            <p>
+                                Vous pouvez aussi créer des alertes pour être notifié dès qu'un véhicule
+                                correspondant à vos critères est publié.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment contacter un vendeur ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Une fois que vous avez trouvé un véhicule qui vous intéresse, cliquez sur le bouton
+                                "Contacter le vendeur" dans l'annonce. Vous accédez à notre messagerie sécurisée pour
+                                échanger directement avec le vendeur. Vous pouvez poser des questions, demander des photos
+                                supplémentaires et organiser une visite. Les coordonnées du vendeur ne sont visibles qu'une
+                                fois le premier contact établi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quels points vérifier avant d'acheter un véhicule électrique d'occasion ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Points essentiels à vérifier lors de la visite :
+                            </p>
+                            <ul>
+                                <li><strong>État de santé de la batterie (SOH) :</strong> doit être affiché sur le tableau de bord (>80% recommandé)</li>
+                                <li><strong>Autonomie réelle :</strong> faites un essai pour vérifier l'autonomie annoncée</li>
+                                <li><strong>Historique d'entretien :</strong> factures, révisions, changements de pièces</li>
+                                <li><strong>Câbles de recharge :</strong> vérifiez qu'ils sont tous présents (domestique + Type 2)</li>
+                                <li><strong>Garantie batterie :</strong> certains constructeurs offrent 8 ans de garantie</li>
+                                <li><strong>Logiciel à jour :</strong> vérifiez la version du logiciel embarqué</li>
+                                <li><strong>État général :</strong> carrosserie, pneus, freins, intérieur</li>
+                                <li><strong>Contrôle technique :</strong> si le véhicule a plus de 4 ans</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Est-ce que je peux essayer le véhicule avant d'acheter ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Oui, absolument ! Nous recommandons vivement de toujours essayer un véhicule avant l'achat.
+                                Contactez le vendeur pour organiser un rendez-vous. Lors de l'essai, vérifiez l'accélération,
+                                le freinage régénératif, l'autonomie affichée, les systèmes d'aide à la conduite et tous les
+                                équipements. N'hésitez pas à faire un trajet de 30 minutes minimum pour bien tester le véhicule
+                                dans différentes conditions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment se passe le paiement et la transaction ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Je Vends mon VE est une plateforme de mise en relation uniquement. Nous ne gérons pas
+                                les paiements. La transaction se fait directement entre vous et le vendeur, comme une
+                                vente entre particuliers classique. Nous vous recommandons :
+                            </p>
+                            <ul>
+                                <li><strong>Virement bancaire :</strong> le moyen le plus sûr pour les montants importants</li>
+                                <li><strong>Chèque de banque :</strong> vérifiez son authenticité auprès de la banque</li>
+                                <li><strong>Évitez les espèces :</strong> pour les montants supérieurs à 1 500€</li>
+                                <li><strong>Documents à récupérer :</strong> certificat de cession, carte grise barrée, contrôle technique, factures d'entretien</li>
+                                <li><strong>Certificat de non-gage :</strong> à demander au vendeur pour vérifier qu'il n'y a pas de dette sur le véhicule</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Y a-t-il une garantie sur les véhicules d'occasion ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Pour les ventes entre particuliers, il n'y a pas de garantie légale obligatoire.
+                                Cependant, certaines garanties constructeur peuvent être transférables (notamment
+                                sur la batterie). Pour les professionnels, une garantie légale de conformité de
+                                2 ans s'applique sur les véhicules d'occasion. Vérifiez toujours avec le vendeur
+                                les garanties encore valides sur le véhicule et la batterie.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professionnels -->
+        <div class="faq-category" id="professionnels">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h2>Questions pour les Professionnels</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment devenir partenaire professionnel ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Pour devenir partenaire professionnel :
+                            </p>
+                            <ul>
+                                <li>Cliquez sur "Devenir Partenaire"</li>
+                                <li>Remplissez le formulaire d'inscription professionnel</li>
+                                <li>Téléchargez vos documents (Kbis, attestation d'assurance professionnelle)</li>
+                                <li>Notre équipe vérifie votre dossier sous 24-48h</li>
+                                <li>Une fois validé, accédez à votre espace professionnel avec tous les outils</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quels sont les tarifs pour les professionnels ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Nous proposons une tarification transparente basée sur une commission à la vente uniquement.
+                                Plus vous vendez, moins vous payez grâce à notre commission dégressive. Aucun frais d'inscription,
+                                d'abonnement mensuel ou de publication. Vous payez uniquement quand vous vendez.
+                                Contactez notre équipe commerciale pour obtenir un devis personnalisé adapté à votre volume.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quels outils sont disponibles pour les professionnels ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Votre compte professionnel inclut :
+                            </p>
+                            <ul>
+                                <li><strong>Tableau de bord analytics :</strong> vues, contacts, conversions en temps réel</li>
+                                <li><strong>Gestion multi-annonces :</strong> import en masse, modification groupée</li>
+                                <li><strong>Visibilité premium :</strong> mise en avant dans les résultats de recherche</li>
+                                <li><strong>CRM intégré :</strong> gestion des contacts et historique des conversations</li>
+                                <li><strong>Statistiques avancées :</strong> taux de conversion, temps de vente moyen</li>
+                                <li><strong>API d'intégration :</strong> pour synchroniser avec votre stock</li>
+                                <li><strong>Support prioritaire :</strong> assistance dédiée 7j/7</li>
+                                <li><strong>Badge professionnel vérifié :</strong> pour rassurer les acheteurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Puis-je importer mon stock automatiquement ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Oui ! Nous proposons plusieurs solutions d'import automatique :
+                            </p>
+                            <ul>
+                                <li>Import via fichier Excel/CSV</li>
+                                <li>Connexion API pour synchronisation en temps réel</li>
+                                <li>Intégration avec les principaux logiciels de gestion automobile</li>
+                                <li>Mise à jour automatique des prix et disponibilités</li>
+                            </ul>
+                            <p>
+                                Notre équipe technique vous accompagne dans la mise en place de l'intégration.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sécurité -->
+        <div class="faq-category" id="securite">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Sécurité & Confiance</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment sont vérifiés les utilisateurs ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                La sécurité est notre priorité. Nous vérifions tous les comptes :
+                            </p>
+                            <ul>
+                                <li><strong>Vérification email :</strong> obligatoire lors de l'inscription</li>
+                                <li><strong>Vérification téléphone :</strong> par SMS pour activer la messagerie</li>
+                                <li><strong>Pièce d'identité :</strong> vérifiée pour les vendeurs (badge "Identité vérifiée")</li>
+                                <li><strong>Professionnels :</strong> vérification Kbis et assurance professionnelle</li>
+                                <li><strong>Système anti-fraude :</strong> détection des comportements suspects</li>
+                                <li><strong>Modération des annonces :</strong> toutes les annonces sont vérifiées sous 24h</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment éviter les arnaques ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Conseils pour éviter les arnaques :
+                            </p>
+                            <ul>
+                                <li><strong>Vérifiez le badge :</strong> privilégiez les vendeurs avec badge "Identité vérifiée"</li>
+                                <li><strong>Visitez toujours le véhicule :</strong> n'achetez jamais sans voir le véhicule</li>
+                                <li><strong>Méfiez-vous des prix trop bas :</strong> si c'est trop beau, c'est suspect</li>
+                                <li><strong>Exigez les documents :</strong> carte grise, contrôle technique, factures</li>
+                                <li><strong>Évitez les paiements à l'étranger :</strong> ne faites jamais de virement international</li>
+                                <li><strong>Utilisez notre messagerie :</strong> gardez une trace de tous les échanges</li>
+                                <li><strong>Signalez les comportements suspects :</strong> notre équipe intervient rapidement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Que faire si je rencontre un problème avec un vendeur/acheteur ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Notre équipe support est là pour vous aider :
+                            </p>
+                            <ul>
+                                <li>Contactez-nous immédiatement via le bouton "Signaler" dans la messagerie</li>
+                                <li>Notre équipe analyse la situation sous 2h</li>
+                                <li>Nous pouvons bloquer un utilisateur suspect</li>
+                                <li>Nous servons de médiateur en cas de litige</li>
+                                <li>Support disponible 7j/7 par email, téléphone et chat</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Mes données personnelles sont-elles protégées ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Oui, absolument. Nous sommes 100% conformes au RGPD (Règlement Général sur la Protection des Données) :
+                            </p>
+                            <ul>
+                                <li>Vos données sont cryptées et stockées sur des serveurs sécurisés en France</li>
+                                <li>Nous ne partageons jamais vos données avec des tiers sans votre consentement</li>
+                                <li>Vous pouvez consulter, modifier ou supprimer vos données à tout moment</li>
+                                <li>Vos coordonnées ne sont visibles qu'après un premier contact</li>
+                                <li>Notre politique de confidentialité est transparente et accessible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compte -->
+        <div class="faq-category" id="compte">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2>Mon Compte</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment créer un compte ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Créer un compte est simple et rapide :
+                            </p>
+                            <ul>
+                                <li>Cliquez sur "S'inscrire" en haut de la page</li>
+                                <li>Renseignez votre email et créez un mot de passe sécurisé</li>
+                                <li>Confirmez votre email en cliquant sur le lien reçu</li>
+                                <li>Complétez votre profil (nom, prénom, localisation)</li>
+                                <li>C'est terminé ! Vous pouvez publier des annonces et contacter des vendeurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>J'ai oublié mon mot de passe, que faire ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Pas de panique ! Cliquez sur "Mot de passe oublié" sur la page de connexion.
+                                Entrez votre adresse email, et vous recevrez un lien pour réinitialiser votre mot de passe.
+                                Ce lien est valable 24h. Si vous ne recevez pas l'email, vérifiez vos spams ou contactez notre support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment modifier mes informations personnelles ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Connectez-vous à votre compte et accédez à "Mon profil" dans le menu.
+                                Vous pouvez modifier votre nom, prénom, localisation, numéro de téléphone,
+                                photo de profil et préférences de notification. N'oubliez pas de sauvegarder
+                                vos modifications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment supprimer mon compte ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Vous pouvez supprimer votre compte à tout moment. Allez dans "Paramètres" >
+                                "Supprimer mon compte". Attention : cette action est irréversible. Toutes vos
+                                annonces, messages et données seront définitivement supprimés. Si vous avez des
+                                annonces actives, pensez à les retirer avant de supprimer votre compte.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment gérer mes notifications ?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>
+                                Dans "Paramètres" > "Notifications", vous pouvez personnaliser :
+                            </p>
+                            <ul>
+                                <li>Notifications par email (nouveaux messages, alertes annonces, etc.)</li>
+                                <li>Notifications push sur mobile</li>
+                                <li>Alertes de prix sur vos recherches sauvegardées</li>
+                                <li>Newsletter hebdomadaire avec les nouvelles annonces</li>
+                                <li>Fréquence des notifications (temps réel, quotidien, hebdomadaire)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="faq-stats">
+    <div class="container">
+        <h2 style="color: white; margin-bottom: var(--jvme-spacing-6);">Des Chiffres qui Parlent</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Questions Répondues</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Client</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Temps de Réponse Moyen</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Vous n'avez pas trouvé <span>votre réponse</span> ?</h2>
+        <p>
+            Notre équipe support est disponible 7j/7 pour répondre à toutes vos questions
+        </p>
+
+        <a href="#" class="btn btn-primary">
+            <i class="fas fa-headset"></i>
+            <span>Contacter le Support</span>
+        </a>
+    </div>
+</section>
+
+</div>
+<!-- Fin .jvme-partner-page -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+    // Category Navigation
+    const categoryBtns = document.querySelectorAll('.category-btn');
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+            const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Scroll to category
+function scrollToCategory(categoryId) {
+    const element = document.getElementById(categoryId);
+    const offset = 100; // Offset pour le menu sticky
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
