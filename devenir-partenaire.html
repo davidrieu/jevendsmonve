@@ -5,1122 +5,1033 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devenir Partenaire - Je Vends mon VE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #44ad76;
-            --secondary: #338cd7;
-            --dark: #0a0a0a;
-            --light: #ffffff;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Hero avec animation de route */
-        .hero-modern {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
-        }
-
-        /* Animation de route */
-        .road-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 300px;
-            perspective: 500px;
-            overflow: hidden;
-        }
-
-        .road {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%) rotateX(85deg);
-            width: 400px;
-            height: 2000px;
-            background: #1a1a1a;
-            border-left: 3px solid #333;
-            border-right: 3px solid #333;
-        }
-
-        .road-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 80px;
-            background: #ffd700;
-            animation: roadMove 1.5s linear infinite;
-        }
-
-        .road-line:nth-child(1) { top: 0%; }
-        .road-line:nth-child(2) { top: 12%; }
-        .road-line:nth-child(3) { top: 24%; }
-        .road-line:nth-child(4) { top: 36%; }
-        .road-line:nth-child(5) { top: 48%; }
-        .road-line:nth-child(6) { top: 60%; }
-        .road-line:nth-child(7) { top: 72%; }
-        .road-line:nth-child(8) { top: 84%; }
-
-        @keyframes roadMove {
-            0% { transform: translateX(-50%) translateY(0) scaleY(1); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(-50%) translateY(400px) scaleY(2); opacity: 0; }
-        }
-
-        /* Voiture électrique animée */
-        .ev-car {
-            position: absolute;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 4rem;
-            z-index: 10;
-            animation: carFloat 3s ease-in-out infinite;
-            filter: drop-shadow(0 20px 40px rgba(68, 173, 118, 0.6));
-        }
-
-        @keyframes carFloat {
-            0%, 100% { transform: translateX(-50%) translateY(0px); }
-            50% { transform: translateX(-50%) translateY(-20px); }
-        }
-
-        /* Particules d'énergie */
-        .energy-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: particleFloat 15s infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes particleFloat {
-            0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) translateX(100px) scale(1.5); opacity: 0; }
-        }
-
-        .hero-content-modern {
-            position: relative;
-            z-index: 5;
-            text-align: center;
-            max-width: 1000px;
-            padding: 0 20px;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            animation: gradientShift 3s ease infinite;
-            letter-spacing: -2px;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .cta-modern {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 40px rgba(68, 173, 118, 0.4);
-        }
-
-        .cta-modern::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-modern:hover::before {
-            width: 400px;
-            height: 400px;
-        }
-
-        .cta-modern:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 60px rgba(68, 173, 118, 0.6);
-        }
-
-        .cta-modern span {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Section avec animation de charging */
-        .charging-section {
-            padding: 120px 20px;
-            background: #0a0a0a;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .charging-animation {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 400px;
-        }
-
-        .charging-station {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .station-body {
-            width: 120px;
-            height: 250px;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border-radius: 20px;
-            margin: 0 auto;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        .charging-cable {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            width: 4px;
-            height: 100px;
-            background: var(--primary);
-            transform-origin: top;
-            animation: cableSwing 3s ease-in-out infinite;
-        }
-
-        @keyframes cableSwing {
-            0%, 100% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
-        }
-
-        .charging-plug {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--secondary);
-            border-radius: 5px;
-            box-shadow: 0 0 20px var(--secondary);
-            animation: plugGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes plugGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--secondary); }
-            50% { box-shadow: 0 0 40px var(--secondary), 0 0 60px var(--secondary); }
-        }
-
-        .energy-flow {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: energyDrop 2s ease-in-out infinite;
-        }
-
-        .energy-flow:nth-child(2) { animation-delay: 0.4s; }
-        .energy-flow:nth-child(3) { animation-delay: 0.8s; }
-        .energy-flow:nth-child(4) { animation-delay: 1.2s; }
-        .energy-flow:nth-child(5) { animation-delay: 1.6s; }
-
-        @keyframes energyDrop {
-            0% { transform: translateX(-50%) translateY(0); opacity: 1; }
-            100% { transform: translateX(-50%) translateY(150px); opacity: 0; }
-        }
-
-        .battery-indicator {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 100px;
-            border: 3px solid var(--primary);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .battery-level {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            animation: batteryFill 4s ease-in-out infinite;
-        }
-
-        @keyframes batteryFill {
-            0% { height: 20%; }
-            50% { height: 100%; }
-            100% { height: 20%; }
-        }
-
-        .battery-top {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 3px 3px 0 0;
-        }
-
-        /* Stats Section Ultra Moderne */
-        .stats-ultra {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .stat-card-modern {
-            background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .stat-card-modern::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(68, 173, 118, 0.2), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
-
-        .stat-card-modern:hover::before {
-            left: 100%;
-        }
-
-        .stat-card-modern:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(68, 173, 118, 0.3);
-        }
-
-        .stat-icon-modern {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-number-modern {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .stat-label-modern {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 300;
-        }
-
-        /* Avantages avec Glassmorphism */
-        .benefits-section {
-            padding: 120px 20px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title-modern {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle-modern {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.6);
-            font-weight: 300;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .benefit-card-glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 30px;
-            padding: 50px 40px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .benefit-card-glass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
-
-        .benefit-card-glass:hover::before {
-            transform: scaleX(1);
-        }
-
-        .benefit-card-glass:hover {
-            transform: translateY(-20px);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(68, 173, 118, 0.3);
-            box-shadow: 0 30px 80px rgba(68, 173, 118, 0.2);
-        }
-
-        .benefit-icon-wrapper {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(68, 173, 118, 0.2), rgba(51, 140, 215, 0.2));
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .benefit-card-glass:hover .benefit-icon-wrapper {
-            transform: rotate(10deg) scale(1.1);
-            background: linear-gradient(135deg, rgba(68, 173, 118, 0.4), rgba(51, 140, 215, 0.4));
-        }
-
-        .benefit-icon-wrapper i {
-            font-size: 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .benefit-card-glass h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .benefit-card-glass p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* Process avec Timeline Animée */
-        .process-timeline {
-            padding: 120px 20px;
-            background: #0a0a0a;
-            position: relative;
-        }
-
-        .timeline-container {
-            max-width: 1200px;
-            margin: 80px auto 0;
-            position: relative;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 100px;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 25px;
-            margin: 0 50px;
-            transition: all 0.4s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 20px 60px rgba(68, 173, 118, 0.2);
-        }
-
-        .timeline-number {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 900;
-            color: white;
-            box-shadow: 0 0 40px rgba(68, 173, 118, 0.6);
-            z-index: 10;
-        }
-
-        .timeline-content h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .timeline-content p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .timeline-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Gallery Modernisée */
-        .gallery-modern {
-            padding: 120px 20px;
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
-        }
-
-        .gallery-grid-modern {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .gallery-card {
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
-            height: 400px;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .gallery-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(68, 173, 118, 0.4), rgba(51, 140, 215, 0.4));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 2;
-        }
-
-        .gallery-card:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.15);
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 80px rgba(68, 173, 118, 0.4);
-        }
-
-        .gallery-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px;
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 700;
-            z-index: 3;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-card:hover .gallery-label {
-            transform: translateY(0);
-        }
-
-        /* CTA Final Explosif */
-        .final-cta-modern {
-            padding: 150px 20px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.15;
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.25; }
-        }
-
-        .final-cta-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .final-cta-modern h2 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        .final-cta-modern p {
-            font-size: 1.4rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary-modern {
-            padding: 22px 55px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(68, 173, 118, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary-modern::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary-modern:hover::before {
-            width: 400px;
-            height: 400px;
-        }
-
-        .btn-primary-modern:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(68, 173, 118, 0.6);
-        }
-
-        .btn-secondary-modern {
-            padding: 22px 55px;
-            background: transparent;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            border: 2px solid var(--primary);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-secondary-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .btn-secondary-modern:hover::before {
-            left: 0;
-        }
-
-        .btn-secondary-modern:hover {
-            transform: translateY(-8px);
-            border-color: transparent;
-            box-shadow: 0 20px 60px rgba(68, 173, 118, 0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .timeline-line { display: none; }
-            .timeline-item { flex-direction: column !important; }
-            .timeline-number { position: relative; margin-bottom: 20px; }
-            .timeline-content { margin: 0 !important; }
-            .charging-animation { display: none; }
-            .hero-title { font-size: 3rem; }
-            .benefits-grid, .gallery-grid-modern { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            .road { width: 200px; }
-            .ev-car { font-size: 2.5rem; bottom: 100px; }
-        }
+/* CSS Variables */
+:root {
+    --jvme-primary: #44ad76;
+    --jvme-primary-dark: #3a9463;
+    --jvme-primary-light: #5bc088;
+    --jvme-secondary: #338cd7;
+    --jvme-secondary-dark: #2b75b8;
+    --jvme-white: #ffffff;
+    --jvme-gray-50: #f9fafb;
+    --jvme-gray-100: #f3f4f6;
+    --jvme-gray-200: #e5e7eb;
+    --jvme-gray-300: #d1d5db;
+    --jvme-gray-600: #4b5563;
+    --jvme-gray-700: #374151;
+    --jvme-gray-900: #111827;
+
+    --jvme-spacing-2: 0.5rem;
+    --jvme-spacing-3: 0.75rem;
+    --jvme-spacing-4: 1rem;
+    --jvme-spacing-5: 1.5rem;
+    --jvme-spacing-6: 2rem;
+    --jvme-spacing-8: 3rem;
+
+    --jvme-radius-lg: 0.75rem;
+    --jvme-radius-xl: 1rem;
+    --jvme-radius-2xl: 1.5rem;
+    --jvme-radius-full: 9999px;
+
+    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--jvme-gray-900);
+    background: var(--jvme-white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--jvme-spacing-6);
+}
+
+section {
+    padding: var(--jvme-spacing-8) 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--jvme-gray-900);
+}
+
+h1 { font-size: 3.5rem; margin-bottom: var(--jvme-spacing-5); }
+h2 { font-size: 2.5rem; margin-bottom: var(--jvme-spacing-4); }
+h3 { font-size: 1.75rem; margin-bottom: var(--jvme-spacing-3); }
+
+p { font-size: 1.125rem; line-height: 1.7; color: var(--jvme-gray-600); }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--jvme-radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-xl);
+}
+
+/* Hero Section */
+.partner-hero {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    padding: var(--jvme-spacing-8) 0;
+    border-radius: 24px;
+    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--jvme-spacing-8);
+    align-items: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+    background: var(--jvme-white);
+    color: var(--jvme-primary);
+    padding: var(--jvme-spacing-2) var(--jvme-spacing-4);
+    border-radius: var(--jvme-radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+.partner-hero h1 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* EV Animation Card */
+.ev-demo-card {
+    background: var(--jvme-white);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    box-shadow: var(--jvme-shadow-xl);
+    border: 2px solid var(--jvme-gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.ev-visual {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ev-car-icon {
+    font-size: 5rem;
+    animation: evFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(68, 173, 118, 0.3));
+}
+
+@keyframes evFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.charging-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--jvme-spacing-2);
+}
+
+.charge-bar {
+    width: 40px;
+    height: 8px;
+    background: var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-full);
+    overflow: hidden;
+}
+
+.charge-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: var(--jvme-radius-full);
+    animation: chargePulse 2s ease-in-out infinite;
+}
+
+.charge-bar:nth-child(1) .charge-fill { animation-delay: 0s; width: 100%; }
+.charge-bar:nth-child(2) .charge-fill { animation-delay: 0.2s; width: 80%; }
+.charge-bar:nth-child(3) .charge-fill { animation-delay: 0.4s; width: 60%; }
+.charge-bar:nth-child(4) .charge-fill { animation-delay: 0.6s; width: 40%; }
+
+@keyframes chargePulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.ev-stats-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--jvme-spacing-3);
+    margin-top: var(--jvme-spacing-5);
+}
+
+.stat-mini {
+    text-align: center;
+    padding: var(--jvme-spacing-3);
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
+    border-radius: var(--jvme-radius-lg);
+}
+
+.stat-mini-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-mini-label {
+    font-size: 0.875rem;
+    color: var(--jvme-gray-600);
+}
+
+/* Stats Section */
+.stats-section {
+    background: var(--jvme-white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--jvme-spacing-4);
+    margin-top: var(--jvme-spacing-6);
+}
+
+.stat-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    padding: var(--jvme-spacing-5);
+    text-align: center;
+    transition: var(--jvme-transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--jvme-shadow-lg);
+    border-color: var(--jvme-primary);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--jvme-spacing-3);
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
+    border-radius: var(--jvme-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-icon i {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-bottom: var(--jvme-spacing-2);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--jvme-gray-600);
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--jvme-spacing-8);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--jvme-spacing-6);
+}
+
+.benefit-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    transition: var(--jvme-transition);
+    position: relative;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: var(--jvme-radius-2xl) var(--jvme-radius-2xl) 0 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover::before {
+    transform: scaleX(1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: var(--jvme-radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--jvme-white);
+    font-size: 2rem;
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Process Section */
+.process-section {
+    background: var(--jvme-white);
+}
+
+.process-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: var(--jvme-spacing-6);
+}
+
+.process-step {
+    display: flex;
+    gap: var(--jvme-spacing-5);
+    margin-bottom: var(--jvme-spacing-6);
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 80px;
+    width: 2px;
+    height: calc(100% + 2rem);
+    background: linear-gradient(180deg, var(--jvme-primary), var(--jvme-secondary));
+}
+
+.step-number-circle {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--jvme-white);
+    font-size: 1.75rem;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(68, 173, 118, 0.4);
+}
+
+.step-content {
+    flex: 1;
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-xl);
+    padding: var(--jvme-spacing-5);
+    transition: var(--jvme-transition);
+}
+
+.step-content:hover {
+    transform: translateX(10px);
+    box-shadow: var(--jvme-shadow-lg);
+    border-color: var(--jvme-primary);
+}
+
+.step-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
+    border-radius: var(--jvme-radius-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.step-icon i {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.25rem;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.step-content p {
+    font-size: 1rem;
+}
+
+/* Gallery Section */
+.gallery-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--jvme-spacing-5);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--jvme-radius-2xl);
+    overflow: hidden;
+    height: 350px;
+    border: 2px solid var(--jvme-gray-200);
+    transition: var(--jvme-transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: var(--jvme-spacing-5);
+    color: white;
+    transform: translateY(0);
+    transition: var(--jvme-transition);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--jvme-spacing-2);
+    color: white;
+}
+
+.gallery-overlay i {
+    color: var(--jvme-primary);
+    margin-right: var(--jvme-spacing-2);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background: var(--jvme-white);
+}
+
+.testimonial-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-8);
+    text-align: center;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.3;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.testimonial-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--jvme-gray-700);
+    margin-bottom: var(--jvme-spacing-5);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--jvme-spacing-4);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-info h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.author-info p {
+    font-size: 0.95rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(68, 173, 118, 0.15) 0%, transparent 70%);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+.cta-section h2 {
+    font-size: 3rem;
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+.cta-section h2 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--jvme-spacing-4);
+    justify-content: center;
+    margin-top: var(--jvme-spacing-6);
+}
+
+.btn-secondary {
+    background: var(--jvme-white);
+    color: var(--jvme-primary);
+    border: 2px solid var(--jvme-primary);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.25rem; }
+    p { font-size: 1rem; }
+
+    .hero-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+
+    .process-step { flex-direction: column; align-items: center; }
+    .process-step::after { display: none; }
+
+    .cta-buttons { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+}
+
+.text-center { text-align: center; }
     </style>
 </head>
 <body>
 
-    <!-- Hero Moderne avec Route Animée -->
-    <section class="hero-modern">
-        <!-- Particules d'énergie -->
-        <div class="energy-particles">
-            <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
-            <div class="particle" style="left: 25%; width: 6px; height: 6px; animation-delay: 2s;"></div>
-            <div class="particle" style="left: 40%; width: 3px; height: 3px; animation-delay: 4s;"></div>
-            <div class="particle" style="left: 60%; width: 5px; height: 5px; animation-delay: 1s;"></div>
-            <div class="particle" style="left: 75%; width: 4px; height: 4px; animation-delay: 3s;"></div>
-            <div class="particle" style="left: 90%; width: 6px; height: 6px; animation-delay: 5s;"></div>
-        </div>
+<!-- Hero Section -->
+<section class="partner-hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Plateforme N°1 VE en France</span>
+                </div>
 
-        <!-- Animation de route -->
-        <div class="road-container">
-            <div class="road">
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
-                <div class="road-line"></div>
+                <h1>Rejoignez la <span>Révolution Électrique</span></h1>
+
+                <p style="font-size: 1.25rem; margin-bottom: 2rem;">
+                    Devenez partenaire de la première plateforme française dédiée à la vente de véhicules électriques.
+                    Accédez à une audience qualifiée de 25K+ passionnés et boostez vos ventes dès aujourd'hui.
+                </p>
+
+                <a href="#contact" class="btn btn-primary">
+                    <span>Devenir Partenaire</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-        </div>
 
-        <!-- Voiture électrique -->
-        <div class="ev-car">🚗</div>
-
-        <div class="hero-content-modern">
-            <h1 class="hero-title">Accélérez Votre Business</h1>
-            <p class="hero-subtitle">Rejoignez la révolution électrique et boostez vos ventes avec la plateforme n°1 des véhicules électriques</p>
-            <a href="#contact" class="cta-modern">
-                <span>Devenir Partenaire</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Section avec animation de Charging -->
-    <section class="charging-section">
-        <!-- Animation Station de Charge -->
-        <div class="charging-animation">
-            <div class="charging-station">
-                <div class="station-body">
-                    <div class="battery-indicator">
-                        <div class="battery-top"></div>
-                        <div class="battery-level"></div>
+            <div class="ev-demo-card">
+                <div class="ev-visual">
+                    <div class="ev-car-icon">🚗⚡</div>
+                    <div class="charging-indicator">
+                        <div class="charge-bar"><div class="charge-fill"></div></div>
+                        <div class="charge-bar"><div class="charge-fill"></div></div>
+                        <div class="charge-bar"><div class="charge-fill"></div></div>
+                        <div class="charge-bar"><div class="charge-fill"></div></div>
                     </div>
-                    <div class="energy-flow"></div>
-                    <div class="energy-flow"></div>
-                    <div class="energy-flow"></div>
-                    <div class="energy-flow"></div>
-                    <div class="energy-flow"></div>
                 </div>
-                <div class="charging-cable">
-                    <div class="charging-plug"></div>
+
+                <div class="ev-stats-mini">
+                    <div class="stat-mini">
+                        <div class="stat-mini-value">+45%</div>
+                        <div class="stat-mini-label">Ventes en moyenne</div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-value">24/7</div>
+                        <div class="stat-mini-label">Support dédié</div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Stats Ultra Modernes -->
-        <div class="stats-ultra">
-            <div class="stat-card-modern">
-                <i class="fas fa-users stat-icon-modern"></i>
-                <span class="stat-number-modern">25K+</span>
-                <span class="stat-label-modern">Utilisateurs Actifs</span>
-            </div>
-            <div class="stat-card-modern">
-                <i class="fas fa-chart-line stat-icon-modern"></i>
-                <span class="stat-number-modern">3.2M€</span>
-                <span class="stat-label-modern">Ventes Mensuelles</span>
-            </div>
-            <div class="stat-card-modern">
-                <i class="fas fa-car-side stat-icon-modern"></i>
-                <span class="stat-number-modern">850+</span>
-                <span class="stat-label-modern">VE Vendus/Mois</span>
-            </div>
-            <div class="stat-card-modern">
-                <i class="fas fa-star stat-icon-modern"></i>
-                <span class="stat-number-modern">4.9/5</span>
-                <span class="stat-label-modern">Satisfaction Client</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Avantages avec Glassmorphism -->
-    <section class="benefits-section">
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
         <div class="section-header">
-            <h2 class="section-title-modern">Pourquoi Nous Rejoindre ?</h2>
-            <p class="section-subtitle-modern">Des avantages exclusifs pour propulser votre activité</p>
+            <h2>Des Chiffres Qui Parlent</h2>
+            <p>Rejoignez une plateforme en pleine croissance avec des résultats mesurables</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <span class="stat-number">25K+</span>
+                <span class="stat-label">Utilisateurs Actifs</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <span class="stat-number">3.2M€</span>
+                <span class="stat-label">Transactions/mois</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <span class="stat-number">850+</span>
+                <span class="stat-label">VE Vendus/mois</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="stat-number">4.9/5</span>
+                <span class="stat-label">Satisfaction Client</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Pourquoi Devenir Partenaire ?</h2>
+            <p>Des avantages exclusifs pour développer votre activité dans le secteur électrique</p>
         </div>
 
         <div class="benefits-grid">
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
+            <div class="benefit-card">
+                <div class="benefit-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
                 <h3>Visibilité Maximale</h3>
-                <p>Profitez d'une audience qualifiée de passionnés de véhicules électriques. Vos annonces sont mises en avant auprès de milliers d'acheteurs potentiels chaque jour.</p>
+                <p>Profitez d'une audience qualifiée de passionnés de véhicules électriques. Vos annonces sont mises en avant auprès de milliers d'acheteurs potentiels.</p>
             </div>
 
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
-                    <i class="fas fa-toolbox"></i>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
                 <h3>Outils Professionnels</h3>
                 <p>Tableau de bord complet, analytics avancées, gestion multi-annonces et CRM intégré pour optimiser chaque vente.</p>
             </div>
 
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
+            <div class="benefit-card">
+                <div class="benefit-icon">
                     <i class="fas fa-piggy-bank"></i>
                 </div>
                 <h3>Commission Attractive</h3>
                 <p>Tarifs préférentiels adaptés à votre volume. Plus vous vendez, plus vous économisez. Zéro frais cachés.</p>
             </div>
 
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
+            <div class="benefit-card">
+                <div class="benefit-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h3>Paiements Sécurisés</h3>
-                <p>Système de transaction ultra-sécurisé avec vérification des acheteurs et protection anti-fraude complète.</p>
+                <h3>Transactions Sécurisées</h3>
+                <p>Système de paiement ultra-sécurisé avec vérification des acheteurs et protection anti-fraude complète.</p>
             </div>
 
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
+            <div class="benefit-card">
+                <div class="benefit-icon">
                     <i class="fas fa-chart-pie"></i>
                 </div>
                 <h3>Analytics Avancées</h3>
-                <p>Suivez vos performances en temps réel avec des rapports détaillés et des insights actionnables.</p>
+                <p>Suivez vos performances en temps réel avec des rapports détaillés et des insights actionnables pour booster vos résultats.</p>
             </div>
 
-            <div class="benefit-card-glass">
-                <div class="benefit-icon-wrapper">
+            <div class="benefit-card">
+                <div class="benefit-icon">
                     <i class="fas fa-headset"></i>
                 </div>
                 <h3>Support Premium 24/7</h3>
                 <p>Une équipe d'experts dédiée à votre réussite, disponible 7j/7 pour répondre à toutes vos questions.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Timeline Process -->
-    <section class="process-timeline">
+<!-- Process Section -->
+<section class="process-section">
+    <div class="container">
         <div class="section-header">
-            <h2 class="section-title-modern">Comment Ça Marche ?</h2>
-            <p class="section-subtitle-modern">4 étapes simples pour commencer</p>
+            <h2>Comment Devenir Partenaire ?</h2>
+            <p>Un processus simple et rapide en 4 étapes</p>
         </div>
 
-        <div class="timeline-container">
-            <div class="timeline-line"></div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <i class="fas fa-user-plus timeline-icon"></i>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number-circle">1</div>
+                <div class="step-content">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
                     <h3>Inscription Express</h3>
                     <p>Créez votre compte professionnel en moins de 3 minutes. Remplissez le formulaire avec vos informations et documents professionnels.</p>
                 </div>
-                <div class="timeline-number">1</div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <i class="fas fa-check-circle timeline-icon"></i>
+            <div class="process-step">
+                <div class="step-number-circle">2</div>
+                <div class="step-content">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                     <h3>Validation Rapide</h3>
-                    <p>Notre équipe vérifie votre dossier sous 24-48h. Vous recevez une notification dès validation de votre compte.</p>
+                    <p>Notre équipe vérifie votre dossier sous 24-48h. Vous recevez une notification dès validation de votre compte partenaire.</p>
                 </div>
-                <div class="timeline-number">2</div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <i class="fas fa-cog timeline-icon"></i>
+            <div class="process-step">
+                <div class="step-number-circle">3</div>
+                <div class="step-content">
+                    <div class="step-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
                     <h3>Configuration</h3>
                     <p>Accédez à votre espace pro personnalisé. Découvrez tous les outils et configurez vos préférences de vente.</p>
                 </div>
-                <div class="timeline-number">3</div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <i class="fas fa-bolt timeline-icon"></i>
+            <div class="process-step">
+                <div class="step-number-circle">4</div>
+                <div class="step-content">
+                    <div class="step-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <h3>Vendez !</h3>
-                    <p>Publiez vos premières annonces et commencez à vendre immédiatement. Profitez du boost de visibilité pour nouveaux partenaires.</p>
+                    <p>Publiez vos annonces et commencez à vendre immédiatement. Profitez du boost de visibilité pour nouveaux partenaires.</p>
                 </div>
-                <div class="timeline-number">4</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Gallery Modernisée -->
-    <section class="gallery-modern">
+<!-- Gallery Section -->
+<section class="gallery-section">
+    <div class="container">
         <div class="section-header">
-            <h2 class="section-title-modern">L'Excellence Électrique</h2>
-            <p class="section-subtitle-modern">Découvrez la qualité de notre réseau</p>
+            <h2>L'Excellence Électrique</h2>
+            <p>Découvrez la qualité des véhicules électriques sur notre plateforme</p>
         </div>
 
-        <div class="gallery-grid-modern">
-            <div class="gallery-card">
-                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="Design Premium">
-                <div class="gallery-label">
-                    <i class="fas fa-gem"></i> Design Premium
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-13928020-scaled.jpg" alt="VE Premium">
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-gem"></i> Design Premium</h4>
                 </div>
             </div>
-            <div class="gallery-card">
+
+            <div class="gallery-item">
                 <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Technologie">
-                <div class="gallery-label">
-                    <i class="fas fa-microchip"></i> Technologie Avancée
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-microchip"></i> Technologie Avancée</h4>
                 </div>
             </div>
-            <div class="gallery-card">
+
+            <div class="gallery-item">
                 <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-18886584-scaled.jpg" alt="Performance">
-                <div class="gallery-label">
-                    <i class="fas fa-tachometer-alt"></i> Performance
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
                 </div>
             </div>
-            <div class="gallery-card">
+
+            <div class="gallery-item">
                 <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg" alt="Innovation">
-                <div class="gallery-label">
-                    <i class="fas fa-lightbulb"></i> Innovation
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-lightbulb"></i> Innovation</h4>
                 </div>
             </div>
-            <div class="gallery-card">
+
+            <div class="gallery-item">
                 <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-i-slam-abruev-2157269750-34941542-scaled.jpg" alt="Futur">
-                <div class="gallery-label">
-                    <i class="fas fa-bolt"></i> Futur Électrique
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-bolt"></i> Futur Électrique</h4>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA Final -->
-    <section class="final-cta-modern">
-        <div class="cta-glow"></div>
-        <div class="final-cta-content">
-            <h2>Prêt à Révolutionner Vos Ventes ?</h2>
-            <p>Rejoignez plus de 500 professionnels qui ont déjà fait le choix de l'excellence</p>
-            <div class="cta-group">
-                <a href="#" class="btn-primary-modern">
-                    <i class="fas fa-rocket"></i> Commencer Maintenant
+<!-- Testimonial Section -->
+<section class="testimonial-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Ce Que Disent Nos Partenaires</h2>
+            <p>Des professionnels satisfaits qui ont transformé leur business</p>
+        </div>
+
+        <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimonial-text">
+                "Depuis que nous sommes partenaires de Je Vends mon VE, notre chiffre d'affaires a augmenté de 45%.
+                La plateforme est intuitive, l'équipe est réactive et la qualité des acheteurs est exceptionnelle.
+                C'est clairement le meilleur investissement que nous ayons fait cette année !"
+            </p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JM</div>
+                <div class="author-info">
+                    <h4>Jean-Marc Dupont</h4>
+                    <p>Directeur - Auto Élec Pro Paris</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container">
+        <div class="cta-content">
+            <h2>Prêt à <span>Révolutionner Vos Ventes</span> ?</h2>
+            <p style="font-size: 1.25rem;">
+                Rejoignez plus de 500 professionnels qui ont déjà fait le choix de l'excellence
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Commencer Maintenant</span>
                 </a>
-                <a href="#" class="btn-secondary-modern">
-                    <i class="fas fa-phone"></i> Demander une Démo
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    <span>Demander une Démo</span>
                 </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        // Intersection Observer pour animations au scroll
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate stats on scroll
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target.querySelector('.stat-number');
+                if (statNumber && !statNumber.classList.contains('animated')) {
+                    statNumber.classList.add('animated');
+                    animateValue(statNumber);
                 }
-            });
-        }, observerOptions);
-
-        // Appliquer l'animation aux éléments
-        document.querySelectorAll('.stat-card-modern, .benefit-card-glass, .timeline-item, .gallery-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
-            fadeInObserver.observe(el);
+            }
         });
+    }, observerOptions);
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+    document.querySelectorAll('.stat-card').forEach(card => {
+        statObserver.observe(card);
+    });
 
-        // Parallax effect pour les particules
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, i) => {
-                const speed = (i + 1) * 0.05;
-                particle.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-    </script>
+    function animateValue(element) {
+        const text = element.textContent;
+        const isPercentage = text.includes('%');
+        const isCurrency = text.includes('€');
+        const isRating = text.includes('/');
+        const isPlus = text.includes('+');
+
+        let targetValue;
+        if (isCurrency) {
+            targetValue = parseFloat(text.replace('M€', ''));
+        } else if (isRating) {
+            targetValue = parseFloat(text.split('/')[0]);
+        } else if (isPlus || isPercentage) {
+            targetValue = parseInt(text);
+        } else {
+            targetValue = parseInt(text);
+        }
+
+        const duration = 2000;
+        const steps = 60;
+        const increment = targetValue / steps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= targetValue) {
+                current = targetValue;
+                clearInterval(timer);
+            }
+
+            if (isCurrency) {
+                element.textContent = current.toFixed(1) + 'M€';
+            } else if (isRating) {
+                element.textContent = current.toFixed(1) + '/5';
+            } else if (isPlus) {
+                element.textContent = Math.floor(current) + 'K+';
+            } else if (isPercentage) {
+                element.textContent = Math.floor(current) + '%';
+            } else {
+                element.textContent = Math.floor(current) + '+';
+            }
+        }, duration / steps);
+    }
+});
+</script>
 
 </body>
 </html>
