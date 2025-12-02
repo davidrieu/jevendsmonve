@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui Sommes-Nous - Je Vends mon VE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+/* CSS Variables */
+:root {
+    --jvme-primary: #44ad76;
+    --jvme-primary-dark: #3a9463;
+    --jvme-primary-light: #5bc088;
+    --jvme-secondary: #338cd7;
+    --jvme-secondary-dark: #2b75b8;
+    --jvme-white: #ffffff;
+    --jvme-gray-50: #f9fafb;
+    --jvme-gray-100: #f3f4f6;
+    --jvme-gray-200: #e5e7eb;
+    --jvme-gray-300: #d1d5db;
+    --jvme-gray-600: #4b5563;
+    --jvme-gray-700: #374151;
+    --jvme-gray-900: #111827;
+
+    --jvme-spacing-2: 0.5rem;
+    --jvme-spacing-3: 0.75rem;
+    --jvme-spacing-4: 1rem;
+    --jvme-spacing-5: 1.5rem;
+    --jvme-spacing-6: 2rem;
+    --jvme-spacing-8: 3rem;
+
+    --jvme-radius-lg: 0.75rem;
+    --jvme-radius-xl: 1rem;
+    --jvme-radius-2xl: 1.5rem;
+    --jvme-radius-full: 9999px;
+
+    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--jvme-gray-900);
+    background: var(--jvme-white);
+    line-height: 1.6;
+}
+
+/* Wrapper pour forcer les styles */
+.jvme-partner-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.jvme-partner-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--jvme-spacing-6);
+}
+
+.jvme-partner-page section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.jvme-partner-page h1,
+.jvme-partner-page h2,
+.jvme-partner-page h3 {
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--jvme-gray-900) !important;
+}
+
+.jvme-partner-page h1 { font-size: 42px !important; margin-bottom: var(--jvme-spacing-5) !important; }
+.jvme-partner-page h2 { font-size: 32px !important; margin-bottom: var(--jvme-spacing-4) !important; }
+.jvme-partner-page h3 { font-size: 22px !important; margin-bottom: var(--jvme-spacing-3) !important; }
+
+.jvme-partner-page p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    color: var(--jvme-gray-600) !important;
+}
+
+.jvme-partner-page .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jvme-spacing-2);
+    padding: 0.75rem 1.75rem;
+    font-size: 16px !important;
+    font-weight: 600;
+    border-radius: var(--jvme-radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: var(--jvme-transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    color: var(--jvme-white);
+    box-shadow: var(--jvme-shadow-lg);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--jvme-shadow-xl);
+}
+
+/* Hero Section */
+.hero-about {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    padding: var(--jvme-spacing-8) 0;
+    border-radius: 24px;
+    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
+    text-align: center;
+}
+
+.hero-about h1 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-about p {
+    font-size: 17px !important;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.jvme-partner-page .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--jvme-spacing-8);
+}
+
+.jvme-partner-page .section-header p {
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+}
+
+/* Story Section */
+.story-section {
+    background: var(--jvme-white);
+}
+
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-content p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    margin-bottom: var(--jvme-spacing-5);
+}
+
+.story-highlight {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
+    border-left: 4px solid var(--jvme-primary);
+    padding: var(--jvme-spacing-5);
+    border-radius: var(--jvme-radius-lg);
+    margin: var(--jvme-spacing-6) 0;
+}
+
+.story-highlight p {
+    font-size: 18px !important;
+    font-weight: 600;
+    color: var(--jvme-gray-900) !important;
+    margin-bottom: 0 !important;
+}
+
+/* Values Section */
+.values-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--jvme-spacing-6);
+}
+
+.value-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    text-align: center;
+    transition: var(--jvme-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--jvme-primary), var(--jvme-secondary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover::before {
+    transform: scaleX(1);
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
+    border-radius: var(--jvme-radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--jvme-spacing-4);
+}
+
+.value-icon i {
+    font-size: 32px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.value-card h3 {
+    font-size: 22px !important;
+    margin-bottom: var(--jvme-spacing-3);
+}
+
+.jvme-partner-page .value-card p {
+    font-size: 16px !important;
+}
+
+/* Founder Section */
+.founder-section {
+    background: var(--jvme-white);
+}
+
+.founder-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--jvme-spacing-8);
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.founder-image {
+    width: 300px;
+    height: 300px;
+    border-radius: var(--jvme-radius-2xl);
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+    font-weight: 700;
+    box-shadow: var(--jvme-shadow-xl);
+    border: 4px solid var(--jvme-white);
+}
+
+.founder-bio h3 {
+    font-size: 28px !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.founder-title {
+    font-size: 17px !important;
+    color: var(--jvme-primary) !important;
+    font-weight: 600;
+    margin-bottom: var(--jvme-spacing-4) !important;
+}
+
+.founder-bio p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+/* Mission Section */
+.mission-section {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--jvme-spacing-6);
+}
+
+.mission-card {
+    background: var(--jvme-white);
+    border: 2px solid var(--jvme-gray-200);
+    border-radius: var(--jvme-radius-2xl);
+    padding: var(--jvme-spacing-6);
+    transition: var(--jvme-transition);
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--jvme-shadow-xl);
+    border-color: var(--jvme-primary);
+}
+
+.mission-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--jvme-spacing-4);
+    margin-bottom: var(--jvme-spacing-4);
+}
+
+.mission-icon-circle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.mission-card h3 {
+    font-size: 22px !important;
+    margin-bottom: 0 !important;
+}
+
+.jvme-partner-page .mission-card p {
+    font-size: 16px !important;
+}
+
+/* Stats Section */
+.stats-bar {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    padding: var(--jvme-spacing-8) 0;
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--jvme-spacing-6);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: var(--jvme-spacing-2);
+    color: white;
+}
+
+.stat-label {
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* CTA Section */
+.cta-final {
+    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(68, 173, 118, 0.15) 0%, transparent 70%);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-final h2 span {
+    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-final p {
+    font-size: 17px !important;
+    margin-bottom: var(--jvme-spacing-6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jvme-partner-page h1 { font-size: 28px !important; }
+    .jvme-partner-page h2 { font-size: 24px !important; }
+    .jvme-partner-page h3 { font-size: 18px !important; }
+    .jvme-partner-page p { font-size: 16px !important; }
+
+    .jvme-partner-page section {
+        padding: 50px 0;
+        margin-bottom: 20px;
+    }
+
+    .founder-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .founder-image {
+        margin: 0 auto;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--jvme-spacing-4);
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.text-center { text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="jvme-partner-page">
+
+<!-- Hero Section -->
+<section class="hero-about">
+    <div class="container">
+        <h1>Qui Sommes-Nous <span>Je Vends mon VE</span></h1>
+        <p>
+            La plateforme française qui révolutionne l'achat et la vente de véhicules électriques entre particuliers et professionnels
+        </p>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section class="story-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Notre Histoire</h2>
+            <p>Une vision née d'une passion pour la mobilité électrique</p>
+        </div>
+
+        <div class="story-content">
+            <p>
+                Tout a commencé en 2021, lorsqu'Eric Villeval, passionné d'innovation et de mobilité durable,
+                a voulu vendre sa première voiture électrique. Face à la complexité du marché et au manque de
+                plateformes spécialisées, il a réalisé qu'il existait un véritable besoin pour une solution
+                dédiée exclusivement aux véhicules électriques.
+            </p>
+
+            <div class="story-highlight">
+                <p>
+                    <i class="fas fa-quote-left" style="color: var(--jvme-primary); margin-right: 10px;"></i>
+                    "Je voulais créer un espace où la communauté VE pourrait se retrouver, échanger et faire
+                    des transactions en toute confiance, avec des outils adaptés aux spécificités de l'électrique."
+                </p>
+            </div>
+
+            <p>
+                C'est ainsi que <strong>Je Vends mon VE</strong> est né : une plateforme pensée par des
+                passionnés, pour des passionnés. Contrairement aux sites généralistes, nous comprenons les
+                enjeux uniques de la mobilité électrique : autonomie réelle, état de la batterie, historique
+                de recharge, compatibilité des bornes...
+            </p>
+
+            <p>
+                Aujourd'hui, nous sommes fiers d'être devenus la référence française pour l'achat et la vente
+                de véhicules électriques, avec une communauté de plus de 25 000 utilisateurs actifs et des
+                centaines de transactions réussies chaque mois.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nos Valeurs</h2>
+            <p>Les principes qui guident chacune de nos actions</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Engagement Écologique</h3>
+                <p>
+                    Nous croyons en un avenir durable. Chaque transaction sur notre plateforme contribue
+                    à accélérer la transition vers une mobilité propre et responsable.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Confiance & Sécurité</h3>
+                <p>
+                    La sécurité de nos utilisateurs est notre priorité absolue. Vérification des profils,
+                    paiement sécurisé et support dédié pour chaque transaction.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Communauté</h3>
+                <p>
+                    Plus qu'une plateforme, nous sommes une communauté de passionnés qui partagent
+                    connaissances, expériences et conseils sur l'électrique.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>
+                    Nous innovons constamment pour offrir la meilleure expérience : outils d'estimation,
+                    comparateurs, alertes personnalisées et bien plus encore.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Founder Section -->
+<section class="founder-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Notre Fondateur</h2>
+            <p>L'homme derrière la vision</p>
+        </div>
+
+        <div class="founder-content">
+            <div class="founder-image">
+                EV
+            </div>
+
+            <div class="founder-bio">
+                <h3>Eric Villeval</h3>
+                <p class="founder-title">Fondateur & CEO</p>
+                <p>
+                    Entrepreneur passionné par l'innovation et la mobilité durable, Eric Villeval a fondé
+                    Je Vends mon VE avec une vision claire : démocratiser l'accès aux véhicules électriques
+                    en créant un écosystème de confiance.
+                </p>
+                <p>
+                    Fort de plus de 15 ans d'expérience dans le secteur automobile et les technologies
+                    digitales, Eric a su allier son expertise technique à sa passion pour l'environnement
+                    pour créer une plateforme qui répond aux vrais besoins des utilisateurs.
+                </p>
+                <p>
+                    "Mon objectif est simple : faire en sorte que chaque Français puisse acheter ou vendre
+                    son véhicule électrique aussi facilement qu'un objet du quotidien, tout en ayant
+                    l'assurance d'une transaction sécurisée et équitable."
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">25K+</div>
+                <div class="stat-label">Utilisateurs Actifs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Transactions Réussies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Client</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Partenaires Pro</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Notre Mission</h2>
+            <p>Ce qui nous anime au quotidien</p>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-card-header">
+                    <div class="mission-icon-circle">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Accélérer la Transition</h3>
+                </div>
+                <p>
+                    Faciliter l'accès aux véhicules électriques pour tous en créant un marché transparent,
+                    fluide et sécurisé. Chaque voiture électrique de plus sur les routes est une victoire
+                    pour la planète.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-card-header">
+                    <div class="mission-icon-circle">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Créer de la Confiance</h3>
+                </div>
+                <p>
+                    Établir un standard de qualité et de transparence dans les transactions de véhicules
+                    électriques. Vérifications rigoureuses, informations complètes et support personnalisé.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-card-header">
+                    <div class="mission-icon-circle">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Éduquer & Informer</h3>
+                </div>
+                <p>
+                    Démystifier l'électrique en partageant connaissances et expertise. Guides, comparatifs,
+                    conseils d'entretien : nous accompagnons chaque utilisateur dans son parcours électrique.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-card-header">
+                    <div class="mission-icon-circle">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Innover sans Cesse</h3>
+                </div>
+                <p>
+                    Rester à la pointe de la technologie pour offrir la meilleure expérience utilisateur.
+                    IA pour l'estimation, outils de comparaison avancés, marketplace intelligente...
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-final">
+    <div class="cta-glow"></div>
+    <div class="container">
+        <div class="cta-content">
+            <h2>Rejoignez l'<span>Aventure Électrique</span></h2>
+            <p>
+                Faites partie de la communauté qui transforme la mobilité française
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-plus-circle"></i>
+                <span>Commencer Maintenant</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+</div>
+<!-- Fin .jvme-partner-page -->
+
+</body>
+</html>
