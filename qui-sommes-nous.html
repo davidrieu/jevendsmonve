@@ -151,6 +151,23 @@ body {
 /* Story Section */
 .story-section {
     background: var(--jvme-white);
+    position: relative;
+}
+
+.story-image {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto var(--jvme-spacing-8);
+    border-radius: var(--jvme-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--jvme-shadow-xl);
+    border: 3px solid var(--jvme-gray-200);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .story-content {
@@ -186,7 +203,7 @@ body {
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--jvme-spacing-6);
 }
 
@@ -218,9 +235,17 @@ body {
 }
 
 .value-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--jvme-shadow-xl);
     border-color: var(--jvme-primary);
+}
+
+.value-card:hover .value-icon {
+    transform: rotateY(360deg);
+}
+
+.value-card:hover .value-icon i {
+    transform: scale(1.2);
 }
 
 .value-icon {
@@ -234,11 +259,16 @@ body {
     margin: 0 auto var(--jvme-spacing-4);
 }
 
+.value-icon {
+    transition: transform 0.6s ease;
+}
+
 .value-icon i {
     font-size: 32px;
     background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
 }
 
 .value-card h3 {
@@ -277,6 +307,30 @@ body {
     font-weight: 700;
     box-shadow: var(--jvme-shadow-xl);
     border: 4px solid var(--jvme-white);
+    position: relative;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+.founder-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .founder-bio h3 {
@@ -300,6 +354,25 @@ body {
 /* Mission Section */
 .mission-section {
     background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+    position: relative;
+}
+
+.mission-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url('https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.mission-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .mission-grid {
@@ -317,9 +390,13 @@ body {
 }
 
 .mission-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: var(--jvme-shadow-xl);
     border-color: var(--jvme-primary);
+}
+
+.mission-card:hover .mission-icon-circle {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .mission-card-header {
@@ -340,6 +417,7 @@ body {
     color: white;
     font-size: 24px;
     flex-shrink: 0;
+    transition: transform 0.5s ease;
 }
 
 .mission-card h3 {
@@ -373,6 +451,12 @@ body {
     font-weight: 700;
     margin-bottom: var(--jvme-spacing-2);
     color: white;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .stat-label {
@@ -455,6 +539,10 @@ body {
     .values-grid {
         grid-template-columns: 1fr;
     }
+
+    .story-image {
+        margin-bottom: var(--jvme-spacing-6);
+    }
 }
 
 .text-center { text-align: center; }
@@ -467,7 +555,7 @@ body {
 <!-- Hero Section -->
 <section class="hero-about">
     <div class="container">
-        <h1>Qui Sommes-Nous <span>Je Vends mon VE</span></h1>
+        <h1>Qui sommes nous ?</h1>
         <p>
             La plateforme française qui révolutionne l'achat et la vente de véhicules électriques entre particuliers et professionnels
         </p>
@@ -480,6 +568,10 @@ body {
         <div class="section-header">
             <h2>Notre Histoire</h2>
             <p>Une vision née d'une passion pour la mobilité électrique</p>
+        </div>
+
+        <div class="story-image">
+            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Mobilité électrique">
         </div>
 
         <div class="story-content">
@@ -632,6 +724,7 @@ body {
 
 <!-- Mission Section -->
 <section class="mission-section">
+    <div class="mission-bg-image"></div>
     <div class="container">
         <div class="section-header">
             <h2>Notre Mission</h2>
