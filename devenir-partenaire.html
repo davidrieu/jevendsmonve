@@ -63,16 +63,28 @@
 
 html {
     scroll-behavior: smooth;
+    background: #080e1f !important;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif !important;
+    background: #080e1f !important;
+    color: #ffffff !important;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force le fond sombre même si WordPress essaie de le remplacer */
+#jvme-glassmorphism-page {
+    background: #080e1f !important;
+    min-height: 100vh;
+    position: relative;
+}
+
+#jvme-glassmorphism-page * {
+    box-sizing: border-box;
 }
 
 /* ============================================
@@ -103,7 +115,7 @@ body::before {
 }
 
 /* Particules flottantes */
-.particles {
+#jvme-glassmorphism-page .particles {
     position: fixed;
     top: 0;
     left: 0;
@@ -114,7 +126,7 @@ body::before {
     z-index: 0;
 }
 
-.particle {
+#jvme-glassmorphism-page .particle {
     position: absolute;
     width: 3px;
     height: 3px;
@@ -125,12 +137,12 @@ body::before {
     animation: particleFloat 25s linear infinite;
 }
 
-.particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; }
-.particle:nth-child(2) { left: 25%; animation-duration: 25s; animation-delay: 3s; background: var(--accent-green); }
-.particle:nth-child(3) { left: 40%; animation-duration: 22s; animation-delay: 6s; }
-.particle:nth-child(4) { left: 55%; animation-duration: 28s; animation-delay: 2s; background: var(--accent-green); }
-.particle:nth-child(5) { left: 70%; animation-duration: 24s; animation-delay: 8s; }
-.particle:nth-child(6) { left: 85%; animation-duration: 26s; animation-delay: 4s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; }
+#jvme-glassmorphism-page .particle:nth-child(2) { left: 25%; animation-duration: 25s; animation-delay: 3s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(3) { left: 40%; animation-duration: 22s; animation-delay: 6s; }
+#jvme-glassmorphism-page .particle:nth-child(4) { left: 55%; animation-duration: 28s; animation-delay: 2s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(5) { left: 70%; animation-duration: 24s; animation-delay: 8s; }
+#jvme-glassmorphism-page .particle:nth-child(6) { left: 85%; animation-duration: 26s; animation-delay: 4s; background: var(--accent-green); }
 
 @keyframes particleFloat {
     0% {
@@ -170,7 +182,7 @@ body::after {
    LAYOUT
    ============================================ */
 
-.container {
+#jvme-glassmorphism-page .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-lg);
@@ -178,48 +190,65 @@ body::after {
     z-index: 1;
 }
 
-section {
+#jvme-glassmorphism-page section {
     padding: var(--space-3xl) 0;
     position: relative;
     z-index: 1;
+    background: transparent !important;
+}
+
+/* Force tous les éléments à hériter du fond sombre */
+#jvme-glassmorphism-page,
+#jvme-glassmorphism-page .hero-section,
+#jvme-glassmorphism-page .stats-section,
+#jvme-glassmorphism-page .benefits-section,
+#jvme-glassmorphism-page .process-section,
+#jvme-glassmorphism-page .testimonial-section,
+#jvme-glassmorphism-page .cta-section {
+    background: #080e1f !important;
 }
 
 /* ============================================
    TYPOGRAPHY
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+#jvme-glassmorphism-page h1,
+#jvme-glassmorphism-page h2,
+#jvme-glassmorphism-page h3,
+#jvme-glassmorphism-page h4,
+#jvme-glassmorphism-page h5,
+#jvme-glassmorphism-page h6 {
+    font-weight: 700 !important;
     line-height: 1.2;
-    color: var(--text-white);
+    color: #ffffff !important;
     margin-bottom: var(--space-md);
 }
 
-h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+#jvme-glassmorphism-page h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
     letter-spacing: -0.02em;
 }
 
-h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+#jvme-glassmorphism-page h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
     letter-spacing: -0.01em;
 }
 
-h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+#jvme-glassmorphism-page h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
 }
 
-h4 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+#jvme-glassmorphism-page h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
 }
 
-p {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
+#jvme-glassmorphism-page p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem) !important;
     line-height: 1.8;
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.text-gradient {
+#jvme-glassmorphism-page .text-gradient {
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -231,7 +260,7 @@ p {
    GLASS CARD SYSTEM
    ============================================ */
 
-.glass-card {
+#jvme-glassmorphism-page .glass-card {
     background: var(--glass-white-5);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -270,7 +299,7 @@ p {
    BUTTONS
    ============================================ */
 
-.btn {
+#jvme-glassmorphism-page .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -288,13 +317,13 @@ p {
     white-space: nowrap;
 }
 
-.btn-primary {
+#jvme-glassmorphism-page .btn-primary {
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
     color: white;
     box-shadow: 0 10px 30px rgba(81, 176, 247, 0.25);
 }
 
-.btn-primary::before {
+#jvme-glassmorphism-page .btn-primary::before {
     content: '';
     position: absolute;
     top: 0;
@@ -305,23 +334,23 @@ p {
     transition: left 0.6s ease;
 }
 
-.btn-primary:hover {
+#jvme-glassmorphism-page .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(81, 176, 247, 0.4);
 }
 
-.btn-primary:hover::before {
+#jvme-glassmorphism-page .btn-primary:hover::before {
     left: 100%;
 }
 
-.btn-secondary {
+#jvme-glassmorphism-page .btn-secondary {
     background: var(--glass-white-8);
     backdrop-filter: blur(10px);
     border: 2px solid var(--glass-border);
     color: white;
 }
 
-.btn-secondary:hover {
+#jvme-glassmorphism-page .btn-secondary:hover {
     background: var(--glass-white-15);
     border-color: var(--accent-blue);
     transform: translateY(-3px);
@@ -332,7 +361,7 @@ p {
    BADGE
    ============================================ */
 
-.badge {
+#jvme-glassmorphism-page .badge {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
@@ -354,21 +383,21 @@ p {
    HERO SECTION
    ============================================ */
 
-.hero-section {
+#jvme-glassmorphism-page .hero-section {
     min-height: 85vh;
     display: flex;
     align-items: center;
     padding: var(--space-2xl) 0;
 }
 
-.hero-grid {
+#jvme-glassmorphism-page .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: var(--space-2xl);
     align-items: center;
 }
 
-.hero-content {
+#jvme-glassmorphism-page .hero-content {
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -394,7 +423,7 @@ p {
 }
 
 /* EV Card Showcase */
-.ev-showcase {
+#jvme-glassmorphism-page .ev-showcase {
     position: relative;
     height: 550px;
     animation: fadeInRight 0.8s ease-out 0.2s both;
@@ -411,7 +440,7 @@ p {
     }
 }
 
-.ev-card {
+#jvme-glassmorphism-page .ev-card {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -437,7 +466,7 @@ p {
     }
 }
 
-.ev-icon {
+#jvme-glassmorphism-page .ev-icon {
     font-size: 10rem;
     margin-bottom: var(--space-xl);
     filter: drop-shadow(0 15px 35px rgba(81, 176, 247, 0.4));
@@ -453,13 +482,13 @@ p {
     }
 }
 
-.charging-bars {
+#jvme-glassmorphism-page .charging-bars {
     display: flex;
     gap: var(--space-sm);
     margin-bottom: var(--space-xl);
 }
 
-.charge-bar {
+#jvme-glassmorphism-page .charge-bar {
     width: 60px;
     height: 12px;
     background: var(--glass-white-10);
@@ -468,17 +497,17 @@ p {
     border: 1px solid var(--glass-border);
 }
 
-.charge-fill {
+#jvme-glassmorphism-page .charge-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
     border-radius: var(--radius-full);
     animation: chargePulse 2s ease-in-out infinite;
 }
 
-.charge-bar:nth-child(1) .charge-fill { width: 100%; animation-delay: 0s; }
-.charge-bar:nth-child(2) .charge-fill { width: 85%; animation-delay: 0.2s; }
-.charge-bar:nth-child(3) .charge-fill { width: 65%; animation-delay: 0.4s; }
-.charge-bar:nth-child(4) .charge-fill { width: 45%; animation-delay: 0.6s; }
+#jvme-glassmorphism-page .charge-bar:nth-child(1) .charge-fill { width: 100%; animation-delay: 0s; }
+#jvme-glassmorphism-page .charge-bar:nth-child(2) .charge-fill { width: 85%; animation-delay: 0.2s; }
+#jvme-glassmorphism-page .charge-bar:nth-child(3) .charge-fill { width: 65%; animation-delay: 0.4s; }
+#jvme-glassmorphism-page .charge-bar:nth-child(4) .charge-fill { width: 45%; animation-delay: 0.6s; }
 
 @keyframes chargePulse {
     0%, 100% {
@@ -491,14 +520,14 @@ p {
     }
 }
 
-.ev-stats {
+#jvme-glassmorphism-page .ev-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
     width: 100%;
 }
 
-.ev-stat {
+#jvme-glassmorphism-page .ev-stat {
     text-align: center;
     padding: var(--space-md);
     background: var(--glass-white-5);
@@ -506,7 +535,7 @@ p {
     border-radius: var(--radius-md);
 }
 
-.ev-stat-value {
+#jvme-glassmorphism-page .ev-stat-value {
     font-size: 2.25rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
@@ -516,7 +545,7 @@ p {
     margin-bottom: var(--space-xs);
 }
 
-.ev-stat-label {
+#jvme-glassmorphism-page .ev-stat-label {
     font-size: 0.875rem;
     color: var(--text-gray);
 }
@@ -525,7 +554,7 @@ p {
    SEPARATOR
    ============================================ */
 
-.separator {
+#jvme-glassmorphism-page .separator {
     height: 120px;
     display: flex;
     align-items: center;
@@ -534,7 +563,7 @@ p {
     overflow: hidden;
 }
 
-.separator-line {
+#jvme-glassmorphism-page .separator-line {
     width: 100%;
     max-width: 1200px;
     height: 1px;
@@ -549,7 +578,7 @@ p {
     position: relative;
 }
 
-.separator-glow {
+#jvme-glassmorphism-page .separator-glow {
     position: absolute;
     width: 150px;
     height: 150px;
@@ -577,7 +606,7 @@ p {
    SECTION HEADER
    ============================================ */
 
-.section-header {
+#jvme-glassmorphism-page .section-header {
     text-align: center;
     max-width: 800px;
     margin: 0 auto var(--space-2xl);
@@ -595,13 +624,13 @@ p {
    STATS SECTION
    ============================================ */
 
-.stats-grid {
+#jvme-glassmorphism-page .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
 }
 
-.stat-card {
+#jvme-glassmorphism-page .stat-card {
     text-align: center;
     padding: var(--space-xl);
     background: var(--glass-white-5);
@@ -612,7 +641,7 @@ p {
     position: relative;
 }
 
-.stat-card::after {
+#jvme-glassmorphism-page .stat-card::after {
     content: '';
     position: absolute;
     inset: -1px;
@@ -628,17 +657,17 @@ p {
     transition: opacity 0.4s ease;
 }
 
-.stat-card:hover {
+#jvme-glassmorphism-page .stat-card:hover {
     transform: translateY(-12px) scale(1.02);
     background: var(--glass-white-8);
     box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
 }
 
-.stat-card:hover::after {
+#jvme-glassmorphism-page .stat-card:hover::after {
     opacity: 1;
 }
 
-.stat-icon {
+#jvme-glassmorphism-page .stat-icon {
     width: 90px;
     height: 90px;
     margin: 0 auto var(--space-lg);
@@ -652,7 +681,7 @@ p {
     transition: transform 0.4s ease;
 }
 
-.stat-card:hover .stat-icon {
+#jvme-glassmorphism-page .stat-card:hover .stat-icon {
     transform: scale(1.1) rotateY(10deg);
 }
 
@@ -662,7 +691,7 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
-.stat-number {
+#jvme-glassmorphism-page .stat-number {
     font-size: 3.5rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
@@ -672,7 +701,7 @@ p {
     margin-bottom: var(--space-sm);
 }
 
-.stat-label {
+#jvme-glassmorphism-page .stat-label {
     font-size: 1rem;
     color: var(--text-gray);
 }
@@ -681,13 +710,13 @@ p {
    BENEFITS SECTION
    ============================================ */
 
-.benefits-grid {
+#jvme-glassmorphism-page .benefits-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
 }
 
-.benefit-card {
+#jvme-glassmorphism-page .benefit-card {
     padding: var(--space-xl);
     background: var(--glass-white-5);
     backdrop-filter: blur(20px);
@@ -698,7 +727,7 @@ p {
     overflow: hidden;
 }
 
-.benefit-card::before {
+#jvme-glassmorphism-page .benefit-card::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -711,18 +740,18 @@ p {
     pointer-events: none;
 }
 
-.benefit-card:hover::before {
+#jvme-glassmorphism-page .benefit-card:hover::before {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.benefit-card:hover {
+#jvme-glassmorphism-page .benefit-card:hover {
     transform: translateY(-12px);
     background: var(--glass-white-8);
     border-color: rgba(81, 176, 247, 0.3);
     box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
 }
 
-.benefit-icon {
+#jvme-glassmorphism-page .benefit-icon {
     width: 90px;
     height: 90px;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
@@ -737,7 +766,7 @@ p {
     transition: transform 0.4s ease;
 }
 
-.benefit-card:hover .benefit-icon {
+#jvme-glassmorphism-page .benefit-card:hover .benefit-icon {
     transform: scale(1.1) rotateZ(5deg);
 }
 
@@ -755,13 +784,13 @@ p {
    PROCESS SECTION
    ============================================ */
 
-.process-timeline {
+#jvme-glassmorphism-page .process-timeline {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
 }
 
-.process-timeline::before {
+#jvme-glassmorphism-page .process-timeline::before {
     content: '';
     position: absolute;
     left: 45px;
@@ -777,18 +806,18 @@ p {
     opacity: 0.4;
 }
 
-.process-step {
+#jvme-glassmorphism-page .process-step {
     display: flex;
     gap: var(--space-xl);
     margin-bottom: var(--space-2xl);
     position: relative;
 }
 
-.process-step:last-child {
+#jvme-glassmorphism-page .process-step:last-child {
     margin-bottom: 0;
 }
 
-.step-number {
+#jvme-glassmorphism-page .step-number {
     flex-shrink: 0;
     width: 90px;
     height: 90px;
@@ -806,10 +835,10 @@ p {
     animation: stepPulse 3s ease-in-out infinite;
 }
 
-.process-step:nth-child(1) .step-number { animation-delay: 0s; }
-.process-step:nth-child(2) .step-number { animation-delay: 0.75s; }
-.process-step:nth-child(3) .step-number { animation-delay: 1.5s; }
-.process-step:nth-child(4) .step-number { animation-delay: 2.25s; }
+#jvme-glassmorphism-page .process-step:nth-child(1) .step-number { animation-delay: 0s; }
+#jvme-glassmorphism-page .process-step:nth-child(2) .step-number { animation-delay: 0.75s; }
+#jvme-glassmorphism-page .process-step:nth-child(3) .step-number { animation-delay: 1.5s; }
+#jvme-glassmorphism-page .process-step:nth-child(4) .step-number { animation-delay: 2.25s; }
 
 @keyframes stepPulse {
     0%, 100% {
@@ -822,7 +851,7 @@ p {
     }
 }
 
-.step-content {
+#jvme-glassmorphism-page .step-content {
     flex: 1;
     padding: var(--space-xl);
     background: var(--glass-white-5);
@@ -832,13 +861,13 @@ p {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.step-content:hover {
+#jvme-glassmorphism-page .step-content:hover {
     background: var(--glass-white-8);
     transform: translateX(15px);
     box-shadow: var(--shadow-md);
 }
 
-.step-icon {
+#jvme-glassmorphism-page .step-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -870,7 +899,7 @@ p {
    TESTIMONIAL SECTION
    ============================================ */
 
-.testimonial-card {
+#jvme-glassmorphism-page .testimonial-card {
     max-width: 900px;
     margin: 0 auto;
     padding: var(--space-2xl);
@@ -883,7 +912,7 @@ p {
     box-shadow: var(--shadow-md);
 }
 
-.quote-icon {
+#jvme-glassmorphism-page .quote-icon {
     font-size: 5rem;
     opacity: 0.15;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
@@ -894,7 +923,7 @@ p {
     left: 40px;
 }
 
-.testimonial-text {
+#jvme-glassmorphism-page .testimonial-text {
     font-size: 1.375rem;
     line-height: 1.9;
     font-style: italic;
@@ -904,14 +933,14 @@ p {
     position: relative;
 }
 
-.testimonial-author {
+#jvme-glassmorphism-page .testimonial-author {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-md);
 }
 
-.author-avatar {
+#jvme-glassmorphism-page .author-avatar {
     width: 80px;
     height: 80px;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
@@ -926,7 +955,7 @@ p {
     flex-shrink: 0;
 }
 
-.author-info {
+#jvme-glassmorphism-page .author-info {
     text-align: left;
 }
 
@@ -944,14 +973,14 @@ p {
    CTA SECTION
    ============================================ */
 
-.cta-section {
+#jvme-glassmorphism-page .cta-section {
     position: relative;
     padding: var(--space-3xl) 0;
     text-align: center;
     overflow: hidden;
 }
 
-.cta-glow {
+#jvme-glassmorphism-page .cta-glow {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -974,7 +1003,7 @@ p {
     }
 }
 
-.cta-content {
+#jvme-glassmorphism-page .cta-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -992,7 +1021,7 @@ p {
     color: var(--text-gray);
 }
 
-.cta-buttons {
+#jvme-glassmorphism-page .cta-buttons {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
@@ -1086,7 +1115,7 @@ p {
         align-items: stretch;
     }
 
-    .btn {
+    #jvme-glassmorphism-page .btn {
         width: 100%;
     }
 
@@ -1112,7 +1141,7 @@ p {
 }
 
 @media (max-width: 480px) {
-    .separator {
+    #jvme-glassmorphism-page .separator {
         height: 80px;
     }
 
@@ -1135,6 +1164,9 @@ p {
     </style>
 </head>
 <body>
+
+<!-- Wrapper pour isoler le design glassmorphism et surcharger WordPress -->
+<div id="jvme-glassmorphism-page">
 
 <!-- Particules d'arrière-plan -->
 <div class="particles">
@@ -1500,6 +1532,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+</div>
+<!-- Fin wrapper glassmorphism -->
 
 </body>
 </html>
