@@ -70,7 +70,101 @@ body {
 
 .jvme-partner-page section {
     padding: 80px 0;
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+/* Section Backgrounds */
+.section-white {
+    background: var(--jvme-white);
+}
+
+.section-light {
+    background: linear-gradient(135deg, rgba(33, 41, 92, 0.02), rgba(27, 59, 111, 0.02));
+}
+
+/* Electric Separator */
+.electric-separator {
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, transparent, rgba(6, 90, 130, 0.1), transparent);
+}
+
+.separator-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--jvme-tertiary), transparent);
+    position: relative;
+}
+
+.electric-bolt {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: boltPulse 2s ease-in-out infinite;
+}
+
+.electric-bolt svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px rgba(6, 90, 130, 0.6));
+}
+
+.electric-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--jvme-tertiary);
+    border-radius: 50%;
+    opacity: 0;
+    animation: dotFlow 3s linear infinite;
+}
+
+.dot:nth-child(1) { left: 10%; animation-delay: 0s; }
+.dot:nth-child(2) { left: 25%; animation-delay: 0.5s; }
+.dot:nth-child(3) { left: 40%; animation-delay: 1s; }
+.dot:nth-child(4) { left: 60%; animation-delay: 1.5s; }
+.dot:nth-child(5) { left: 75%; animation-delay: 2s; }
+.dot:nth-child(6) { left: 90%; animation-delay: 2.5s; }
+
+@keyframes boltPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes dotFlow {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
 }
 
 .jvme-partner-page h1,
@@ -564,7 +658,25 @@ body {
 </section>
 
 <!-- Story Section -->
-<section class="story-section">
+<!-- Electric Separator -->
+<div class="electric-separator">
+    <div class="separator-line"></div>
+    <div class="electric-bolt">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="electric-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<section class="story-section section-white">
     <div class="container">
         <div class="section-header">
             <h2>Notre Histoire</h2>
@@ -608,7 +720,25 @@ body {
 </section>
 
 <!-- Values Section -->
-<section class="values-section">
+<!-- Electric Separator -->
+<div class="electric-separator">
+    <div class="separator-line"></div>
+    <div class="electric-bolt">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="electric-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<section class="values-section section-light">
     <div class="container">
         <div class="section-header">
             <h2>Nos Valeurs</h2>
@@ -664,7 +794,25 @@ body {
 </section>
 
 <!-- Founder Section -->
-<section class="founder-section">
+<!-- Electric Separator -->
+<div class="electric-separator">
+    <div class="separator-line"></div>
+    <div class="electric-bolt">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="electric-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<section class="founder-section section-white">
     <div class="container">
         <div class="section-header">
             <h2>Notre Fondateur</h2>
@@ -724,7 +872,25 @@ body {
 </section>
 
 <!-- Mission Section -->
-<section class="mission-section">
+<!-- Electric Separator -->
+<div class="electric-separator">
+    <div class="separator-line"></div>
+    <div class="electric-bolt">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="electric-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<section class="mission-section section-white">
     <div class="mission-bg-image"></div>
     <div class="container">
         <div class="section-header">
@@ -790,7 +956,25 @@ body {
 </section>
 
 <!-- CTA Final -->
-<section class="cta-final">
+<!-- Electric Separator -->
+<div class="electric-separator">
+    <div class="separator-line"></div>
+    <div class="electric-bolt">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="electric-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<section class="cta-final section-light">
     <div class="cta-glow"></div>
     <div class="container">
         <div class="cta-content">
