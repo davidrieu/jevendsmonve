@@ -167,6 +167,86 @@ body {
     }
 }
 
+/* Circuit Line Separator */
+.circuit-separator {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(90deg, transparent, rgba(6, 90, 130, 0.03), transparent);
+}
+
+.circuit-line {
+    width: 100%;
+    max-width: 1200px;
+    height: 2px;
+    background: var(--jvme-gray-200);
+    position: relative;
+}
+
+.circuit-node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--jvme-tertiary);
+    border: 2px solid var(--jvme-white);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 12px rgba(6, 90, 130, 0.8);
+}
+
+.circuit-node:nth-child(1) { left: 25%; animation: nodePulse 2s ease-in-out infinite; }
+.circuit-node:nth-child(2) { left: 50%; animation: nodePulse 2s ease-in-out infinite 0.3s; }
+.circuit-node:nth-child(3) { left: 75%; animation: nodePulse 2s ease-in-out infinite 0.6s; }
+
+@keyframes nodePulse {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 12px rgba(6, 90, 130, 0.8);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.4);
+        box-shadow: 0 0 20px rgba(6, 90, 130, 1);
+    }
+}
+
+/* Gradient Dot Separator */
+.gradient-separator {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gradient-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--jvme-tertiary);
+    animation: dotBounce 1.5s ease-in-out infinite;
+}
+
+.gradient-dot:nth-child(1) { animation-delay: 0s; }
+.gradient-dot:nth-child(2) { animation-delay: 0.2s; }
+.gradient-dot:nth-child(3) { animation-delay: 0.4s; }
+.gradient-dot:nth-child(4) { animation-delay: 0.6s; }
+.gradient-dot:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes dotBounce {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
 .jvme-partner-page h1,
 .jvme-partner-page h2,
 .jvme-partner-page h3 {
@@ -664,22 +744,13 @@ body {
 </section>
 
 <!-- Tabs Section -->
-<!-- Electric Separator -->
-<div class="electric-separator">
-    <div class="separator-line"></div>
-    <div class="electric-bolt">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="electric-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
+<!-- Gradient Dot Separator -->
+<div class="gradient-separator">
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
 </div>
 
 <section class="tabs-section section-white">
@@ -962,24 +1033,6 @@ body {
 </section>
 
 <!-- FAQ Section -->
-<!-- Electric Separator -->
-<div class="electric-separator">
-    <div class="separator-line"></div>
-    <div class="electric-bolt">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="electric-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
-</div>
-
 <section class="faq-section section-light">
     <div class="container">
         <div class="section-header">
@@ -1064,21 +1117,12 @@ body {
 </section>
 
 <!-- CTA Final -->
-<!-- Electric Separator -->
-<div class="electric-separator">
-    <div class="separator-line"></div>
-    <div class="electric-bolt">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="electric-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+<!-- Circuit Line Separator -->
+<div class="circuit-separator">
+    <div class="circuit-line">
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
     </div>
 </div>
 

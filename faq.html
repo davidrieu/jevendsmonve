@@ -167,6 +167,40 @@ body {
     }
 }
 
+/* Gradient Dot Separator */
+.gradient-separator {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.gradient-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--jvme-tertiary);
+    animation: dotBounce 1.5s ease-in-out infinite;
+}
+
+.gradient-dot:nth-child(1) { animation-delay: 0s; }
+.gradient-dot:nth-child(2) { animation-delay: 0.2s; }
+.gradient-dot:nth-child(3) { animation-delay: 0.4s; }
+.gradient-dot:nth-child(4) { animation-delay: 0.6s; }
+.gradient-dot:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes dotBounce {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
 .jvme-partner-page h1,
 .jvme-partner-page h2,
 .jvme-partner-page h3 {
@@ -1241,22 +1275,13 @@ body {
 </section>
 
 <!-- CTA Section -->
-<!-- Electric Separator -->
-<div class="electric-separator">
-    <div class="separator-line"></div>
-    <div class="electric-bolt">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="electric-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
+<!-- Gradient Dot Separator -->
+<div class="gradient-separator">
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
+    <div class="gradient-dot"></div>
 </div>
 
 <section class="cta-section section-light">
