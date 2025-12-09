@@ -5,44 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Je Vends mon VE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
     <style>
-/* CSS Variables */
+/* ============================================
+   GLASSMORPHISM 2025 - DESIGN SYSTEM
+   ============================================ */
+
 :root {
-    --jvme-primary: #21295c;
-    --jvme-primary-dark: #1a2149;
-    --jvme-primary-light: #2d3470;
-    --jvme-secondary: #1b3b6f;
-    --jvme-secondary-dark: #152f5a;
-    --jvme-tertiary: #065a82;
-    --jvme-white: #ffffff;
-    --jvme-gray-50: #f9fafb;
-    --jvme-gray-100: #f3f4f6;
-    --jvme-gray-200: #e5e7eb;
-    --jvme-gray-300: #d1d5db;
-    --jvme-gray-600: #4b5563;
-    --jvme-gray-700: #374151;
-    --jvme-gray-900: #111827;
+    /* Couleurs */
+    --bg-primary: #080e1f;
+    --text-white: #ffffff;
+    --text-gray: rgba(255, 255, 255, 0.7);
+    --accent-blue: #51b0f7;
+    --accent-green: #33d4a1;
 
-    --jvme-spacing-2: 0.5rem;
-    --jvme-spacing-3: 0.75rem;
-    --jvme-spacing-4: 1rem;
-    --jvme-spacing-5: 1.5rem;
-    --jvme-spacing-6: 2rem;
-    --jvme-spacing-8: 3rem;
+    /* Glassmorphism */
+    --glass-white-5: rgba(255, 255, 255, 0.05);
+    --glass-white-8: rgba(255, 255, 255, 0.08);
+    --glass-white-10: rgba(255, 255, 255, 0.10);
+    --glass-white-15: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-strong: rgba(255, 255, 255, 0.2);
 
-    --jvme-radius-lg: 0.75rem;
-    --jvme-radius-xl: 1rem;
-    --jvme-radius-2xl: 1.5rem;
-    --jvme-radius-full: 9999px;
+    /* Ombres */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --shadow-glow-blue: 0 0 40px rgba(81, 176, 247, 0.15);
+    --shadow-glow-green: 0 0 40px rgba(51, 212, 161, 0.15);
 
-    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
 
-    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-2xl: 2.5rem;
+    --radius-full: 9999px;
 }
+
+/* ============================================
+   RESET & BASE - ULTRA ROBUSTE
+   ============================================ */
 
 * {
     margin: 0;
@@ -50,1256 +61,1341 @@
     box-sizing: border-box;
 }
 
+/* Force le fond PARTOUT - même sur les wrappers WordPress */
+html,
+body,
+#page,
+#content,
+.site,
+.site-content,
+main,
+article,
+.entry-content,
+.page-content,
+#primary,
+#main,
+.content-area {
+    background: #080e1f !important;
+    background-color: #080e1f !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--jvme-gray-900);
-    background: var(--jvme-white);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif !important;
+    color: #ffffff !important;
     line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Wrapper pour forcer les styles */
-.jvme-partner-page {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-}
-
-.jvme-partner-page .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--jvme-spacing-6);
-}
-
-.jvme-partner-page section {
-    padding: 80px 0;
-    margin-bottom: 0;
-    position: relative;
-}
-
-/* Section Backgrounds */
-.section-white {
-    background: var(--jvme-white);
-}
-
-.section-light {
-    background: linear-gradient(135deg, rgba(33, 41, 92, 0.02), rgba(27, 59, 111, 0.02));
-}
-
-/* Electric Separator */
-.electric-separator {
-    position: relative;
-    height: 80px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(90deg, transparent, rgba(6, 90, 130, 0.1), transparent);
-}
-
-.separator-line {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--jvme-tertiary), transparent);
-    position: relative;
-}
-
-.electric-bolt {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: boltPulse 2s ease-in-out infinite;
-}
-
-.electric-bolt svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 8px rgba(6, 90, 130, 0.6));
-}
-
-.electric-dots {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+/* Fond fixe en arrière-plan - couche de sécurité */
+#jvme-glassmorphism-page::after {
+    content: '';
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    background: #080e1f !important;
+    z-index: -2 !important;
+    pointer-events: none;
 }
 
-.dot {
+/* Force le fond sombre même si WordPress essaie de le remplacer */
+#jvme-glassmorphism-page {
+    background: #080e1f !important;
+    background-color: #080e1f !important;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+}
+
+#jvme-glassmorphism-page * {
+    box-sizing: border-box;
+}
+
+/* Annule TOUS les backgrounds blancs possibles */
+#jvme-glassmorphism-page div:not(.glass-card):not(.faq-card):not(.category-card),
+#jvme-glassmorphism-page section,
+#jvme-glassmorphism-page main,
+#jvme-glassmorphism-page article {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ============================================
+   BACKGROUND EFFECTS
+   ============================================ */
+
+/* Gradient animé en arrière-plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(81, 176, 247, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(51, 212, 161, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(81, 176, 247, 0.05) 0%, transparent 50%);
+    animation: bgFloat 30s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes bgFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -2%) rotate(1deg); }
+    66% { transform: translate(-2%, 2%) rotate(-1deg); }
+}
+
+/* Particules flottantes */
+#jvme-glassmorphism-page .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#jvme-glassmorphism-page .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--jvme-tertiary);
+    width: 3px;
+    height: 3px;
+    background: var(--accent-blue);
     border-radius: 50%;
     opacity: 0;
-    animation: dotFlow 3s linear infinite;
+    box-shadow: 0 0 10px currentColor;
+    animation: particleFloat 25s linear infinite;
 }
 
-.dot:nth-child(1) { left: 10%; animation-delay: 0s; }
-.dot:nth-child(2) { left: 25%; animation-delay: 0.5s; }
-.dot:nth-child(3) { left: 40%; animation-delay: 1s; }
-.dot:nth-child(4) { left: 60%; animation-delay: 1.5s; }
-.dot:nth-child(5) { left: 75%; animation-delay: 2s; }
-.dot:nth-child(6) { left: 90%; animation-delay: 2.5s; }
+#jvme-glassmorphism-page .particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; }
+#jvme-glassmorphism-page .particle:nth-child(2) { left: 25%; animation-duration: 25s; animation-delay: 3s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(3) { left: 40%; animation-duration: 22s; animation-delay: 6s; }
+#jvme-glassmorphism-page .particle:nth-child(4) { left: 55%; animation-duration: 28s; animation-delay: 2s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(5) { left: 70%; animation-duration: 24s; animation-delay: 8s; }
+#jvme-glassmorphism-page .particle:nth-child(6) { left: 85%; animation-duration: 26s; animation-delay: 4s; background: var(--accent-green); }
 
-@keyframes boltPulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 1;
-    }
-}
-
-@keyframes dotFlow {
+@keyframes particleFloat {
     0% {
+        transform: translateY(100vh) translateX(0) scale(0);
         opacity: 0;
-        transform: translateX(-100px);
     }
-    50% {
-        opacity: 1;
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
     }
     100% {
+        transform: translateY(-100px) translateX(50px) scale(1);
         opacity: 0;
-        transform: translateX(100px);
     }
 }
 
-/* Gradient Dot Separator */
-.gradient-separator {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+/* Grid pattern subtil */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
 }
 
-.gradient-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--jvme-tertiary);
-    animation: dotBounce 1.5s ease-in-out infinite;
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+#jvme-glassmorphism-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 1;
 }
 
-.gradient-dot:nth-child(1) { animation-delay: 0s; }
-.gradient-dot:nth-child(2) { animation-delay: 0.2s; }
-.gradient-dot:nth-child(3) { animation-delay: 0.4s; }
-.gradient-dot:nth-child(4) { animation-delay: 0.6s; }
-.gradient-dot:nth-child(5) { animation-delay: 0.8s; }
-
-@keyframes dotBounce {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
+#jvme-glassmorphism-page section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
 }
 
-.jvme-partner-page h1,
-.jvme-partner-page h2,
-.jvme-partner-page h3 {
+/* Force tous les éléments à hériter du fond sombre */
+#jvme-glassmorphism-page,
+#jvme-glassmorphism-page .hero-section,
+#jvme-glassmorphism-page .faq-section,
+#jvme-glassmorphism-page .categories-section,
+#jvme-glassmorphism-page .cta-section {
+    background: #080e1f !important;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+#jvme-glassmorphism-page h1,
+#jvme-glassmorphism-page h2,
+#jvme-glassmorphism-page h3,
+#jvme-glassmorphism-page h4,
+#jvme-glassmorphism-page h5,
+#jvme-glassmorphism-page h6 {
     font-weight: 700 !important;
-    line-height: 1.2 !important;
-    color: var(--jvme-gray-900) !important;
+    line-height: 1.2;
+    color: #ffffff !important;
+    margin-bottom: var(--space-md);
 }
 
-.jvme-partner-page h1 { font-size: 42px !important; margin-bottom: var(--jvme-spacing-5) !important; }
-.jvme-partner-page h2 { font-size: 32px !important; margin-bottom: var(--jvme-spacing-4) !important; }
-.jvme-partner-page h3 { font-size: 22px !important; margin-bottom: var(--jvme-spacing-3) !important; }
-
-.jvme-partner-page p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    color: var(--jvme-gray-600) !important;
+#jvme-glassmorphism-page h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    letter-spacing: -0.02em;
 }
 
-.jvme-partner-page .btn {
+#jvme-glassmorphism-page h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    letter-spacing: -0.01em;
+}
+
+#jvme-glassmorphism-page h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+}
+
+#jvme-glassmorphism-page h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+}
+
+#jvme-glassmorphism-page p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem) !important;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#jvme-glassmorphism-page .text-gradient {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+#jvme-glassmorphism-page .btn {
     display: inline-flex;
     align-items: center;
-    gap: var(--jvme-spacing-2);
-    padding: 0.75rem 1.75rem;
-    font-size: 16px !important;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
     font-weight: 600;
-    border-radius: var(--jvme-radius-lg);
+    border-radius: var(--radius-full);
     border: none;
     cursor: pointer;
-    transition: var(--jvme-transition);
     text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    color: var(--jvme-white);
-    box-shadow: var(--jvme-shadow-lg);
+#jvme-glassmorphism-page .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(81, 176, 247, 0.25);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--jvme-shadow-xl);
+#jvme-glassmorphism-page .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
 }
 
-/* Hero Section */
-.hero-faq {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
-    padding: var(--jvme-spacing-8) 0;
-    border-radius: 24px;
-    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
+#jvme-glassmorphism-page .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(81, 176, 247, 0.4);
+}
+
+#jvme-glassmorphism-page .btn-primary:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   BADGE
+   ============================================ */
+
+#jvme-glassmorphism-page .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(81, 176, 247, 0.15);
+    border: 1px solid rgba(81, 176, 247, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: var(--space-md);
+}
+
+.badge i {
+    font-size: 0.75rem;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-2xl) 0;
     text-align: center;
 }
 
-.hero-faq h1 span {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-faq p {
-    font-size: 17px !important;
-    max-width: 700px;
+#jvme-glassmorphism-page .hero-content {
+    animation: fadeInUp 0.8s ease-out;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* Search Bar */
-.faq-search {
-    max-width: 600px;
-    margin: var(--jvme-spacing-6) auto 0;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    margin-bottom: var(--space-lg);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xl);
+}
+
+/* Search Box */
+#jvme-glassmorphism-page .search-box {
+    max-width: 700px;
+    margin: var(--space-xl) auto 0;
     position: relative;
 }
 
-.faq-search input {
+#jvme-glassmorphism-page .search-input {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid var(--jvme-gray-200);
-    border-radius: var(--jvme-radius-xl);
-    font-size: 16px !important;
-    transition: var(--jvme-transition);
+    padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+    background: var(--glass-white-8);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    font-size: 1.125rem;
+    color: white;
+    transition: all 0.3s ease;
 }
 
-.faq-search input:focus {
+#jvme-glassmorphism-page .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#jvme-glassmorphism-page .search-input:focus {
     outline: none;
-    border-color: var(--jvme-primary);
-    box-shadow: var(--jvme-shadow-lg);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(81, 176, 247, 0.1);
 }
 
-.faq-search i {
+#jvme-glassmorphism-page .search-icon {
     position: absolute;
-    left: 1.2rem;
+    left: 1.25rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--jvme-gray-600);
-    font-size: 18px;
+    font-size: 1.25rem;
+    color: var(--accent-blue);
+    pointer-events: none;
 }
 
-/* Category Navigation */
-.category-nav {
-    background: var(--jvme-white);
-    padding: var(--jvme-spacing-6) 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
+/* ============================================
+   SEPARATOR
+   ============================================ */
 
-.category-nav .container {
+#jvme-glassmorphism-page .separator {
+    height: 120px;
     display: flex;
-    gap: var(--jvme-spacing-3);
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.category-btn {
-    padding: 0.75rem 1.5rem;
-    background: var(--jvme-white);
-    border: 2px solid var(--jvme-gray-200);
-    border-radius: var(--jvme-radius-xl);
-    font-size: 15px !important;
-    font-weight: 600;
+#jvme-glassmorphism-page .separator-line {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--glass-border) 10%,
+        var(--accent-blue) 40%,
+        var(--accent-green) 60%,
+        var(--glass-border) 90%,
+        transparent 100%
+    );
+    position: relative;
+}
+
+#jvme-glassmorphism-page .separator-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.4;
+    animation: glowMove 5s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+    0%, 100% {
+        left: -10%;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 0.4;
+    }
+    50% {
+        left: 50%;
+        opacity: 0.6;
+    }
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+#jvme-glassmorphism-page .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.section-header h2 {
+    margin-bottom: var(--space-md);
+}
+
+.section-header p {
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   CATEGORIES GRID
+   ============================================ */
+
+#jvme-glassmorphism-page .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+}
+
+#jvme-glassmorphism-page .category-card {
+    padding: var(--space-xl);
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    transition: var(--jvme-transition);
-    color: var(--jvme-gray-700);
-    display: flex;
-    align-items: center;
-    gap: var(--jvme-spacing-2);
+    text-align: center;
 }
 
-.category-btn.active {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    color: var(--jvme-white);
-    border-color: transparent;
+#jvme-glassmorphism-page .category-card:hover {
+    background: var(--glass-white-8);
+    border-color: var(--glass-border-strong);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
 }
 
-.category-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--jvme-shadow-md);
-}
-
-/* FAQ Category */
-.faq-category {
-    margin-bottom: var(--jvme-spacing-8);
-}
-
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: var(--jvme-spacing-4);
-    margin-bottom: var(--jvme-spacing-6);
-}
-
-.category-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
-    border-radius: var(--jvme-radius-xl);
+#jvme-glassmorphism-page .category-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto var(--space-lg);
+    background: linear-gradient(135deg, rgba(81, 176, 247, 0.15), rgba(51, 212, 161, 0.15));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    font-size: 2.5rem;
+    transition: transform 0.4s ease;
+}
+
+#jvme-glassmorphism-page .category-card:hover .category-icon {
+    transform: scale(1.1) rotateY(10deg);
 }
 
 .category-icon i {
-    font-size: 32px;
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.category-header h2 {
-    margin: 0 !important;
+.category-card h3 {
+    font-size: 1.5rem !important;
+    margin-bottom: var(--space-sm);
 }
 
-/* FAQ List */
-.faq-list {
+.category-card p {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+}
+
+/* ============================================
+   FAQ ITEMS
+   ============================================ */
+
+#jvme-glassmorphism-page .faq-list {
     display: flex;
     flex-direction: column;
-    gap: var(--jvme-spacing-4);
+    gap: var(--space-md);
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.faq-item {
-    background: var(--jvme-white);
-    border: 2px solid var(--jvme-gray-200);
-    border-radius: var(--jvme-radius-xl);
+#jvme-glassmorphism-page .faq-card {
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: var(--jvme-transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-item:hover {
-    border-color: var(--jvme-primary);
-    box-shadow: var(--jvme-shadow-lg);
+#jvme-glassmorphism-page .faq-card:hover {
+    background: var(--glass-white-8);
+    border-color: var(--glass-border-strong);
+    box-shadow: var(--shadow-md);
 }
 
-.faq-question {
-    padding: var(--jvme-spacing-5);
-    cursor: pointer;
+#jvme-glassmorphism-page .faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--jvme-spacing-3);
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    cursor: pointer;
+    user-select: none;
 }
 
-.faq-question h3 {
-    font-size: 18px !important;
+#jvme-glassmorphism-page .faq-question h3 {
+    font-size: 1.25rem !important;
     margin: 0 !important;
     flex: 1;
 }
 
-.faq-icon {
-    font-size: 20px;
-    color: var(--jvme-primary);
+#jvme-glassmorphism-page .faq-icon {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
     transition: transform 0.3s ease;
     flex-shrink: 0;
 }
 
-.faq-item.active .faq-icon {
+#jvme-glassmorphism-page .faq-card.active .faq-icon {
     transform: rotate(180deg);
 }
 
-.faq-answer {
+#jvme-glassmorphism-page .faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
 }
 
-.faq-item.active .faq-answer {
-    max-height: 800px;
+#jvme-glassmorphism-page .faq-card.active .faq-answer {
+    max-height: 1000px;
 }
 
-.faq-answer-content {
-    padding: 0 var(--jvme-spacing-5) var(--jvme-spacing-5);
-    border-top: 1px solid var(--jvme-gray-200);
-    padding-top: var(--jvme-spacing-4);
+#jvme-glassmorphism-page .faq-answer-content {
+    padding: 0 var(--space-lg) var(--space-lg);
+    border-top: 1px solid var(--glass-border);
+    padding-top: var(--space-md);
 }
 
-.jvme-partner-page .faq-answer-content p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
+#jvme-glassmorphism-page .faq-answer-content p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
 }
 
-.faq-answer-content ul {
-    margin-top: var(--jvme-spacing-3);
-    padding-left: var(--jvme-spacing-5);
+#jvme-glassmorphism-page .faq-answer-content ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
 }
 
-.faq-answer-content li {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    color: var(--jvme-gray-600) !important;
-    margin-bottom: var(--jvme-spacing-2);
+#jvme-glassmorphism-page .faq-answer-content li {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: var(--space-sm);
 }
 
-/* Stats Section */
-.faq-stats {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    padding: var(--jvme-spacing-8) 0;
-    color: white;
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .cta-section {
+    position: relative;
+    padding: var(--space-3xl) 0;
     text-align: center;
+    overflow: hidden;
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--jvme-spacing-6);
-    max-width: 900px;
+#jvme-glassmorphism-page .cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(81, 176, 247, 0.15) 0%, transparent 70%);
+    animation: ctaGlow 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes ctaGlow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+#jvme-glassmorphism-page .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.stat-item {
-    padding: var(--jvme-spacing-4);
+.cta-content h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--space-lg);
 }
 
-.stat-number {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: var(--jvme-spacing-2);
-    color: white;
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2xl);
+    color: var(--text-gray);
 }
 
-.stat-label {
-    font-size: 16px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    :root {
+        --space-3xl: 4rem;
+        --space-2xl: 3rem;
+        --space-xl: 2rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
-    text-align: center;
-}
-
-.cta-section h2 span {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.cta-section p {
-    font-size: 17px !important;
-    margin-bottom: var(--jvme-spacing-6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .jvme-partner-page h1 { font-size: 28px !important; }
-    .jvme-partner-page h2 { font-size: 24px !important; }
-    .jvme-partner-page h3 { font-size: 18px !important; }
-    .jvme-partner-page p { font-size: 16px !important; }
-
-    .jvme-partner-page section {
-        padding: 50px 0;
-        margin-bottom: 20px;
+    :root {
+        --space-3xl: 3rem;
+        --space-2xl: 2rem;
+        --space-xl: 1.5rem;
     }
 
-    .category-nav .container {
-        flex-direction: column;
+    section {
+        padding: var(--space-2xl) 0;
     }
 
-    .category-btn {
-        width: 100%;
-        justify-content: center;
+    .container {
+        padding: 0 var(--space-md);
     }
 
-    .stats-grid {
+    .categories-grid {
         grid-template-columns: 1fr;
-        gap: var(--jvme-spacing-4);
     }
 
-    .category-header {
-        flex-direction: column;
-        text-align: center;
+    .faq-question h3 {
+        font-size: 1.125rem !important;
     }
 }
 
-.text-center { text-align: center; }
+@media (max-width: 480px) {
+    #jvme-glassmorphism-page .separator {
+        height: 80px;
+    }
+
+    .category-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+}
     </style>
 </head>
 <body>
 
-<div class="jvme-partner-page">
+<!-- Wrapper pour isoler le design glassmorphism et surcharger WordPress -->
+<div id="jvme-glassmorphism-page">
 
-<!-- Hero Section -->
-<section class="hero-faq">
+<!-- Particules d'arrière-plan -->
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<!-- Section Hero -->
+<section class="hero-section">
     <div class="container">
-        <h1>Foire Aux <span>Questions</span></h1>
-        <p>
-            Trouvez rapidement les réponses à toutes vos questions sur Je Vends mon VE
-        </p>
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-question-circle"></i>
+                <span>Centre d'Aide</span>
+            </div>
 
-        <div class="faq-search">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Rechercher une question...">
+            <h1>Questions <span class="text-gradient">Fréquentes</span></h1>
+
+            <p>
+                Trouvez rapidement les réponses à toutes vos questions sur l'achat, la vente
+                et la location de véhicules électriques sur notre plateforme
+            </p>
+
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                    type="text"
+                    class="search-input"
+                    id="searchInput"
+                    placeholder="Rechercher une question..."
+                >
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Category Navigation -->
-<div class="category-nav">
-    <div class="container">
-        <button class="category-btn active" onclick="scrollToCategory('general')">
-            <i class="fas fa-info-circle"></i>
-            <span>Général</span>
-        </button>
-        <button class="category-btn" onclick="scrollToCategory('vendeurs')">
-            <i class="fas fa-tag"></i>
-            <span>Vendeurs</span>
-        </button>
-        <button class="category-btn" onclick="scrollToCategory('acheteurs')">
-            <i class="fas fa-shopping-cart"></i>
-            <span>Acheteurs</span>
-        </button>
-        <button class="category-btn" onclick="scrollToCategory('professionnels')">
-            <i class="fas fa-briefcase"></i>
-            <span>Professionnels</span>
-        </button>
-        <button class="category-btn" onclick="scrollToCategory('securite')">
-            <i class="fas fa-shield-alt"></i>
-            <span>Sécurité</span>
-        </button>
-        <button class="category-btn" onclick="scrollToCategory('compte')">
-            <i class="fas fa-user-circle"></i>
-            <span>Compte</span>
-        </button>
-    </div>
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
 </div>
 
-<!-- FAQ Content -->
-<section>
+<!-- Section Catégories -->
+<section class="categories-section">
     <div class="container">
+        <div class="section-header">
+            <h2>Explorez par <span class="text-gradient">Catégorie</span></h2>
+            <p>Sélectionnez une catégorie pour accéder directement aux questions qui vous concernent</p>
+        </div>
 
-        <!-- Général -->
-        <div class="faq-category" id="general">
-            <div class="category-header">
+        <div class="categories-grid">
+            <div class="category-card" onclick="scrollToCategory('general')">
                 <div class="category-icon">
                     <i class="fas fa-info-circle"></i>
                 </div>
-                <h2>Questions Générales</h2>
+                <h3>Questions Générales</h3>
+                <p>Découvrez notre plateforme et son fonctionnement</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Qu'est-ce que Je Vends mon VE ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Je Vends mon VE est la première plateforme française spécialisée dans la mise en relation
-                                pour l'achat et la vente de véhicules électriques. Nous connectons directement particuliers
-                                et professionnels souhaitant vendre ou acheter des véhicules électriques. Notre plateforme
-                                offre des outils spécifiques à l'électrique comme l'historique de batterie, l'autonomie réelle,
-                                et la compatibilité des bornes de recharge.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Est-ce que l'inscription est gratuite ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Oui, l'inscription sur Je Vends mon VE est 100% gratuite pour les particuliers.
-                                Vous pouvez créer votre compte, publier des annonces et contacter des vendeurs sans aucun frais.
-                                Pour les professionnels, nous proposons des forfaits adaptés avec des fonctionnalités avancées.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment fonctionne la plateforme ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Je Vends mon VE est une plateforme de mise en relation. Nous permettons aux vendeurs de publier
-                                leurs annonces et aux acheteurs de les consulter. Une fois qu'un acheteur trouve un véhicule qui
-                                l'intéresse, il contacte directement le vendeur via notre messagerie sécurisée. Les deux parties
-                                organisent ensuite la visite, l'essai et la transaction de manière autonome. Nous ne gérons pas
-                                les paiements - les transactions se font directement entre particuliers ou avec les professionnels.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quels types de véhicules électriques puis-je trouver ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Sur notre plateforme, vous trouverez tous types de véhicules 100% électriques :
-                            </p>
-                            <ul>
-                                <li>Voitures citadines électriques (Renault Zoe, Peugeot e-208, etc.)</li>
-                                <li>Berlines et SUV électriques (Tesla Model 3, Hyundai Kona Electric, etc.)</li>
-                                <li>Véhicules haut de gamme (Tesla Model S, Porsche Taycan, etc.)</li>
-                                <li>Utilitaires électriques pour professionnels</li>
-                                <li>Véhicules d'occasion et neufs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Est-ce que vous proposez aussi des véhicules hybrides ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Non, Je Vends mon VE est exclusivement dédié aux véhicules 100% électriques.
-                                Nous ne proposons pas de véhicules hybrides ou hybrides rechargeables afin de
-                                rester spécialisés et d'offrir la meilleure expertise sur la mobilité électrique pure.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vendeurs -->
-        <div class="faq-category" id="vendeurs">
-            <div class="category-header">
+            <div class="category-card" onclick="scrollToCategory('vendeurs')">
                 <div class="category-icon">
                     <i class="fas fa-tag"></i>
                 </div>
-                <h2>Questions pour les Vendeurs</h2>
+                <h3>Pour les Vendeurs</h3>
+                <p>Tout sur la création et la gestion de vos annonces</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment créer une annonce ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Créer une annonce est simple et rapide :
-                            </p>
-                            <ul>
-                                <li>Connectez-vous à votre compte (ou créez-en un gratuitement)</li>
-                                <li>Cliquez sur "Vendre mon VE"</li>
-                                <li>Remplissez les informations du véhicule (marque, modèle, année, kilométrage, autonomie)</li>
-                                <li>Ajoutez des photos de qualité (minimum 5 recommandées)</li>
-                                <li>Indiquez votre prix et rédigez une description détaillée</li>
-                                <li>Publiez ! Votre annonce est visible sous 24h après modération</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Combien coûte la publication d'une annonce ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Pour les particuliers, la publication d'annonces est totalement gratuite.
-                                Vous ne payez aucun frais d'inscription, d'abonnement ou de commission sur la vente.
-                                Pour les professionnels, des forfaits avec fonctionnalités avancées sont disponibles.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quelles informations dois-je fournir sur mon véhicule ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Pour rassurer les acheteurs potentiels, nous recommandons de fournir :
-                            </p>
-                            <ul>
-                                <li>Marque, modèle et version exacte du véhicule</li>
-                                <li>Année de mise en circulation et kilométrage</li>
-                                <li>État de santé de la batterie (SOH en %)</li>
-                                <li>Autonomie réelle constatée</li>
-                                <li>Historique d'entretien et de recharge</li>
-                                <li>Équipements et options (câble de recharge, toit ouvrant, etc.)</li>
-                                <li>Photos claires de l'extérieur, intérieur, tableau de bord et état batterie</li>
-                                <li>Nombre de propriétaires précédents</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Combien de temps mon annonce reste-t-elle en ligne ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Votre annonce reste en ligne pendant 90 jours. Vous recevez une notification
-                                7 jours avant l'expiration pour la renouveler gratuitement si votre véhicule
-                                n'est pas encore vendu. Vous pouvez aussi supprimer votre annonce à tout moment
-                                une fois la vente réalisée.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment fixer le bon prix pour mon véhicule ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Notre plateforme propose un outil d'estimation gratuit qui analyse :
-                            </p>
-                            <ul>
-                                <li>Le modèle et l'année du véhicule</li>
-                                <li>L'état de santé de la batterie (facteur crucial pour un VE)</li>
-                                <li>Le kilométrage</li>
-                                <li>Les prix du marché pour des véhicules similaires</li>
-                                <li>Les équipements et options</li>
-                            </ul>
-                            <p>
-                                Cet outil vous donne une fourchette de prix recommandée pour vendre rapidement
-                                tout en obtenant la juste valeur de votre véhicule.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Acheteurs -->
-        <div class="faq-category" id="acheteurs">
-            <div class="category-header">
+            <div class="category-card" onclick="scrollToCategory('acheteurs')">
                 <div class="category-icon">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
-                <h2>Questions pour les Acheteurs</h2>
+                <h3>Pour les Acheteurs</h3>
+                <p>Recherchez et achetez votre VE en toute confiance</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment rechercher un véhicule ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Notre moteur de recherche avancé vous permet de filtrer par :
-                            </p>
-                            <ul>
-                                <li>Marque et modèle</li>
-                                <li>Prix minimum et maximum</li>
-                                <li>Autonomie souhaitée (en km)</li>
-                                <li>Année de mise en circulation</li>
-                                <li>Kilométrage maximum</li>
-                                <li>Localisation géographique</li>
-                                <li>État de la batterie (SOH minimum)</li>
-                                <li>Type de charge (AC, DC, puissance)</li>
-                            </ul>
-                            <p>
-                                Vous pouvez aussi créer des alertes pour être notifié dès qu'un véhicule
-                                correspondant à vos critères est publié.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment contacter un vendeur ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Une fois que vous avez trouvé un véhicule qui vous intéresse, cliquez sur le bouton
-                                "Contacter le vendeur" dans l'annonce. Vous accédez à notre messagerie sécurisée pour
-                                échanger directement avec le vendeur. Vous pouvez poser des questions, demander des photos
-                                supplémentaires et organiser une visite. Les coordonnées du vendeur ne sont visibles qu'une
-                                fois le premier contact établi.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quels points vérifier avant d'acheter un véhicule électrique d'occasion ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Points essentiels à vérifier lors de la visite :
-                            </p>
-                            <ul>
-                                <li><strong>État de santé de la batterie (SOH) :</strong> doit être affiché sur le tableau de bord (>80% recommandé)</li>
-                                <li><strong>Autonomie réelle :</strong> faites un essai pour vérifier l'autonomie annoncée</li>
-                                <li><strong>Historique d'entretien :</strong> factures, révisions, changements de pièces</li>
-                                <li><strong>Câbles de recharge :</strong> vérifiez qu'ils sont tous présents (domestique + Type 2)</li>
-                                <li><strong>Garantie batterie :</strong> certains constructeurs offrent 8 ans de garantie</li>
-                                <li><strong>Logiciel à jour :</strong> vérifiez la version du logiciel embarqué</li>
-                                <li><strong>État général :</strong> carrosserie, pneus, freins, intérieur</li>
-                                <li><strong>Contrôle technique :</strong> si le véhicule a plus de 4 ans</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Est-ce que je peux essayer le véhicule avant d'acheter ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Oui, absolument ! Nous recommandons vivement de toujours essayer un véhicule avant l'achat.
-                                Contactez le vendeur pour organiser un rendez-vous. Lors de l'essai, vérifiez l'accélération,
-                                le freinage régénératif, l'autonomie affichée, les systèmes d'aide à la conduite et tous les
-                                équipements. N'hésitez pas à faire un trajet de 30 minutes minimum pour bien tester le véhicule
-                                dans différentes conditions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment se passe le paiement et la transaction ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Je Vends mon VE est une plateforme de mise en relation uniquement. Nous ne gérons pas
-                                les paiements. La transaction se fait directement entre vous et le vendeur, comme une
-                                vente entre particuliers classique. Nous vous recommandons :
-                            </p>
-                            <ul>
-                                <li><strong>Virement bancaire :</strong> le moyen le plus sûr pour les montants importants</li>
-                                <li><strong>Chèque de banque :</strong> vérifiez son authenticité auprès de la banque</li>
-                                <li><strong>Évitez les espèces :</strong> pour les montants supérieurs à 1 500€</li>
-                                <li><strong>Documents à récupérer :</strong> certificat de cession, carte grise barrée, contrôle technique, factures d'entretien</li>
-                                <li><strong>Certificat de non-gage :</strong> à demander au vendeur pour vérifier qu'il n'y a pas de dette sur le véhicule</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Y a-t-il une garantie sur les véhicules d'occasion ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Pour les ventes entre particuliers, il n'y a pas de garantie légale obligatoire.
-                                Cependant, certaines garanties constructeur peuvent être transférables (notamment
-                                sur la batterie). Pour les professionnels, une garantie légale de conformité de
-                                2 ans s'applique sur les véhicules d'occasion. Vérifiez toujours avec le vendeur
-                                les garanties encore valides sur le véhicule et la batterie.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Professionnels -->
-        <div class="faq-category" id="professionnels">
-            <div class="category-header">
+            <div class="category-card" onclick="scrollToCategory('professionnels')">
                 <div class="category-icon">
                     <i class="fas fa-briefcase"></i>
                 </div>
-                <h2>Questions pour les Professionnels</h2>
+                <h3>Professionnels</h3>
+                <p>Devenez partenaire et développez votre activité</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment devenir partenaire professionnel ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Pour devenir partenaire professionnel :
-                            </p>
-                            <ul>
-                                <li>Cliquez sur "Devenir Partenaire"</li>
-                                <li>Remplissez le formulaire d'inscription professionnel</li>
-                                <li>Téléchargez vos documents (Kbis, attestation d'assurance professionnelle)</li>
-                                <li>Notre équipe vérifie votre dossier sous 24-48h</li>
-                                <li>Une fois validé, accédez à votre espace professionnel avec tous les outils</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quels sont les tarifs pour les professionnels ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Nous proposons une tarification transparente basée sur une commission à la vente uniquement.
-                                Plus vous vendez, moins vous payez grâce à notre commission dégressive. Aucun frais d'inscription,
-                                d'abonnement mensuel ou de publication. Vous payez uniquement quand vous vendez.
-                                Contactez notre équipe commerciale pour obtenir un devis personnalisé adapté à votre volume.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quels outils sont disponibles pour les professionnels ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Votre compte professionnel inclut :
-                            </p>
-                            <ul>
-                                <li><strong>Tableau de bord analytics :</strong> vues, contacts, conversions en temps réel</li>
-                                <li><strong>Gestion multi-annonces :</strong> import en masse, modification groupée</li>
-                                <li><strong>Visibilité premium :</strong> mise en avant dans les résultats de recherche</li>
-                                <li><strong>CRM intégré :</strong> gestion des contacts et historique des conversations</li>
-                                <li><strong>Statistiques avancées :</strong> taux de conversion, temps de vente moyen</li>
-                                <li><strong>API d'intégration :</strong> pour synchroniser avec votre stock</li>
-                                <li><strong>Support prioritaire :</strong> assistance dédiée 7j/7</li>
-                                <li><strong>Badge professionnel vérifié :</strong> pour rassurer les acheteurs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Puis-je importer mon stock automatiquement ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Oui ! Nous proposons plusieurs solutions d'import automatique :
-                            </p>
-                            <ul>
-                                <li>Import via fichier Excel/CSV</li>
-                                <li>Connexion API pour synchronisation en temps réel</li>
-                                <li>Intégration avec les principaux logiciels de gestion automobile</li>
-                                <li>Mise à jour automatique des prix et disponibilités</li>
-                            </ul>
-                            <p>
-                                Notre équipe technique vous accompagne dans la mise en place de l'intégration.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sécurité -->
-        <div class="faq-category" id="securite">
-            <div class="category-header">
+            <div class="category-card" onclick="scrollToCategory('securite')">
                 <div class="category-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h2>Sécurité & Confiance</h2>
+                <h3>Sécurité</h3>
+                <p>Vos transactions en toute sécurité</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment sont vérifiés les utilisateurs ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                La sécurité est notre priorité. Nous vérifions tous les comptes :
-                            </p>
-                            <ul>
-                                <li><strong>Vérification email :</strong> obligatoire lors de l'inscription</li>
-                                <li><strong>Vérification téléphone :</strong> par SMS pour activer la messagerie</li>
-                                <li><strong>Pièce d'identité :</strong> vérifiée pour les vendeurs (badge "Identité vérifiée")</li>
-                                <li><strong>Professionnels :</strong> vérification Kbis et assurance professionnelle</li>
-                                <li><strong>Système anti-fraude :</strong> détection des comportements suspects</li>
-                                <li><strong>Modération des annonces :</strong> toutes les annonces sont vérifiées sous 24h</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment éviter les arnaques ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Conseils pour éviter les arnaques :
-                            </p>
-                            <ul>
-                                <li><strong>Vérifiez le badge :</strong> privilégiez les vendeurs avec badge "Identité vérifiée"</li>
-                                <li><strong>Visitez toujours le véhicule :</strong> n'achetez jamais sans voir le véhicule</li>
-                                <li><strong>Méfiez-vous des prix trop bas :</strong> si c'est trop beau, c'est suspect</li>
-                                <li><strong>Exigez les documents :</strong> carte grise, contrôle technique, factures</li>
-                                <li><strong>Évitez les paiements à l'étranger :</strong> ne faites jamais de virement international</li>
-                                <li><strong>Utilisez notre messagerie :</strong> gardez une trace de tous les échanges</li>
-                                <li><strong>Signalez les comportements suspects :</strong> notre équipe intervient rapidement</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Que faire si je rencontre un problème avec un vendeur/acheteur ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Notre équipe support est là pour vous aider :
-                            </p>
-                            <ul>
-                                <li>Contactez-nous immédiatement via le bouton "Signaler" dans la messagerie</li>
-                                <li>Notre équipe analyse la situation sous 2h</li>
-                                <li>Nous pouvons bloquer un utilisateur suspect</li>
-                                <li>Nous servons de médiateur en cas de litige</li>
-                                <li>Support disponible 7j/7 par email, téléphone et chat</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Mes données personnelles sont-elles protégées ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Oui, absolument. Nous sommes 100% conformes au RGPD (Règlement Général sur la Protection des Données) :
-                            </p>
-                            <ul>
-                                <li>Vos données sont cryptées et stockées sur des serveurs sécurisés en France</li>
-                                <li>Nous ne partageons jamais vos données avec des tiers sans votre consentement</li>
-                                <li>Vous pouvez consulter, modifier ou supprimer vos données à tout moment</li>
-                                <li>Vos coordonnées ne sont visibles qu'après un premier contact</li>
-                                <li>Notre politique de confidentialité est transparente et accessible</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Compte -->
-        <div class="faq-category" id="compte">
-            <div class="category-header">
+            <div class="category-card" onclick="scrollToCategory('compte')">
                 <div class="category-icon">
                     <i class="fas fa-user-circle"></i>
                 </div>
-                <h2>Mon Compte</h2>
+                <h3>Mon Compte</h3>
+                <p>Gérez vos paramètres et préférences</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section FAQ Général -->
+<section class="faq-section" id="general">
+    <div class="container">
+        <div class="section-header">
+            <h2>Questions <span class="text-gradient">Générales</span></h2>
+            <p>Les bases pour bien démarrer sur Je Vends mon VE</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Qu'est-ce que Je Vends mon VE ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Je Vends mon VE est la première plateforme française spécialisée dans la mise en relation
+                            pour l'achat et la vente de véhicules électriques. Nous connectons directement particuliers
+                            et professionnels souhaitant vendre ou acheter des véhicules électriques. Notre plateforme
+                            offre des outils spécifiques à l'électrique comme l'historique de batterie, l'autonomie réelle,
+                            et la compatibilité des bornes de recharge.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment créer un compte ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Créer un compte est simple et rapide :
-                            </p>
-                            <ul>
-                                <li>Cliquez sur "S'inscrire" en haut de la page</li>
-                                <li>Renseignez votre email et créez un mot de passe sécurisé</li>
-                                <li>Confirmez votre email en cliquant sur le lien reçu</li>
-                                <li>Complétez votre profil (nom, prénom, localisation)</li>
-                                <li>C'est terminé ! Vous pouvez publier des annonces et contacter des vendeurs</li>
-                            </ul>
-                        </div>
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Est-ce que l'inscription est gratuite ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Oui, l'inscription sur Je Vends mon VE est 100% gratuite pour les particuliers.
+                            Vous pouvez créer votre compte, publier des annonces et contacter des vendeurs sans aucun frais.
+                            Pour les professionnels, nous proposons des forfaits adaptés avec des fonctionnalités avancées.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>J'ai oublié mon mot de passe, que faire ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Pas de panique ! Cliquez sur "Mot de passe oublié" sur la page de connexion.
-                                Entrez votre adresse email, et vous recevrez un lien pour réinitialiser votre mot de passe.
-                                Ce lien est valable 24h. Si vous ne recevez pas l'email, vérifiez vos spams ou contactez notre support.
-                            </p>
-                        </div>
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment fonctionne la plateforme ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Je Vends mon VE est une plateforme de mise en relation. Nous permettons aux vendeurs de publier
+                            leurs annonces et aux acheteurs de les consulter. Une fois qu'un acheteur trouve un véhicule qui
+                            l'intéresse, il contacte directement le vendeur via notre messagerie sécurisée.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment modifier mes informations personnelles ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Connectez-vous à votre compte et accédez à "Mon profil" dans le menu.
-                                Vous pouvez modifier votre nom, prénom, localisation, numéro de téléphone,
-                                photo de profil et préférences de notification. N'oubliez pas de sauvegarder
-                                vos modifications.
-                            </p>
-                        </div>
-                    </div>
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Quels types de véhicules électriques puis-je trouver ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment supprimer mon compte ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Vous pouvez supprimer votre compte à tout moment. Allez dans "Paramètres" >
-                                "Supprimer mon compte". Attention : cette action est irréversible. Toutes vos
-                                annonces, messages et données seront définitivement supprimés. Si vous avez des
-                                annonces actives, pensez à les retirer avant de supprimer votre compte.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Comment gérer mes notifications ?</h3>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>
-                                Dans "Paramètres" > "Notifications", vous pouvez personnaliser :
-                            </p>
-                            <ul>
-                                <li>Notifications par email (nouveaux messages, alertes annonces, etc.)</li>
-                                <li>Notifications push sur mobile</li>
-                                <li>Alertes de prix sur vos recherches sauvegardées</li>
-                                <li>Newsletter hebdomadaire avec les nouvelles annonces</li>
-                                <li>Fréquence des notifications (temps réel, quotidien, hebdomadaire)</li>
-                            </ul>
-                        </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Sur notre plateforme, vous trouverez tous types de véhicules 100% électriques :</p>
+                        <ul>
+                            <li>Voitures citadines électriques (Renault Zoe, Peugeot e-208, etc.)</li>
+                            <li>Berlines et SUV électriques (Tesla Model 3, Hyundai Kona Electric, etc.)</li>
+                            <li>Véhicules haut de gamme (Tesla Model S, Porsche Taycan, etc.)</li>
+                            <li>Utilitaires électriques pour professionnels</li>
+                            <li>Véhicules d'occasion et neufs</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- CTA Section -->
-<!-- Gradient Dot Separator -->
-<div class="gradient-separator">
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
 </div>
 
-<section class="cta-section section-light">
+<!-- Section FAQ Vendeurs -->
+<section class="faq-section" id="vendeurs">
     <div class="container">
-        <h2>Vous n'avez pas trouvé <span>votre réponse</span> ?</h2>
-        <p>
-            Notre équipe support est disponible 7j/7 pour répondre à toutes vos questions
-        </p>
+        <div class="section-header">
+            <h2>Questions pour les <span class="text-gradient">Vendeurs</span></h2>
+            <p>Tout ce que vous devez savoir pour vendre votre véhicule électrique</p>
+        </div>
 
-        <a href="#" class="btn btn-primary">
-            <i class="fas fa-headset"></i>
-            <span>Contacter le Support</span>
-        </a>
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment créer une annonce ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Créer une annonce est simple et rapide :</p>
+                        <ul>
+                            <li>Connectez-vous à votre compte (ou créez-en un gratuitement)</li>
+                            <li>Cliquez sur "Vendre mon VE"</li>
+                            <li>Remplissez les informations du véhicule (marque, modèle, année, kilométrage, autonomie)</li>
+                            <li>Ajoutez des photos de qualité (minimum 5 recommandées)</li>
+                            <li>Indiquez votre prix et rédigez une description détaillée</li>
+                            <li>Publiez ! Votre annonce est visible sous 24h après modération</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Combien coûte la publication d'une annonce ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Pour les particuliers, la publication d'annonces est totalement gratuite.
+                            Vous ne payez aucun frais d'inscription, d'abonnement ou de commission sur la vente.
+                            Pour les professionnels, des forfaits avec fonctionnalités avancées sont disponibles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Quelles informations dois-je fournir sur mon véhicule ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pour rassurer les acheteurs potentiels, nous recommandons de fournir :</p>
+                        <ul>
+                            <li>Marque, modèle et version exacte du véhicule</li>
+                            <li>Année de mise en circulation et kilométrage</li>
+                            <li>État de santé de la batterie (SOH en %)</li>
+                            <li>Autonomie réelle constatée</li>
+                            <li>Historique d'entretien et de recharge</li>
+                            <li>Équipements et options</li>
+                            <li>Photos claires de l'extérieur, intérieur et tableau de bord</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment fixer le bon prix pour mon véhicule ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Notre plateforme propose un outil d'estimation gratuit qui analyse le modèle, l'année,
+                            l'état de santé de la batterie, le kilométrage et les prix du marché pour vous donner
+                            une fourchette de prix recommandée. Cela vous permet de vendre rapidement tout en
+                            obtenant la juste valeur de votre véhicule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
 </div>
-<!-- Fin .jvme-partner-page -->
+
+<!-- Section FAQ Acheteurs -->
+<section class="faq-section" id="acheteurs">
+    <div class="container">
+        <div class="section-header">
+            <h2>Questions pour les <span class="text-gradient">Acheteurs</span></h2>
+            <p>Trouvez et achetez votre véhicule électrique en toute confiance</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment rechercher un véhicule ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Notre moteur de recherche avancé vous permet de filtrer par :</p>
+                        <ul>
+                            <li>Marque et modèle</li>
+                            <li>Prix minimum et maximum</li>
+                            <li>Autonomie souhaitée (en km)</li>
+                            <li>Année de mise en circulation</li>
+                            <li>Kilométrage maximum</li>
+                            <li>Localisation géographique</li>
+                            <li>État de la batterie (SOH minimum)</li>
+                        </ul>
+                        <p>Vous pouvez aussi créer des alertes pour être notifié des nouvelles annonces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Quels points vérifier avant d'acheter un véhicule électrique d'occasion ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Points essentiels à vérifier lors de la visite :</p>
+                        <ul>
+                            <li><strong>État de santé de la batterie (SOH) :</strong> doit être >80% recommandé</li>
+                            <li><strong>Autonomie réelle :</strong> faites un essai pour vérifier</li>
+                            <li><strong>Historique d'entretien :</strong> factures, révisions</li>
+                            <li><strong>Câbles de recharge :</strong> vérifiez leur présence</li>
+                            <li><strong>Garantie batterie :</strong> vérifiez si elle est transférable</li>
+                            <li><strong>État général :</strong> carrosserie, pneus, intérieur</li>
+                            <li><strong>Contrôle technique :</strong> si le véhicule a plus de 4 ans</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment se passe le paiement et la transaction ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Je Vends mon VE est une plateforme de mise en relation uniquement. La transaction se fait
+                            directement entre vous et le vendeur. Nous recommandons :
+                        </p>
+                        <ul>
+                            <li><strong>Virement bancaire :</strong> le plus sûr pour les montants importants</li>
+                            <li><strong>Chèque de banque :</strong> vérifiez son authenticité</li>
+                            <li><strong>Évitez les espèces :</strong> pour les montants >1 500€</li>
+                            <li><strong>Certificat de non-gage :</strong> à demander au vendeur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section FAQ Professionnels -->
+<section class="faq-section" id="professionnels">
+    <div class="container">
+        <div class="section-header">
+            <h2>Questions pour les <span class="text-gradient">Professionnels</span></h2>
+            <p>Développez votre activité VE avec notre réseau</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment devenir partenaire professionnel ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Pour devenir partenaire professionnel :</p>
+                        <ul>
+                            <li>Cliquez sur "Devenir Partenaire"</li>
+                            <li>Remplissez le formulaire d'inscription professionnel</li>
+                            <li>Téléchargez vos documents (Kbis, attestation d'assurance)</li>
+                            <li>Notre équipe vérifie votre dossier sous 24-48h</li>
+                            <li>Accédez à votre espace professionnel avec tous les outils</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Quels sont les tarifs pour les professionnels ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Nous proposons une tarification transparente basée sur une commission à la vente uniquement.
+                            Plus vous vendez, moins vous payez grâce à notre commission dégressive. Aucun frais d'inscription
+                            ou d'abonnement mensuel. Contactez notre équipe commerciale pour un devis personnalisé.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Quels outils sont disponibles pour les professionnels ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Votre compte professionnel inclut :</p>
+                        <ul>
+                            <li>Tableau de bord analytics en temps réel</li>
+                            <li>Gestion multi-annonces avec import en masse</li>
+                            <li>Visibilité premium dans les résultats</li>
+                            <li>CRM intégré pour gérer vos contacts</li>
+                            <li>Statistiques avancées et rapports</li>
+                            <li>Support prioritaire 7j/7</li>
+                            <li>Badge professionnel vérifié</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section FAQ Sécurité -->
+<section class="faq-section" id="securite">
+    <div class="container">
+        <div class="section-header">
+            <h2>Sécurité & <span class="text-gradient">Confiance</span></h2>
+            <p>Vos transactions en toute sérénité</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment sont vérifiés les utilisateurs ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>La sécurité est notre priorité. Nous vérifions tous les comptes :</p>
+                        <ul>
+                            <li><strong>Vérification email :</strong> obligatoire lors de l'inscription</li>
+                            <li><strong>Vérification téléphone :</strong> par SMS pour activer la messagerie</li>
+                            <li><strong>Pièce d'identité :</strong> vérifiée pour les vendeurs</li>
+                            <li><strong>Professionnels :</strong> vérification Kbis et assurance</li>
+                            <li><strong>Système anti-fraude :</strong> détection comportements suspects</li>
+                            <li><strong>Modération :</strong> toutes les annonces vérifiées sous 24h</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment éviter les arnaques ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Conseils pour éviter les arnaques :</p>
+                        <ul>
+                            <li>Privilégiez les vendeurs avec badge "Identité vérifiée"</li>
+                            <li>Visitez toujours le véhicule avant d'acheter</li>
+                            <li>Méfiez-vous des prix trop bas</li>
+                            <li>Exigez tous les documents (carte grise, CT, factures)</li>
+                            <li>Évitez les virements internationaux</li>
+                            <li>Utilisez notre messagerie pour garder une trace</li>
+                            <li>Signalez les comportements suspects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Mes données personnelles sont-elles protégées ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Oui, absolument. Nous sommes 100% conformes au RGPD :</p>
+                        <ul>
+                            <li>Données cryptées et stockées sur serveurs sécurisés en France</li>
+                            <li>Aucun partage avec des tiers sans votre consentement</li>
+                            <li>Vous pouvez consulter, modifier ou supprimer vos données</li>
+                            <li>Coordonnées visibles uniquement après contact</li>
+                            <li>Politique de confidentialité transparente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section FAQ Compte -->
+<section class="faq-section" id="compte">
+    <div class="container">
+        <div class="section-header">
+            <h2>Gestion de <span class="text-gradient">Mon Compte</span></h2>
+            <p>Paramètres et préférences de votre espace personnel</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment créer un compte ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Créer un compte est simple et rapide :</p>
+                        <ul>
+                            <li>Cliquez sur "S'inscrire" en haut de la page</li>
+                            <li>Renseignez votre email et créez un mot de passe sécurisé</li>
+                            <li>Confirmez votre email en cliquant sur le lien reçu</li>
+                            <li>Complétez votre profil (nom, prénom, localisation)</li>
+                            <li>C'est terminé ! Vous pouvez publier et contacter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>J'ai oublié mon mot de passe, que faire ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>
+                            Cliquez sur "Mot de passe oublié" sur la page de connexion.
+                            Entrez votre email et vous recevrez un lien pour réinitialiser votre mot de passe.
+                            Ce lien est valable 24h. Si vous ne recevez pas l'email, vérifiez vos spams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">
+                    <h3>Comment gérer mes notifications ?</h3>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Dans "Paramètres" > "Notifications", vous pouvez personnaliser :</p>
+                        <ul>
+                            <li>Notifications par email (nouveaux messages, alertes, etc.)</li>
+                            <li>Notifications push sur mobile</li>
+                            <li>Alertes de prix sur vos recherches sauvegardées</li>
+                            <li>Newsletter hebdomadaire</li>
+                            <li>Fréquence des notifications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section CTA -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container">
+        <div class="cta-content">
+            <h2>Vous n'avez pas trouvé <span class="text-gradient">votre réponse</span> ?</h2>
+            <p>
+                Notre équipe support est disponible 7j/7 pour répondre à toutes vos questions
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-headset"></i>
+                <span>Contacter le Support</span>
+            </a>
+        </div>
+    </div>
+</section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
+    const faqCards = document.querySelectorAll('.faq-card');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
+    faqCards.forEach(card => {
+        const question = card.querySelector('.faq-question');
 
         question.addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
-    });
-
-    // Category Navigation
-    const categoryBtns = document.querySelectorAll('.category-btn');
-
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            card.classList.toggle('active');
         });
     });
 
@@ -1309,14 +1405,14 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
 
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
-            const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+        faqCards.forEach(card => {
+            const question = card.querySelector('.faq-question h3').textContent.toLowerCase();
+            const answer = card.querySelector('.faq-answer-content').textContent.toLowerCase();
 
             if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                item.style.display = 'block';
+                card.style.display = 'block';
             } else {
-                item.style.display = 'none';
+                card.style.display = 'none';
             }
         });
     });
@@ -1325,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Scroll to category
 function scrollToCategory(categoryId) {
     const element = document.getElementById(categoryId);
-    const offset = 100; // Offset pour le menu sticky
+    const offset = 100;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -1335,6 +1431,9 @@ function scrollToCategory(categoryId) {
     });
 }
 </script>
+
+</div>
+<!-- Fin wrapper glassmorphism -->
 
 </body>
 </html>

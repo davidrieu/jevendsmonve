@@ -5,44 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qui Sommes-Nous - Je Vends mon VE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
     <style>
-/* CSS Variables */
+/* ============================================
+   GLASSMORPHISM 2025 - DESIGN SYSTEM
+   ============================================ */
+
 :root {
-    --jvme-primary: #21295c;
-    --jvme-primary-dark: #1a2149;
-    --jvme-primary-light: #2d3470;
-    --jvme-secondary: #1b3b6f;
-    --jvme-secondary-dark: #152f5a;
-    --jvme-tertiary: #065a82;
-    --jvme-white: #ffffff;
-    --jvme-gray-50: #f9fafb;
-    --jvme-gray-100: #f3f4f6;
-    --jvme-gray-200: #e5e7eb;
-    --jvme-gray-300: #d1d5db;
-    --jvme-gray-600: #4b5563;
-    --jvme-gray-700: #374151;
-    --jvme-gray-900: #111827;
+    /* Couleurs */
+    --bg-primary: #080e1f;
+    --text-white: #ffffff;
+    --text-gray: rgba(255, 255, 255, 0.7);
+    --accent-blue: #51b0f7;
+    --accent-green: #33d4a1;
 
-    --jvme-spacing-2: 0.5rem;
-    --jvme-spacing-3: 0.75rem;
-    --jvme-spacing-4: 1rem;
-    --jvme-spacing-5: 1.5rem;
-    --jvme-spacing-6: 2rem;
-    --jvme-spacing-8: 3rem;
+    /* Glassmorphism */
+    --glass-white-5: rgba(255, 255, 255, 0.05);
+    --glass-white-8: rgba(255, 255, 255, 0.08);
+    --glass-white-10: rgba(255, 255, 255, 0.10);
+    --glass-white-15: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border-strong: rgba(255, 255, 255, 0.2);
 
-    --jvme-radius-lg: 0.75rem;
-    --jvme-radius-xl: 1rem;
-    --jvme-radius-2xl: 1.5rem;
-    --jvme-radius-full: 9999px;
+    /* Ombres */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --shadow-glow-blue: 0 0 40px rgba(81, 176, 247, 0.15);
+    --shadow-glow-green: 0 0 40px rgba(51, 212, 161, 0.15);
 
-    --jvme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --jvme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --jvme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
 
-    --jvme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-2xl: 2.5rem;
+    --radius-full: 9999px;
 }
+
+/* ============================================
+   RESET & BASE - ULTRA ROBUSTE
+   ============================================ */
 
 * {
     margin: 0;
@@ -50,444 +61,685 @@
     box-sizing: border-box;
 }
 
+/* Force le fond PARTOUT - même sur les wrappers WordPress */
+html,
+body,
+#page,
+#content,
+.site,
+.site-content,
+main,
+article,
+.entry-content,
+.page-content,
+#primary,
+#main,
+.content-area {
+    background: #080e1f !important;
+    background-color: #080e1f !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--jvme-gray-900);
-    background: var(--jvme-white);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif !important;
+    color: #ffffff !important;
     line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Wrapper pour forcer les styles */
-.jvme-partner-page {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-}
-
-.jvme-partner-page .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--jvme-spacing-6);
-}
-
-.jvme-partner-page section {
-    padding: 80px 0;
-    margin-bottom: 0;
-    position: relative;
-}
-
-/* Section Backgrounds */
-.section-white {
-    background: var(--jvme-white);
-}
-
-.section-light {
-    background: linear-gradient(135deg, rgba(33, 41, 92, 0.02), rgba(27, 59, 111, 0.02));
-}
-
-/* Electric Separator */
-.electric-separator {
-    position: relative;
-    height: 80px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(90deg, transparent, rgba(6, 90, 130, 0.1), transparent);
-}
-
-.separator-line {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--jvme-tertiary), transparent);
-    position: relative;
-}
-
-.electric-bolt {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: boltPulse 2s ease-in-out infinite;
-}
-
-.electric-bolt svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 8px rgba(6, 90, 130, 0.6));
-}
-
-.electric-dots {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.dot {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--jvme-tertiary);
-    border-radius: 50%;
-    opacity: 0;
-    animation: dotFlow 3s linear infinite;
-}
-
-.dot:nth-child(1) { left: 10%; animation-delay: 0s; }
-.dot:nth-child(2) { left: 25%; animation-delay: 0.5s; }
-.dot:nth-child(3) { left: 40%; animation-delay: 1s; }
-.dot:nth-child(4) { left: 60%; animation-delay: 1.5s; }
-.dot:nth-child(5) { left: 75%; animation-delay: 2s; }
-.dot:nth-child(6) { left: 90%; animation-delay: 2.5s; }
-
-@keyframes boltPulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 1;
-    }
-}
-
-@keyframes dotFlow {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-}
-
-/* Circuit Line Separator */
-.circuit-separator {
-    position: relative;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: linear-gradient(90deg, transparent, rgba(6, 90, 130, 0.03), transparent);
-}
-
-.circuit-line {
-    width: 100%;
-    max-width: 1200px;
-    height: 2px;
-    background: var(--jvme-gray-200);
-    position: relative;
-}
-
-.circuit-node {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--jvme-tertiary);
-    border: 2px solid var(--jvme-white);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    box-shadow: 0 0 12px rgba(6, 90, 130, 0.8);
-}
-
-.circuit-node:nth-child(1) { left: 25%; animation: nodePulse 2s ease-in-out infinite; }
-.circuit-node:nth-child(2) { left: 50%; animation: nodePulse 2s ease-in-out infinite 0.3s; }
-.circuit-node:nth-child(3) { left: 75%; animation: nodePulse 2s ease-in-out infinite 0.6s; }
-
-@keyframes nodePulse {
-    0%, 100% {
-        transform: translateY(-50%) scale(1);
-        box-shadow: 0 0 12px rgba(6, 90, 130, 0.8);
-    }
-    50% {
-        transform: translateY(-50%) scale(1.4);
-        box-shadow: 0 0 20px rgba(6, 90, 130, 1);
-    }
-}
-
-/* Gradient Dot Separator */
-.gradient-separator {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.gradient-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--jvme-tertiary);
-    animation: dotBounce 1.5s ease-in-out infinite;
-}
-
-.gradient-dot:nth-child(1) { animation-delay: 0s; }
-.gradient-dot:nth-child(2) { animation-delay: 0.2s; }
-.gradient-dot:nth-child(3) { animation-delay: 0.4s; }
-.gradient-dot:nth-child(4) { animation-delay: 0.6s; }
-.gradient-dot:nth-child(5) { animation-delay: 0.8s; }
-
-@keyframes dotBounce {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-}
-
-.jvme-partner-page h1,
-.jvme-partner-page h2,
-.jvme-partner-page h3 {
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    color: var(--jvme-gray-900) !important;
-}
-
-.jvme-partner-page h1 { font-size: 42px !important; margin-bottom: var(--jvme-spacing-5) !important; }
-.jvme-partner-page h2 { font-size: 32px !important; margin-bottom: var(--jvme-spacing-4) !important; }
-.jvme-partner-page h3 { font-size: 22px !important; margin-bottom: var(--jvme-spacing-3) !important; }
-
-.jvme-partner-page p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    color: var(--jvme-gray-600) !important;
-}
-
-.jvme-partner-page .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--jvme-spacing-2);
-    padding: 0.75rem 1.75rem;
-    font-size: 16px !important;
-    font-weight: 600;
-    border-radius: var(--jvme-radius-lg);
-    border: none;
-    cursor: pointer;
-    transition: var(--jvme-transition);
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    color: var(--jvme-white);
-    box-shadow: var(--jvme-shadow-lg);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--jvme-shadow-xl);
-}
-
-/* Hero Section */
-.hero-about {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
-    padding: var(--jvme-spacing-8) 0;
-    border-radius: 24px;
-    margin: var(--jvme-spacing-4) var(--jvme-spacing-6);
-    text-align: center;
-}
-
-.hero-about h1 span {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-about p {
-    font-size: 17px !important;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Section Header */
-.jvme-partner-page .section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--jvme-spacing-8);
-}
-
-.jvme-partner-page .section-header p {
-    font-size: 17px !important;
-    line-height: 1.8 !important;
-}
-
-/* Story Section */
-.story-section {
-    background: var(--jvme-white);
-    position: relative;
-}
-
-.story-image {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto var(--jvme-spacing-8);
-    border-radius: var(--jvme-radius-2xl);
-    overflow: hidden;
-    box-shadow: var(--jvme-shadow-xl);
-    border: 3px solid var(--jvme-gray-200);
-}
-
-.story-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.story-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.story-content p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    margin-bottom: var(--jvme-spacing-5);
-}
-
-.story-highlight {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.05), rgba(51, 140, 215, 0.05));
-    border-left: 4px solid var(--jvme-primary);
-    padding: var(--jvme-spacing-5);
-    border-radius: var(--jvme-radius-lg);
-    margin: var(--jvme-spacing-6) 0;
-}
-
-.story-highlight p {
-    font-size: 18px !important;
-    font-weight: 600;
-    color: var(--jvme-gray-900) !important;
-    margin-bottom: 0 !important;
-}
-
-/* Values Section */
-.values-section {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--jvme-spacing-6);
-}
-
-.value-card {
-    background: var(--jvme-white);
-    border: 2px solid var(--jvme-gray-200);
-    border-radius: var(--jvme-radius-2xl);
-    padding: var(--jvme-spacing-6);
-    text-align: center;
-    transition: var(--jvme-transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.value-card::before {
+/* Fond fixe en arrière-plan - couche de sécurité */
+#jvme-glassmorphism-page::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--jvme-primary), var(--jvme-secondary));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    bottom: 0;
+    background: #080e1f !important;
+    z-index: -2 !important;
+    pointer-events: none;
 }
 
-.value-card:hover::before {
-    transform: scaleX(1);
+/* Force le fond sombre même si WordPress essaie de le remplacer */
+#jvme-glassmorphism-page {
+    background: #080e1f !important;
+    background-color: #080e1f !important;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
 }
 
-.value-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--jvme-shadow-xl);
-    border-color: var(--jvme-primary);
+#jvme-glassmorphism-page * {
+    box-sizing: border-box;
 }
 
-.value-card:hover .value-icon {
-    transform: rotateY(360deg);
+/* Annule TOUS les backgrounds blancs possibles */
+#jvme-glassmorphism-page div:not(.glass-card):not(.value-card):not(.mission-card):not(.timeline-card),
+#jvme-glassmorphism-page section,
+#jvme-glassmorphism-page main,
+#jvme-glassmorphism-page article {
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
-.value-card:hover .value-icon i {
-    transform: scale(1.2);
+/* ============================================
+   BACKGROUND EFFECTS
+   ============================================ */
+
+/* Gradient animé en arrière-plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(81, 176, 247, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(51, 212, 161, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(81, 176, 247, 0.05) 0%, transparent 50%);
+    animation: bgFloat 30s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.value-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.1), rgba(51, 140, 215, 0.1));
-    border-radius: var(--jvme-radius-xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto var(--jvme-spacing-4);
+@keyframes bgFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -2%) rotate(1deg); }
+    66% { transform: translate(-2%, 2%) rotate(-1deg); }
 }
 
-.value-icon {
-    transition: transform 0.6s ease;
+/* Particules flottantes */
+#jvme-glassmorphism-page .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.value-icon i {
-    font-size: 32px;
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+#jvme-glassmorphism-page .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 10px currentColor;
+    animation: particleFloat 25s linear infinite;
+}
+
+#jvme-glassmorphism-page .particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; }
+#jvme-glassmorphism-page .particle:nth-child(2) { left: 25%; animation-duration: 25s; animation-delay: 3s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(3) { left: 40%; animation-duration: 22s; animation-delay: 6s; }
+#jvme-glassmorphism-page .particle:nth-child(4) { left: 55%; animation-duration: 28s; animation-delay: 2s; background: var(--accent-green); }
+#jvme-glassmorphism-page .particle:nth-child(5) { left: 70%; animation-duration: 24s; animation-delay: 8s; }
+#jvme-glassmorphism-page .particle:nth-child(6) { left: 85%; animation-duration: 26s; animation-delay: 4s; background: var(--accent-green); }
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Grid pattern subtil */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+#jvme-glassmorphism-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+#jvme-glassmorphism-page section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+#jvme-glassmorphism-page h1,
+#jvme-glassmorphism-page h2,
+#jvme-glassmorphism-page h3,
+#jvme-glassmorphism-page h4 {
+    font-weight: 700 !important;
+    line-height: 1.2;
+    color: #ffffff !important;
+    margin-bottom: var(--space-md);
+}
+
+#jvme-glassmorphism-page h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    letter-spacing: -0.02em;
+}
+
+#jvme-glassmorphism-page h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    letter-spacing: -0.01em;
+}
+
+#jvme-glassmorphism-page h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+}
+
+#jvme-glassmorphism-page h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+}
+
+#jvme-glassmorphism-page p {
+    font-size: clamp(1rem, 1.5vw, 1.125rem) !important;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#jvme-glassmorphism-page .text-gradient {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: transform 0.3s ease;
+    background-clip: text;
+    display: inline-block;
 }
 
-.value-card h3 {
-    font-size: 22px !important;
-    margin-bottom: var(--jvme-spacing-3);
-}
+/* ============================================
+   BUTTONS
+   ============================================ */
 
-.jvme-partner-page .value-card p {
-    font-size: 16px !important;
-}
-
-/* Founder Section */
-.founder-section {
-    background: var(--jvme-white);
-}
-
-.founder-content {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: var(--jvme-spacing-8);
+#jvme-glassmorphism-page .btn {
+    display: inline-flex;
     align-items: center;
-    max-width: 1000px;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#jvme-glassmorphism-page .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(81, 176, 247, 0.25);
+}
+
+#jvme-glassmorphism-page .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+#jvme-glassmorphism-page .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(81, 176, 247, 0.4);
+}
+
+#jvme-glassmorphism-page .btn-primary:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   BADGE
+   ============================================ */
+
+#jvme-glassmorphism-page .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(81, 176, 247, 0.15);
+    border: 1px solid rgba(81, 176, 247, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-2xl) 0;
+    text-align: center;
+}
+
+#jvme-glassmorphism-page .hero-content {
+    animation: fadeInUp 0.8s ease-out;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.founder-image {
-    width: 300px;
-    height: 300px;
-    border-radius: var(--jvme-radius-2xl);
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SEPARATOR
+   ============================================ */
+
+#jvme-glassmorphism-page .separator {
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 80px;
-    color: white;
-    font-weight: 700;
-    box-shadow: var(--jvme-shadow-xl);
-    border: 4px solid var(--jvme-white);
     position: relative;
     overflow: hidden;
-    animation: float 3s ease-in-out infinite;
 }
 
-.founder-image::before {
+#jvme-glassmorphism-page .separator-line {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--glass-border) 10%,
+        var(--accent-blue) 40%,
+        var(--accent-green) 60%,
+        var(--glass-border) 90%,
+        transparent 100%
+    );
+    position: relative;
+}
+
+#jvme-glassmorphism-page .separator-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.4;
+    animation: glowMove 5s ease-in-out infinite;
+}
+
+@keyframes glowMove {
+    0%, 100% {
+        left: -10%;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 0.4;
+    }
+    50% {
+        left: 50%;
+        opacity: 0.6;
+    }
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+#jvme-glassmorphism-page .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+}
+
+/* ============================================
+   STORY SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+#jvme-glassmorphism-page .story-image {
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    position: relative;
+    animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#jvme-glassmorphism-page .story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+}
+
+#jvme-glassmorphism-page .story-content {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#jvme-glassmorphism-page .story-highlight {
+    background: var(--glass-white-8);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--accent-blue);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+    font-style: italic;
+}
+
+/* ============================================
+   VALUES SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+#jvme-glassmorphism-page .value-card {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#jvme-glassmorphism-page .value-card:hover {
+    background: var(--glass-white-8);
+    border-color: var(--glass-border-strong);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+}
+
+#jvme-glassmorphism-page .value-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto var(--space-lg);
+    background: linear-gradient(135deg, rgba(81, 176, 247, 0.15), rgba(51, 212, 161, 0.15));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    transition: transform 0.4s ease;
+}
+
+#jvme-glassmorphism-page .value-card:hover .value-icon {
+    transform: scale(1.1) rotateY(360deg);
+}
+
+.value-icon i {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   MISSION SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+#jvme-glassmorphism-page .mission-card {
+    padding: var(--space-xl);
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#jvme-glassmorphism-page .mission-card:hover {
+    background: var(--glass-white-8);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+#jvme-glassmorphism-page .mission-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 10px 30px rgba(81, 176, 247, 0.3);
+    transition: transform 0.5s ease;
+}
+
+#jvme-glassmorphism-page .mission-card:hover .mission-icon-circle {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+#jvme-glassmorphism-page .timeline-vertical {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#jvme-glassmorphism-page .timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 45px;
+    top: 45px;
+    bottom: 45px;
+    width: 2px;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        var(--accent-blue) 20%,
+        var(--accent-green) 80%,
+        transparent 100%
+    );
+    opacity: 0.4;
+}
+
+#jvme-glassmorphism-page .timeline-item {
+    display: flex;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+}
+
+#jvme-glassmorphism-page .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+#jvme-glassmorphism-page .timeline-year {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 10px 40px rgba(81, 176, 247, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+#jvme-glassmorphism-page .timeline-card {
+    flex: 1;
+    padding: var(--space-xl);
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#jvme-glassmorphism-page .timeline-card:hover {
+    background: var(--glass-white-8);
+    transform: translateX(15px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   STATS BAR
+   ============================================ */
+
+#jvme-glassmorphism-page .stats-bar {
+    padding: var(--space-2xl) 0;
+    background: var(--glass-white-5);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+#jvme-glassmorphism-page .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+}
+
+#jvme-glassmorphism-page .stat-item {
+    text-align: center;
+}
+
+#jvme-glassmorphism-page .stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+#jvme-glassmorphism-page .stat-label {
+    font-size: 1.125rem;
+    color: var(--text-gray);
+}
+
+/* ============================================
+   FOUNDER SECTION
+   ============================================ */
+
+#jvme-glassmorphism-page .founder-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+#jvme-glassmorphism-page .founder-avatar {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+    border: 4px solid var(--glass-white-10);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+#jvme-glassmorphism-page .founder-avatar::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -498,303 +750,235 @@ body {
     animation: shine 3s infinite;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
 @keyframes shine {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.founder-bio h3 {
-    font-size: 28px !important;
-    margin-bottom: 0.5rem !important;
+#jvme-glassmorphism-page .founder-info h3 {
+    font-size: 2rem !important;
+    margin-bottom: var(--space-xs);
 }
 
-.founder-title {
-    font-size: 17px !important;
-    color: var(--jvme-primary) !important;
+#jvme-glassmorphism-page .founder-title {
+    font-size: 1.25rem;
+    color: var(--accent-blue) !important;
     font-weight: 600;
-    margin-bottom: var(--jvme-spacing-4) !important;
+    margin-bottom: var(--space-lg);
 }
 
-.founder-bio p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    margin-bottom: var(--jvme-spacing-4);
-}
+/* ============================================
+   CTA SECTION
+   ============================================ */
 
-/* Mission Section */
-.mission-section {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.02), rgba(51, 140, 215, 0.02));
+#jvme-glassmorphism-page .cta-section {
     position: relative;
-}
-
-.mission-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    background-image: url('https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-hyundaimotorgroup-30658213-scaled.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-}
-
-.mission-section .container {
-    position: relative;
-    z-index: 1;
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--jvme-spacing-6);
-}
-
-.mission-card {
-    background: var(--jvme-white);
-    border: 2px solid var(--jvme-gray-200);
-    border-radius: var(--jvme-radius-2xl);
-    padding: var(--jvme-spacing-6);
-    transition: var(--jvme-transition);
-}
-
-.mission-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: var(--jvme-shadow-xl);
-    border-color: var(--jvme-primary);
-}
-
-.mission-card:hover .mission-icon-circle {
-    transform: rotate(360deg) scale(1.1);
-}
-
-.mission-card-header {
-    display: flex;
-    align-items: center;
-    gap: var(--jvme-spacing-4);
-    margin-bottom: var(--jvme-spacing-4);
-}
-
-.mission-icon-circle {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-    flex-shrink: 0;
-    transition: transform 0.5s ease;
-}
-
-.mission-card h3 {
-    font-size: 22px !important;
-    margin-bottom: 0 !important;
-}
-
-.jvme-partner-page .mission-card p {
-    font-size: 16px !important;
-}
-
-/* Stats Section */
-.stats-bar {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    padding: var(--jvme-spacing-8) 0;
-    color: white;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--jvme-spacing-6);
-}
-
-.stat-item {
+    padding: var(--space-3xl) 0;
     text-align: center;
-}
-
-.stat-number {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: var(--jvme-spacing-2);
-    color: white;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.stat-label {
-    font-size: 16px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-}
-
-/* CTA Section */
-.cta-final {
-    background: linear-gradient(135deg, rgba(68, 173, 118, 0.03), rgba(51, 140, 215, 0.03));
-    text-align: center;
-    position: relative;
     overflow: hidden;
 }
 
-.cta-glow {
+#jvme-glassmorphism-page .cta-glow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(68, 173, 118, 0.15) 0%, transparent 70%);
-    animation: glowPulse 4s ease-in-out infinite;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(81, 176, 247, 0.15) 0%, transparent 70%);
+    animation: ctaGlow 6s ease-in-out infinite;
+    pointer-events: none;
 }
 
-@keyframes glowPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+@keyframes ctaGlow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
 }
 
-.cta-content {
+#jvme-glassmorphism-page .cta-content {
     position: relative;
     z-index: 2;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.cta-final h2 span {
-    background: linear-gradient(135deg, var(--jvme-primary), var(--jvme-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
-.cta-final p {
-    font-size: 17px !important;
-    margin-bottom: var(--jvme-spacing-6);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .jvme-partner-page h1 { font-size: 28px !important; }
-    .jvme-partner-page h2 { font-size: 24px !important; }
-    .jvme-partner-page h3 { font-size: 18px !important; }
-    .jvme-partner-page p { font-size: 16px !important; }
-
-    .jvme-partner-page section {
-        padding: 50px 0;
-        margin-bottom: 20px;
+@media (max-width: 1024px) {
+    :root {
+        --space-3xl: 4rem;
+        --space-2xl: 3rem;
+        --space-xl: 2rem;
     }
 
-    .founder-content {
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .founder-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
 
-    .founder-image {
+    .founder-avatar {
         margin: 0 auto;
-    }
-
-    .mission-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--jvme-spacing-4);
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .story-image {
-        margin-bottom: var(--jvme-spacing-6);
     }
 }
 
-.text-center { text-align: center; }
+@media (max-width: 768px) {
+    :root {
+        --space-3xl: 3rem;
+        --space-2xl: 2rem;
+        --space-xl: 1.5rem;
+    }
+
+    section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .values-grid,
+    .mission-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-vertical::before {
+        display: none;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .timeline-card:hover {
+        transform: translateX(0) translateY(-8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .founder-avatar {
+        width: 200px;
+        height: 200px;
+        font-size: 4rem;
+    }
+
+    .timeline-year {
+        width: 70px;
+        height: 70px;
+        font-size: 1.25rem;
+    }
+}
     </style>
 </head>
 <body>
 
-<div class="jvme-partner-page">
+<!-- Wrapper pour isoler le design glassmorphism et surcharger WordPress -->
+<div id="jvme-glassmorphism-page">
 
-<!-- Hero Section -->
-<section class="hero-about">
+<!-- Particules d'arrière-plan -->
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<!-- Section Hero -->
+<section class="hero-section">
     <div class="container">
-        <h1>Qui sommes nous ?</h1>
-        <p>
-            La plateforme française qui révolutionne l'achat et la vente de véhicules électriques entre particuliers et professionnels
-        </p>
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-heart"></i>
+                <span>Notre Histoire</span>
+            </div>
+
+            <h1>Qui <span class="text-gradient">Sommes-Nous</span> ?</h1>
+
+            <p>
+                La plateforme française qui révolutionne l'achat et la vente de véhicules électriques
+                entre particuliers et professionnels
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- Story Section -->
-<!-- Circuit Line Separator -->
-<div class="circuit-separator">
-    <div class="circuit-line">
-        <div class="circuit-node"></div>
-        <div class="circuit-node"></div>
-        <div class="circuit-node"></div>
-    </div>
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
 </div>
 
-<section class="story-section section-white">
+<!-- Section Histoire -->
+<section>
     <div class="container">
-        <div class="section-header">
-            <h2>Notre Histoire</h2>
-            <p>Une vision née d'une passion pour la mobilité électrique</p>
-        </div>
-
-        <div class="story-image">
-            <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Mobilité électrique">
-        </div>
-
-        <div class="story-content">
-            <p>
-                Tout a commencé en 2021, lorsqu'Eric Villeval, passionné d'innovation et de mobilité durable,
-                a voulu vendre sa première voiture électrique. Face à la complexité du marché et au manque de
-                plateformes spécialisées, il a réalisé qu'il existait un véritable besoin pour une solution
-                dédiée exclusivement aux véhicules électriques.
-            </p>
-
-            <div class="story-highlight">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2>Notre <span class="text-gradient">Histoire</span></h2>
                 <p>
-                    <i class="fas fa-quote-left" style="color: var(--jvme-primary); margin-right: 10px;"></i>
-                    "Je voulais créer un espace où la communauté VE pourrait se retrouver, échanger et faire
-                    des transactions en toute confiance, avec des outils adaptés aux spécificités de l'électrique."
+                    Tout a commencé en 2021, lorsqu'Eric Villeval, passionné d'innovation et de mobilité durable,
+                    a voulu vendre sa première voiture électrique. Face à la complexité du marché et au manque de
+                    plateformes spécialisées, il a réalisé qu'il existait un véritable besoin pour une solution
+                    dédiée exclusivement aux véhicules électriques.
+                </p>
+
+                <div class="story-highlight">
+                    <p>
+                        "Je voulais créer un espace où la communauté VE pourrait se retrouver, échanger et faire
+                        des transactions en toute confiance, avec des outils adaptés aux spécificités de l'électrique."
+                    </p>
+                </div>
+
+                <p>
+                    C'est ainsi que <strong>Je Vends mon VE</strong> est né : une plateforme pensée par des
+                    passionnés, pour des passionnés. Contrairement aux sites généralistes, nous comprenons les
+                    enjeux uniques de la mobilité électrique : autonomie réelle, état de la batterie, historique
+                    de recharge, compatibilité des bornes...
+                </p>
+
+                <p>
+                    Aujourd'hui, nous sommes fiers d'être devenus la référence française pour l'achat et la vente
+                    de véhicules électriques, avec une communauté de plus de 25 000 utilisateurs actifs.
                 </p>
             </div>
 
-            <p>
-                C'est ainsi que <strong>Je Vends mon VE</strong> est né : une plateforme pensée par des
-                passionnés, pour des passionnés. Contrairement aux sites généralistes, nous comprenons les
-                enjeux uniques de la mobilité électrique : autonomie réelle, état de la batterie, historique
-                de recharge, compatibilité des bornes...
-            </p>
-
-            <p>
-                Aujourd'hui, nous sommes fiers d'être devenus la référence française pour l'achat et la vente
-                de véhicules électriques, avec une communauté de plus de 25 000 utilisateurs actifs et des
-                centaines de transactions réussies chaque mois.
-            </p>
+            <div class="story-image">
+                <img src="https://www.jvme.clickdev.website/wp-content/uploads/2025/12/pexels-kseniya-kopna-52379050-10142787-scaled.jpg" alt="Mobilité électrique">
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Values Section -->
-<section class="values-section section-light">
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section Valeurs -->
+<section>
     <div class="container">
         <div class="section-header">
-            <h2>Nos Valeurs</h2>
+            <h2>Nos <span class="text-gradient">Valeurs</span></h2>
             <p>Les principes qui guident chacune de nos actions</p>
         </div>
 
@@ -805,8 +989,8 @@ body {
                 </div>
                 <h3>Engagement Écologique</h3>
                 <p>
-                    Nous croyons en un avenir durable. Chaque transaction sur notre plateforme contribue
-                    à accélérer la transition vers une mobilité propre et responsable.
+                    Nous croyons en un avenir durable. Chaque transaction contribue
+                    à accélérer la transition vers une mobilité propre.
                 </p>
             </div>
 
@@ -816,8 +1000,8 @@ body {
                 </div>
                 <h3>Confiance & Sécurité</h3>
                 <p>
-                    La sécurité de nos utilisateurs est notre priorité absolue. Vérification des profils,
-                    paiement sécurisé et support dédié pour chaque transaction.
+                    La sécurité de nos utilisateurs est notre priorité absolue.
+                    Vérification, paiement sécurisé et support dédié.
                 </p>
             </div>
 
@@ -827,8 +1011,8 @@ body {
                 </div>
                 <h3>Communauté</h3>
                 <p>
-                    Plus qu'une plateforme, nous sommes une communauté de passionnés qui partagent
-                    connaissances, expériences et conseils sur l'électrique.
+                    Plus qu'une plateforme, nous sommes une communauté qui partage
+                    connaissances, expériences et conseils.
                 </p>
             </div>
 
@@ -838,49 +1022,111 @@ body {
                 </div>
                 <h3>Innovation</h3>
                 <p>
-                    Nous innovons constamment pour offrir la meilleure expérience : outils d'estimation,
-                    comparateurs, alertes personnalisées et bien plus encore.
+                    Nous innovons constamment pour offrir la meilleure expérience :
+                    outils d'estimation, alertes et plus encore.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Founder Section -->
-<!-- Gradient Dot Separator -->
-<div class="gradient-separator">
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
-    <div class="gradient-dot"></div>
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
 </div>
 
-<section class="founder-section section-white">
+<!-- Section Mission -->
+<section>
     <div class="container">
         <div class="section-header">
-            <h2>Notre Fondateur</h2>
+            <h2>Notre <span class="text-gradient">Mission</span></h2>
+            <p>Ce qui nous anime au quotidien</p>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon-circle">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Accélérer la Transition</h3>
+                <p>
+                    Faciliter l'accès aux véhicules électriques pour tous en créant un marché transparent,
+                    fluide et sécurisé. Chaque voiture électrique de plus est une victoire pour la planète.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon-circle">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Créer de la Confiance</h3>
+                <p>
+                    Établir un standard de qualité et de transparence dans les transactions VE.
+                    Vérifications rigoureuses, informations complètes et support personnalisé.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon-circle">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Éduquer & Informer</h3>
+                <p>
+                    Démystifier l'électrique en partageant connaissances et expertise. Guides, comparatifs,
+                    conseils : nous accompagnons chaque utilisateur.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon-circle">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Innover sans Cesse</h3>
+                <p>
+                    Rester à la pointe de la technologie pour offrir la meilleure expérience.
+                    IA pour l'estimation, marketplace intelligente et plus encore.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section Fondateur -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2>Notre <span class="text-gradient">Fondateur</span></h2>
             <p>L'homme derrière la vision</p>
         </div>
 
-        <div class="founder-content">
-            <div class="founder-image">
+        <div class="founder-grid">
+            <div class="founder-avatar">
                 EV
             </div>
 
-            <div class="founder-bio">
+            <div class="founder-info">
                 <h3>Eric Villeval</h3>
                 <p class="founder-title">Fondateur & CEO</p>
+
                 <p>
                     Entrepreneur passionné par l'innovation et la mobilité durable, Eric Villeval a fondé
                     Je Vends mon VE avec une vision claire : démocratiser l'accès aux véhicules électriques
                     en créant un écosystème de confiance.
                 </p>
+
                 <p>
                     Fort de plus de 15 ans d'expérience dans le secteur automobile et les technologies
                     digitales, Eric a su allier son expertise technique à sa passion pour l'environnement
                     pour créer une plateforme qui répond aux vrais besoins des utilisateurs.
                 </p>
+
                 <p>
                     "Mon objectif est simple : faire en sorte que chaque Français puisse acheter ou vendre
                     son véhicule électrique aussi facilement qu'un objet du quotidien, tout en ayant
@@ -891,120 +1137,107 @@ body {
     </div>
 </section>
 
+<!-- Séparateur -->
+<div class="separator">
+    <div class="separator-line"></div>
+    <div class="separator-glow"></div>
+</div>
+
+<!-- Section Timeline -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2>Notre <span class="text-gradient">Parcours</span></h2>
+            <p>Les grandes étapes de notre aventure</p>
+        </div>
+
+        <div class="timeline-vertical">
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-card">
+                    <h3>Création de Je Vends mon VE</h3>
+                    <p>
+                        Lancement de la plateforme avec une vision claire : devenir la référence
+                        française pour l'achat et la vente de véhicules électriques.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-card">
+                    <h3>Expansion Nationale</h3>
+                    <p>
+                        Déploiement sur toute la France avec 10 000+ utilisateurs inscrits.
+                        Lancement des outils d'estimation intelligents.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-card">
+                    <h3>Partenariats Professionnels</h3>
+                    <p>
+                        Ouverture aux professionnels avec des outils dédiés : CRM intégré,
+                        analytics avancées et support prioritaire. 200+ partenaires rejoignent la plateforme.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-card">
+                    <h3>Leader du Marché VE</h3>
+                    <p>
+                        25 000+ utilisateurs actifs, 5 000+ transactions réussies.
+                        Je Vends mon VE devient la plateforme n°1 en France pour les véhicules électriques.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Stats Bar -->
 <section class="stats-bar">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">25K+</div>
-                <div class="stat-label">Utilisateurs Actifs</div>
+                <span class="stat-number">25K+</span>
+                <span class="stat-label">Utilisateurs Actifs</span>
             </div>
+
             <div class="stat-item">
-                <div class="stat-number">5000+</div>
-                <div class="stat-label">Transactions Réussies</div>
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">Transactions Réussies</span>
             </div>
+
             <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Satisfaction Client</div>
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Satisfaction Client</span>
             </div>
+
             <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Partenaires Pro</div>
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Partenaires Pro</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Mission Section -->
-<!-- Electric Separator -->
-<div class="electric-separator">
+<!-- Séparateur -->
+<div class="separator">
     <div class="separator-line"></div>
-    <div class="electric-bolt">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#065a82" stroke="#065a82" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div class="electric-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
+    <div class="separator-glow"></div>
 </div>
 
-<section class="mission-section section-white">
-    <div class="mission-bg-image"></div>
-    <div class="container">
-        <div class="section-header">
-            <h2>Notre Mission</h2>
-            <p>Ce qui nous anime au quotidien</p>
-        </div>
-
-        <div class="mission-grid">
-            <div class="mission-card">
-                <div class="mission-card-header">
-                    <div class="mission-icon-circle">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Accélérer la Transition</h3>
-                </div>
-                <p>
-                    Faciliter l'accès aux véhicules électriques pour tous en créant un marché transparent,
-                    fluide et sécurisé. Chaque voiture électrique de plus sur les routes est une victoire
-                    pour la planète.
-                </p>
-            </div>
-
-            <div class="mission-card">
-                <div class="mission-card-header">
-                    <div class="mission-icon-circle">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Créer de la Confiance</h3>
-                </div>
-                <p>
-                    Établir un standard de qualité et de transparence dans les transactions de véhicules
-                    électriques. Vérifications rigoureuses, informations complètes et support personnalisé.
-                </p>
-            </div>
-
-            <div class="mission-card">
-                <div class="mission-card-header">
-                    <div class="mission-icon-circle">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Éduquer & Informer</h3>
-                </div>
-                <p>
-                    Démystifier l'électrique en partageant connaissances et expertise. Guides, comparatifs,
-                    conseils d'entretien : nous accompagnons chaque utilisateur dans son parcours électrique.
-                </p>
-            </div>
-
-            <div class="mission-card">
-                <div class="mission-card-header">
-                    <div class="mission-icon-circle">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Innover sans Cesse</h3>
-                </div>
-                <p>
-                    Rester à la pointe de la technologie pour offrir la meilleure expérience utilisateur.
-                    IA pour l'estimation, outils de comparaison avancés, marketplace intelligente...
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Final -->
-<section class="cta-final section-light">
+<!-- Section CTA -->
+<section class="cta-section">
     <div class="cta-glow"></div>
     <div class="container">
         <div class="cta-content">
-            <h2>Rejoignez l'<span>Aventure Électrique</span></h2>
+            <h2>Rejoignez l'<span class="text-gradient">Aventure Électrique</span></h2>
             <p>
                 Faites partie de la communauté qui transforme la mobilité française
             </p>
@@ -1018,7 +1251,7 @@ body {
 </section>
 
 </div>
-<!-- Fin .jvme-partner-page -->
+<!-- Fin wrapper glassmorphism -->
 
 </body>
 </html>
