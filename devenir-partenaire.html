@@ -52,7 +52,7 @@
 }
 
 /* ============================================
-   RESET & BASE
+   RESET & BASE - ULTRA ROBUSTE
    ============================================ */
 
 * {
@@ -61,14 +61,30 @@
     box-sizing: border-box;
 }
 
+/* Force le fond PARTOUT - même sur les wrappers WordPress */
+html,
+body,
+#page,
+#content,
+.site,
+.site-content,
+main,
+article,
+.entry-content,
+.page-content,
+#primary,
+#main,
+.content-area {
+    background: #080e1f !important;
+    background-color: #080e1f !important;
+}
+
 html {
     scroll-behavior: smooth;
-    background: #080e1f !important;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', sans-serif !important;
-    background: #080e1f !important;
     color: #ffffff !important;
     line-height: 1.6;
     overflow-x: hidden;
@@ -76,15 +92,39 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fond fixe en arrière-plan - couche de sécurité */
+#jvme-glassmorphism-page::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #080e1f !important;
+    z-index: -2 !important;
+    pointer-events: none;
+}
+
 /* Force le fond sombre même si WordPress essaie de le remplacer */
 #jvme-glassmorphism-page {
     background: #080e1f !important;
+    background-color: #080e1f !important;
     min-height: 100vh;
     position: relative;
+    isolation: isolate;
 }
 
 #jvme-glassmorphism-page * {
     box-sizing: border-box;
+}
+
+/* Annule TOUS les backgrounds blancs possibles */
+#jvme-glassmorphism-page div:not(.glass-card):not(.stat-card):not(.benefit-card):not(.step-content):not(.testimonial-card),
+#jvme-glassmorphism-page section,
+#jvme-glassmorphism-page main,
+#jvme-glassmorphism-page article {
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* ============================================
