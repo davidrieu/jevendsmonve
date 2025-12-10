@@ -241,12 +241,20 @@ body::after {
    TYPOGRAPHY
    ============================================ */
 
+/* Force 19px sur TOUT texte par défaut */
+#jvme-glassmorphism-page,
+#jvme-glassmorphism-page * {
+    font-size: 19px !important;
+}
+
 #jvme-glassmorphism-page h1,
 #jvme-glassmorphism-page h2,
 #jvme-glassmorphism-page h3,
-#jvme-glassmorphism-page h4 {
+#jvme-glassmorphism-page h4,
+#jvme-glassmorphism-page h5,
+#jvme-glassmorphism-page h6 {
     font-weight: 700 !important;
-    line-height: 1.2;
+    line-height: 1.2 !important;
     color: #ffffff !important;
     margin-bottom: var(--space-md);
 }
@@ -269,9 +277,12 @@ body::after {
     font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
 }
 
-#jvme-glassmorphism-page p {
-    font-size: clamp(1.125rem, 2vw, 1.1875rem) !important;
-    line-height: 1.8;
+#jvme-glassmorphism-page p,
+#jvme-glassmorphism-page span,
+#jvme-glassmorphism-page div,
+#jvme-glassmorphism-page a {
+    font-size: 19px !important;
+    line-height: 1.8 !important;
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
