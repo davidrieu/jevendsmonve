@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Je Vends mon VE</title>
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Force le fond PARTOUT - même sur les wrappers WordPress */
+        html,
+        body,
+        #page,
+        #content,
+        .site,
+        .site-content,
+        main,
+        article,
+        .entry-content,
+        .page-content,
+        #primary,
+        #main,
+        .content-area {
+            background: #080e1f !important;
+            background-color: #080e1f !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Wrapper principal avec isolation */
+        #jvme-glassmorphism-page {
+            position: relative;
+            min-height: 100vh;
+            background: #080e1f !important;
+            isolation: isolate;
+        }
+
+        /* Fond fixe en arrière-plan - couche de sécurité */
+        #jvme-glassmorphism-page::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #080e1f !important;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Seconde couche de sécurité */
+        #jvme-glassmorphism-page::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #080e1f !important;
+            z-index: -2 !important;
+            pointer-events: none;
+        }
+
+        /* Force tous les divs internes à être transparents */
+        #jvme-glassmorphism-page > *:not(.particles) {
+            background: transparent !important;
+        }
+
+        /* Force tous les éléments à hériter du fond sombre */
+        #jvme-glassmorphism-page,
+        #jvme-glassmorphism-page .hero-section,
+        #jvme-glassmorphism-page .contact-form-section,
+        #jvme-glassmorphism-page .reasons-section,
+        #jvme-glassmorphism-page .cta-section {
+            background: #080e1f !important;
+        }
+
+        /* ============================================
+           CSS VARIABLES
+           ============================================ */
+
+        :root {
+            /* Colors */
+            --bg-dark: #080e1f;
+            --accent-blue: #51b0f7;
+            --accent-green: #33d4a1;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+
+            /* Glass effects */
+            --glass-white-5: rgba(255, 255, 255, 0.05);
+            --glass-white-8: rgba(255, 255, 255, 0.08);
+            --glass-white-15: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.1);
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* Border radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+            --radius-full: 999px;
+        }
+
+        /* ============================================
+           PARTICLES BACKGROUND
+           ============================================ */
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .particle:nth-child(2n) {
+            background: var(--accent-green);
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        .particle:nth-child(3n) {
+            width: 6px;
+            height: 6px;
+            animation-duration: 30s;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(100px, -100px) rotate(180deg);
+                opacity: 0.5;
+            }
+        }
+
+        /* ============================================
+           TYPOGRAPHY - FORCE 19PX MINIMUM PARTOUT
+           ============================================ */
+
+        /* Force 19px sur TOUT texte par défaut */
+        #jvme-glassmorphism-page,
+        #jvme-glassmorphism-page * {
+            font-size: 19px !important;
+        }
+
+        #jvme-glassmorphism-page h1,
+        #jvme-glassmorphism-page h2,
+        #jvme-glassmorphism-page h3,
+        #jvme-glassmorphism-page h4,
+        #jvme-glassmorphism-page h5,
+        #jvme-glassmorphism-page h6 {
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            color: #ffffff !important;
+            margin-bottom: var(--space-md);
+        }
+
+        #jvme-glassmorphism-page h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+            letter-spacing: -0.02em;
+        }
+
+        #jvme-glassmorphism-page h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem) !important;
+            letter-spacing: -0.01em;
+        }
+
+        #jvme-glassmorphism-page h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        }
+
+        #jvme-glassmorphism-page h4 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem) !important;
+        }
+
+        #jvme-glassmorphism-page p,
+        #jvme-glassmorphism-page span,
+        #jvme-glassmorphism-page div,
+        #jvme-glassmorphism-page a,
+        #jvme-glassmorphism-page label,
+        #jvme-glassmorphism-page input,
+        #jvme-glassmorphism-page textarea {
+            font-size: 19px !important;
+            line-height: 1.8 !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        #jvme-glassmorphism-page .text-gradient {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            font-size: inherit !important; /* IMPORTANT: hérite la taille du parent (h1, h2, etc.) */
+        }
+
+        /* ============================================
+           GLASS CARD SYSTEM
+           ============================================ */
+
+        #jvme-glassmorphism-page .glass-card {
+            background: var(--glass-white-5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #jvme-glassmorphism-page .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        #jvme-glassmorphism-page .glass-card:hover {
+            background: var(--glass-white-8);
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(81, 176, 247, 0.2);
+        }
+
+        #jvme-glassmorphism-page .glass-card:hover::before {
+            left: 100%;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+
+        #jvme-glassmorphism-page .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: 1rem 2.5rem;
+            font-size: 1.1875rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #jvme-glassmorphism-page .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(81, 176, 247, 0.25);
+        }
+
+        #jvme-glassmorphism-page .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        #jvme-glassmorphism-page .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(81, 176, 247, 0.4);
+        }
+
+        #jvme-glassmorphism-page .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* ============================================
+           SECTIONS BASE
+           ============================================ */
+
+        #jvme-glassmorphism-page section {
+            position: relative;
+            padding: var(--space-3xl) var(--space-md);
+            z-index: 1;
+        }
+
+        #jvme-glassmorphism-page .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #jvme-glassmorphism-page .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        #jvme-glassmorphism-page .section-header h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        #jvme-glassmorphism-page .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        #jvme-glassmorphism-page .hero-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: var(--space-3xl);
+            position: relative;
+        }
+
+        #jvme-glassmorphism-page .hero-content h1 {
+            margin-bottom: var(--space-lg);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        #jvme-glassmorphism-page .hero-content p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem) !important;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           CONTACT FORM SECTION
+           ============================================ */
+
+        #jvme-glassmorphism-page .contact-form-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+
+        #jvme-glassmorphism-page .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #jvme-glassmorphism-page .wpcf7 {
+            background: var(--glass-white-5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+        }
+
+        #jvme-glassmorphism-page .wpcf7 input[type="text"],
+        #jvme-glassmorphism-page .wpcf7 input[type="email"],
+        #jvme-glassmorphism-page .wpcf7 input[type="tel"],
+        #jvme-glassmorphism-page .wpcf7 textarea,
+        #jvme-glassmorphism-page .wpcf7 select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--glass-white-8);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: #ffffff !important;
+            font-size: 19px !important;
+            margin-bottom: var(--space-md);
+            transition: all 0.3s ease;
+        }
+
+        #jvme-glassmorphism-page .wpcf7 input[type="text"]::placeholder,
+        #jvme-glassmorphism-page .wpcf7 input[type="email"]::placeholder,
+        #jvme-glassmorphism-page .wpcf7 input[type="tel"]::placeholder,
+        #jvme-glassmorphism-page .wpcf7 textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        #jvme-glassmorphism-page .wpcf7 input[type="text"]:focus,
+        #jvme-glassmorphism-page .wpcf7 input[type="email"]:focus,
+        #jvme-glassmorphism-page .wpcf7 input[type="tel"]:focus,
+        #jvme-glassmorphism-page .wpcf7 textarea:focus,
+        #jvme-glassmorphism-page .wpcf7 select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: var(--glass-white-15);
+            box-shadow: 0 0 0 3px rgba(81, 176, 247, 0.1);
+        }
+
+        #jvme-glassmorphism-page .wpcf7 textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        #jvme-glassmorphism-page .wpcf7 input[type="submit"] {
+            width: 100%;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            color: white !important;
+            font-size: 1.1875rem !important;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(81, 176, 247, 0.25);
+        }
+
+        #jvme-glassmorphism-page .wpcf7 input[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(81, 176, 247, 0.4);
+        }
+
+        #jvme-glassmorphism-page .wpcf7 label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+
+        #jvme-glassmorphism-page .wpcf7-response-output {
+            margin-top: var(--space-md);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            background: var(--glass-white-8);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* ============================================
+           REASONS SECTION
+           ============================================ */
+
+        #jvme-glassmorphism-page .reasons-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+
+        #jvme-glassmorphism-page .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        #jvme-glassmorphism-page .reason-card {
+            text-align: center;
+        }
+
+        #jvme-glassmorphism-page .reason-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+            border-radius: var(--radius-lg);
+            font-size: 2.5rem;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(81, 176, 247, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(81, 176, 247, 0.6);
+            }
+        }
+
+        #jvme-glassmorphism-page .reason-card h3 {
+            margin-bottom: var(--space-sm);
+            color: #ffffff !important;
+        }
+
+        #jvme-glassmorphism-page .reason-card p {
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+
+        #jvme-glassmorphism-page .cta-section {
+            padding: var(--space-3xl) var(--space-md);
+            text-align: center;
+        }
+
+        #jvme-glassmorphism-page .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-white-5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-3xl) var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #jvme-glassmorphism-page .cta-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(81, 176, 247, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #jvme-glassmorphism-page .cta-content > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #jvme-glassmorphism-page .cta-content h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        #jvme-glassmorphism-page .cta-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            #jvme-glassmorphism-page section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            #jvme-glassmorphism-page .reasons-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #jvme-glassmorphism-page .hero-section {
+                min-height: 50vh;
+                padding-top: var(--space-2xl);
+            }
+
+            #jvme-glassmorphism-page .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #jvme-glassmorphism-page .glass-card,
+            #jvme-glassmorphism-page .wpcf7,
+            #jvme-glassmorphism-page .cta-content {
+                padding: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            #jvme-glassmorphism-page section {
+                padding: var(--space-xl) var(--space-sm);
+            }
+
+            #jvme-glassmorphism-page .btn {
+                width: 100%;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="jvme-glassmorphism-page">
+
+        <!-- Particules d'arrière-plan -->
+        <div class="particles">
+            <div class="particle" style="top: 10%; left: 10%;"></div>
+            <div class="particle" style="top: 20%; left: 80%;"></div>
+            <div class="particle" style="top: 40%; left: 30%;"></div>
+            <div class="particle" style="top: 60%; left: 70%;"></div>
+            <div class="particle" style="top: 80%; left: 20%;"></div>
+            <div class="particle" style="top: 30%; left: 50%;"></div>
+            <div class="particle" style="top: 70%; left: 90%;"></div>
+            <div class="particle" style="top: 50%; left: 10%;"></div>
+            <div class="particle" style="top: 15%; left: 60%;"></div>
+            <div class="particle" style="top: 85%; left: 40%;"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Contactez <span class="text-gradient">Notre Équipe</span></h1>
+                <p>
+                    Une question ? Un projet ? Notre équipe est à votre écoute pour vous accompagner
+                    dans votre transition vers la mobilité électrique.
+                </p>
+            </div>
+        </section>
+
+        <!-- Reasons Section -->
+        <section class="reasons-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Pourquoi Nous <span class="text-gradient">Contacter</span> ?</h2>
+                    <p>Notre équipe est là pour répondre à tous vos besoins</p>
+                </div>
+
+                <div class="reasons-grid">
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">❓</div>
+                        <h3>Questions Générales</h3>
+                        <p>Vous avez des questions sur notre plateforme, nos services ou le fonctionnement de Je Vends mon VE ? Nous sommes là pour vous répondre.</p>
+                    </div>
+
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">🤝</div>
+                        <h3>Partenariats</h3>
+                        <p>Vous êtes un professionnel et souhaitez rejoindre notre réseau ? Discutons ensemble des opportunités de collaboration.</p>
+                    </div>
+
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">💬</div>
+                        <h3>Support & Assistance</h3>
+                        <p>Besoin d'aide pour votre annonce ou une transaction ? Notre équipe support est disponible pour vous accompagner.</p>
+                    </div>
+
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">💡</div>
+                        <h3>Suggestions</h3>
+                        <p>Vous avez des idées pour améliorer notre plateforme ? Nous sommes toujours à l'écoute de vos retours et suggestions.</p>
+                    </div>
+
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">📊</div>
+                        <h3>Projets Spéciaux</h3>
+                        <p>Vous avez un projet spécifique impliquant des véhicules électriques ? Parlez-nous de votre vision, nous trouverons une solution.</p>
+                    </div>
+
+                    <div class="reason-card glass-card">
+                        <div class="reason-icon">🔒</div>
+                        <h3>Sécurité & Confiance</h3>
+                        <p>Un problème de sécurité ou un signalement ? Contactez-nous immédiatement, votre sécurité est notre priorité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Envoyez-nous un <span class="text-gradient">Message</span></h2>
+                    <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais</p>
+                </div>
+
+                <div class="form-container">
+                    [contact-form-7 id="" title="Contact form 1"]
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Rejoignez la <span class="text-gradient">Communauté VE</span></h2>
+                <p>
+                    Découvrez toutes les fonctionnalités de notre plateforme et rejoignez
+                    des milliers d'utilisateurs passionnés par la mobilité électrique.
+                </p>
+                <a href="#" class="btn btn-primary">
+                    Découvrir la Plateforme
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Animation des particules au scroll
+        window.addEventListener('scroll', () => {
+            const particles = document.querySelectorAll('.particle');
+            const scrolled = window.pageYOffset;
+
+            particles.forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.1;
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Animation au scroll pour les cartes
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, .reason-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
