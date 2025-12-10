@@ -517,8 +517,13 @@
             justify-content: center;
             background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
             border-radius: var(--radius-lg);
-            font-size: 2.5rem;
             animation: glow 3s ease-in-out infinite;
+        }
+
+        #jvme-glassmorphism-page .reason-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
         }
 
         @keyframes glow {
@@ -678,37 +683,61 @@
 
                 <div class="reasons-grid">
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">❓</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                            </svg>
+                        </div>
                         <h3>Questions Générales</h3>
                         <p>Vous avez des questions sur notre plateforme, nos services ou le fonctionnement de Je Vends mon VE ? Nous sommes là pour vous répondre.</p>
                     </div>
 
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">🤝</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
                         <h3>Partenariats</h3>
                         <p>Vous êtes un professionnel et souhaitez rejoindre notre réseau ? Discutons ensemble des opportunités de collaboration.</p>
                     </div>
 
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">💬</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                            </svg>
+                        </div>
                         <h3>Support & Assistance</h3>
                         <p>Besoin d'aide pour votre annonce ou une transaction ? Notre équipe support est disponible pour vous accompagner.</p>
                     </div>
 
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">💡</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                            </svg>
+                        </div>
                         <h3>Suggestions</h3>
                         <p>Vous avez des idées pour améliorer notre plateforme ? Nous sommes toujours à l'écoute de vos retours et suggestions.</p>
                     </div>
 
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">📊</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                        </div>
                         <h3>Projets Spéciaux</h3>
                         <p>Vous avez un projet spécifique impliquant des véhicules électriques ? Parlez-nous de votre vision, nous trouverons une solution.</p>
                     </div>
 
                     <div class="reason-card glass-card">
-                        <div class="reason-icon">🔒</div>
+                        <div class="reason-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+                        </div>
                         <h3>Sécurité & Confiance</h3>
                         <p>Un problème de sécurité ou un signalement ? Contactez-nous immédiatement, votre sécurité est notre priorité.</p>
                     </div>
